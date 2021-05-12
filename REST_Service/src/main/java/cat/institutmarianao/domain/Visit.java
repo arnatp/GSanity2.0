@@ -1,7 +1,7 @@
 package cat.institutmarianao.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +26,8 @@ import javax.validation.constraints.NotNull;
 		@NamedQuery(name = "Visit.findByDoctorIdAndDate", query = "select u from Visit u where u.doctor = (Select doc from Doctor doc where doc.userId = :doctorId) and u.date = :date"),
 		@NamedQuery(name = "Visit.findByPatientIdCompleted", query = "select u from Visit u where u.patient = (select pat from Patient pat where pat.userId = :patientId) and u.completed = 1"),
 		@NamedQuery(name = "Visit.findByPatientIdIncompleted", query = "select u from Visit u where u.patient = (select pat from Patient pat where pat.userId = :patientId) and u.completed = 0"),
-		@NamedQuery(name = "Visit.findByDoctorIdAndDateIncompleted", query = "select u from Visit u where u.doctor = (Select doc from Doctor doc where doc.userId = :doctorId) and u.date = :date and u.completed = 0") })
+		@NamedQuery(name = "Visit.findByDoctorIdAndDateIncompleted", query = "select u from Visit u where u.doctor = (Select doc from Doctor doc where doc.userId = :doctorId) and u.date = :date and u.completed = 0"),
+		@NamedQuery(name = "Visit.findNotDatedVists", query = "select u from Visit u  where u.dated = 0") })
 public class Visit implements Serializable {
 
 	/**
@@ -45,7 +46,11 @@ public class Visit implements Serializable {
 
 	@NotNull
 	@Column(name = "date", nullable = false, columnDefinition = "DATE")
-	private LocalDate date;
+	private LocalDateTime date;
+
+	@NotNull
+	@Column(name = "dated", nullable = false)
+	private Boolean dated = false;
 
 	@NotNull
 	@Column(name = "initialDescription", nullable = false)
@@ -78,11 +83,11 @@ public class Visit implements Serializable {
 		this.visitId = visitId;
 	}
 
-	public LocalDate getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 
