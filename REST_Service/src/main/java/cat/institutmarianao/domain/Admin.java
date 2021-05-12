@@ -6,15 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "auxiliar")
-public class Auxiliar extends Employee implements Serializable {
+@Table(name = "admin")
+public class Admin extends Employee implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Auxiliar() {
+	public Admin() {
 		// Constructor vacio para poder crear las tablas medienta JPA
 	}
 
