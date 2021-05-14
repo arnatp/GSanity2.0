@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="mango">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" #password required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          type="submit"
+          (click)="onLogin(email,password)"
+          exapnd="block"
+          >Login</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+  <span class="divider line one-line"></span>
+  <ion-row>
+    <ion-col>
+      <p class="ion-text-end">
+        <a href="/register">Create an account</a>
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="ion-text-end">
+        <a href="/login/recover-password">Recover Password</a>
+      </p>
+    </ion-col>
+  </ion-row>
+</ion-content>
