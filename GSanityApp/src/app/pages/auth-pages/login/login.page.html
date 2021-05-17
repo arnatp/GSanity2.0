@@ -1,43 +1,66 @@
-<ion-header>
-  <ion-toolbar color="mango">
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button
+				defaultHref="welcome"
+				icon="chevron-back-outline"
+				text=""
+			>
+			</ion-back-button>
+		</ion-buttons>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" #email required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" #password required></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button
-          type="submit"
-          (click)="onLogin(email,password)"
-          exapnd="block"
-          >Login</ion-button
-        >
-      </ion-col>
-    </ion-row>
-  </form>
-  <span class="divider line one-line"></span>
-  <ion-row>
-    <ion-col>
-      <p class="ion-text-end">
-        <a href="/register">Create an account</a>
-      </p>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <p class="ion-text-end">
-        <a href="/login/recover-password">Recover Password</a>
-      </p>
-    </ion-col>
-  </ion-row>
+	<ion-card mode="ios" class="ion-no-margin">
+		<ion-card-title>LOGIN</ion-card-title>
+
+		<ion-img src="assets/images/RegisterAsset.png"></ion-img>
+
+		<ion-card-content>
+			<div>
+				<ion-item>
+					<ion-icon name="mail-outline"></ion-icon>
+					<ion-input
+						type="email"
+						#email
+						required
+						placeholder="Email"
+					></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-icon name="lock-closed-outline"></ion-icon>
+					<ion-input
+						type="password"
+						#password
+						required
+						placeholder="********"
+					></ion-input>
+				</ion-item>
+			</div>
+			<div class="password_forgot">
+				<ion-button
+					fill="clear"
+					class="ion-no-padding"
+					href="/login/recover-password"
+					>Forgot Password?</ion-button
+				>
+			</div>
+			<div class="sign-btn-wrap">
+				<ion-button
+					shape="round"
+					expand="block"
+					fill="solid"
+					class="sign-btn"
+					(click)="onLogin(email,password)"
+					>Login</ion-button
+				>
+			</div>
+		</ion-card-content>
+	</ion-card>
+
+	<div class="custom-footer">
+		<span>Don't have an account?</span
+		><a href="/register"><button class="ion-no-padding">Sign Up</button></a>
+	</div>
 </ion-content>
