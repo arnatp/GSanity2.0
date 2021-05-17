@@ -8,13 +8,19 @@ import {
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
+import { ToastService } from 'src/app/services/toast.service';
+
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthService {
 	public user$: Observable<User>;
 
-	constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+	constructor(
+		private toastService: ToastService,
+		private afAuth: AngularFireAuth,
+		private afs: AngularFirestore
+	) {
 		this.user$ = this.afAuth.authState.pipe(
 			switchMap((user) => {
 				if (user) {
@@ -30,6 +36,9 @@ export class AuthService {
 			return this.afAuth.sendPasswordResetEmail(email);
 		} catch (error) {
 			console.log('Ha ocurrido un error al resetear la password: ', error);
+			this.toastService.presentToast(
+				'Ha ocurrido un error al resetear la password'
+			);
 		}
 	}
 
@@ -40,6 +49,9 @@ export class AuthService {
 			console.log(
 				'Ha ocurrido un error al enviar el mail de verificación: ',
 				error
+			);
+			this.toastService.presentToast(
+				'Ha ocurrido un error al enviar el mail de verificación'
 			);
 		}
 	}
@@ -54,6 +66,9 @@ export class AuthService {
 			return user;
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer registro: ', error);
+			this.toastService.presentToast(
+				'Ha ocurrido un error al hacer registro'
+			);
 		}
 	}
 
@@ -67,6 +82,9 @@ export class AuthService {
 			return user;
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer login: ', error);
+			this.toastService.presentToast(
+				'Ha ocurrido un error al intentar iniciar sesión'
+			);
 		}
 	}
 
@@ -75,6 +93,7 @@ export class AuthService {
 			await this.afAuth.signOut();
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer logout: ', error);
+			this.toastService.presentToast('Ha ocurrido un error al hacer logout');
 		}
 	}
 

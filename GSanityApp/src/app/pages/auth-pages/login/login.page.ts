@@ -18,18 +18,10 @@ export class LoginPage implements OnInit {
 	ngOnInit() {}
 
 	async onLogin(email, password) {
-		try {
-			const user = await this.authSvc.login(email.value, password.value);
-			if (user) {
-				console.log('User --> ', user);
-				this.redirectUser(user.emailVerified);
-			}
-		} catch (error) {
-			console.log('Error: ', error);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al intentar iniciar sesión',
-				2000
-			);
+		const user = await this.authSvc.login(email.value, password.value);
+		if (user) {
+			console.log('User --> ', user);
+			this.redirectUser(user.emailVerified);
 		}
 	}
 
