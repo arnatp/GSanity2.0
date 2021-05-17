@@ -22,15 +22,16 @@
 		</ion-card-header>
 		<ion-card-content>
 			<div>
-				<ion-item>
+				<div class="row">
+				<ion-item class="col-6">
 					<ion-icon name="person-outline"></ion-icon>
-					<ion-input
-						name="names"
-						type="text"
-						#name
-						placeholder="FullName"
-					></ion-input>
+					<ion-input name="name" type="text" #name placeholder="Name"></ion-input>
 				</ion-item>
+				<ion-item class="col-6">
+					<ion-icon name="person-outline"></ion-icon>
+					<ion-input name="surname" type="text" #surname placeholder="Surname"></ion-input>
+				</ion-item>
+				</div>
 				<ion-item>
 					<ion-icon name="mail-outline"></ion-icon>
 					<ion-input
@@ -41,13 +42,37 @@
 					></ion-input>
 				</ion-item>
 				<ion-item>
+					<ion-icon name="person-outline"></ion-icon>
+					<ion-input name="born-date" type="date" [value]="DatabaseUser.born-date" placeholder="Born-date"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-icon name="person-outline"></ion-icon>
+					<ion-input name="dni" type="text" [value]="DatabaseUser.dni" placeholder="Dni"></ion-input>
+				</ion-item>
+<ion-item>
+	<ion-icon name="person-outline"></ion-icon>
+	<ion-input name="medicard" type="text" #medicard placeholder="Medicard"></ion-input>
+</ion-item>
+<ion-item>
+	<ion-icon name="person-outline"></ion-icon>
+	<ion-select value="" okText="Okay" cancelText="Dismiss">
+		<ion-select-option value="male">Male</ion-select-option>
+		<ion-select-option value="female">Female</ion-select-option>
+	</ion-select>
+</ion-item>
+
+				<ion-item>
 					<ion-icon name="lock-closed-outline"></ion-icon>
 					<ion-input
 						name="password"
 						#password
 						type="password"
-						placeholder="********"
+						placeholder="Password"
 					></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-icon name="lock-closed-outline"></ion-icon>
+					<ion-input name="password" #passwordConfirm type="password" placeholder="Confirm password"></ion-input>
 				</ion-item>
 				<div class="sign-btn-wrap">
 					<ion-button
