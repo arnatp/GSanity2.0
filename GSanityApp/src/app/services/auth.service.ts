@@ -15,20 +15,28 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class AuthService {
 	public user$: Observable<User>;
+	private userData: User;
 
 	constructor(
 		private toastService: ToastService,
 		private afAuth: AngularFireAuth,
 		private afs: AngularFirestore
 	) {
-		this.user$ = this.afAuth.authState.pipe(
-			switchMap((user) => {
-				if (user) {
-					return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-				}
-				return of(null);
-			})
-		);
+		this.afAuth.authState.subscribe((user) => {
+			if (user) {
+				this.userData = user;
+				localStorage.setItem('user', JSON.stringify(this.userData));
+				JSON.parse(localStorage.getItem('user'));
+			} else {
+				localStorage.setItem('user', null);
+				JSON.parse(localStorage.getItem('user'));
+			}
+		});
+	}
+
+	public isLoggedIn(): boolean {
+		const user = JSON.parse(localStorage.getItem('user'));
+		return user !== null && user.emailVerified !== false ? true : false;
 	}
 
 	async resetPassword(email: string): Promise<void> {
@@ -78,7 +86,7 @@ export class AuthService {
 				email,
 				password
 			);
-			this.updateUserData(user);
+			await this.updateUserData(user);
 			return user;
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer login: ', error);
@@ -90,7 +98,9 @@ export class AuthService {
 
 	async logout(): Promise<void> {
 		try {
-			await this.afAuth.signOut();
+			return await this.afAuth.signOut().then(() => {
+				localStorage.removeItem('user');
+			});
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer logout: ', error);
 			this.toastService.presentToast('Ha ocurrido un error al hacer logout');

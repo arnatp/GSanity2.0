@@ -13,25 +13,34 @@ export class DatabaseService {
 	constructor(private angularFirestore: AngularFirestore) {}
 
 	createDocument<DabaseObject>(data: DabaseObject, url: string, id: string) {
-		const ref = this.angularFirestore.collection<any>(url);
-		return ref.doc(id).set(data);
+		const collection = this.angularFirestore.collection<any>(url);
+		return collection.doc(id).set(data);
 	}
 
-	deleteDocument() {}
+	deleteDocument<DabaseObject>(url: string, id: string) {
+		const collection = this.angularFirestore.collection<any>(url);
+		return collection.doc(id).delete();
+	}
 
 	getDocuments<DatabaseObject>(url: string) {
-		const ref = this.angularFirestore.collection<DatabaseObject>(url);
-		return ref.valueChanges();
+		const collection = this.angularFirestore.collection<DatabaseObject>(url);
+		return collection.valueChanges();
 	}
 
-	editDocument() {}
+	editDocument<DabaseObject>(data: DabaseObject, url: string, id: string) {
+		const collection = this.angularFirestore.collection<any>(url);
+		return collection.doc(id).set(data);
+	}
 
+	//Este método lo utilizamos para crear las Id de las visitas
 	createCustomId() {
 		return this.angularFirestore.createId();
 	}
 
 	getDocumentById<DatabaseObject>(url: string, id: string) {
-		const ref = this.angularFirestore.collection<DatabaseObject>(url).doc(id);
-		return ref.valueChanges();
+		const collection = this.angularFirestore
+			.collection<DatabaseObject>(url)
+			.doc(id);
+		return collection.valueChanges();
 	}
 }

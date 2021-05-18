@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { DatabaseUser } from '../domain/intefaces';
+import { first } from 'rxjs/operators';
+import { DatabaseUser, User } from '../domain/intefaces';
 import { DatabaseService } from './database.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class UserService {
-	constructor(
-		private ngFirestore: AngularFirestore,
-		private dbService: DatabaseService
-	) {}
+	constructor(private dbService: DatabaseService) {}
 
 	create(user: DatabaseUser) {
 		return this.dbService.createDocument<DatabaseUser>(
@@ -25,15 +22,22 @@ export class UserService {
 	}
 
 	getUserByUid(uid) {
-		//return this.ngFirestore.collection('usersData').doc(uid).valueChanges();
 		return this.dbService.getDocumentById<DatabaseUser>('users', uid);
 	}
 
 	update(uid, user: DatabaseUser) {
-		//this.ngFirestore.collection('usersData').doc(uid).update(user);
+		return this.dbService.editDocument<DatabaseUser>(user, 'users', user.uid);
 	}
 
 	delete(uid: string) {
-		this.ngFirestore.doc('usersData/' + uid).delete();
+		return this.dbService.deleteDocument<DatabaseUser>('users', uid);
+	}
+
+	async getUserRole() {
+		const item = JSON.parse(localStorage.getItem('user'));
+		console.log(item.uid);
+		const user = await this.getUserByUid(item.uid).pipe(first()).toPromise();
+		console.log(user.role);
+		return user.role;
 	}
 }

@@ -9,24 +9,21 @@ import { ToastService } from 'src/app/services/toast.service';
 	styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-	constructor(
-		private authSvc: AuthService,
-		private router: Router,
-		private toastService: ToastService
-	) {}
+	constructor(private authSvc: AuthService, private router: Router) {}
 
 	ngOnInit() {}
 
 	async onLogin(email, password) {
-		const user = await this.authSvc.login(email.value, password.value);
-		if (user) {
-			this.redirectUser(user.emailVerified);
-		}
+		await this.authSvc.login(email.value, password.value).then((user) => {
+			if (user) {
+				this.redirectUser(user.emailVerified);
+			}
+		});
 	}
 
 	redirectUser(isVerified: boolean) {
 		if (isVerified) {
-			this.router.navigate(['/tabs']);
+			this.router.navigate(['/']);
 		} else {
 			this.router.navigate(['/verify-email']);
 		}
