@@ -20,7 +20,6 @@ export class LoginPage implements OnInit {
 	async onLogin(email, password) {
 		const user = await this.authSvc.login(email.value, password.value);
 		if (user) {
-			console.log('User --> ', user);
 			this.redirectUser(user.emailVerified);
 		}
 	}

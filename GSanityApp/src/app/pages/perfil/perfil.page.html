@@ -4,4 +4,100 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+	<div>
+		<div class="row">
+			<ion-item class="col-6">
+				<ion-icon name="person-outline"></ion-icon>
+				<ion-input
+					name="name"
+					type="text"
+					[(ngModel)]="user.name"
+					placeholder="Name"
+				></ion-input>
+			</ion-item>
+			<ion-item class="col-6">
+				<ion-icon name="person-outline"></ion-icon>
+				<ion-input
+					name="surname"
+					type="text"
+					[(ngModel)]="user.surnames"
+					placeholder="Surname"
+				></ion-input>
+			</ion-item>
+		</div>
+		<ion-item>
+			<ion-icon name="mail-outline"></ion-icon>
+			<ion-input
+				name="email"
+				[(ngModel)]="user.email"
+				#email
+				type="email"
+				placeholder="Email"
+			></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="person-outline"></ion-icon>
+			<ion-input
+				name="born-date"
+				type="date"
+				[(ngModel)]="user.bornDate"
+				placeholder="Born-date"
+			></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="person-outline"></ion-icon>
+			<ion-input
+				name="dni"
+				type="text"
+				[(ngModel)]="user.dni"
+				placeholder="Dni"
+			></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="person-outline"></ion-icon>
+			<ion-input
+				name="medicard"
+				type="text"
+				[(ngModel)]="user.mediCard"
+				placeholder="Medicard"
+			></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="person-outline"></ion-icon>
+			<ion-select
+				value=""
+				okText="Okay"
+				[(ngModel)]="user.gender"
+				cancelText="Dismiss"
+			>
+				<ion-select-option value="male">Male</ion-select-option>
+				<ion-select-option value="female">Female</ion-select-option>
+			</ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="lock-closed-outline"></ion-icon>
+			<ion-input
+				name="password"
+				#password
+				type="password"
+				placeholder="Password"
+			></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-icon name="lock-closed-outline"></ion-icon>
+			<ion-input
+				name="password"
+				#passwordConfirm
+				type="password"
+				placeholder="Confirm password"
+			></ion-input>
+		</ion-item>
+		<div class="sign-btn-wrap">
+			<ion-button shape="round" expand="block" fill="solid" class="sign-btn"
+				>Register</ion-button
+			>
+		</div>
+	</div>
+</ion-content>

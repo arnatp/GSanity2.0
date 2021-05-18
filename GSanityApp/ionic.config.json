@@ -1,7 +1,7 @@
 {
-  "name": "GSanityApp",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
+	"name": "GSanity",
+	"integrations": {
+		"capacitor": {}
+	},
+	"type": "angular"
 }
