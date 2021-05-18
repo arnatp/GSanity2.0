@@ -21,76 +21,99 @@
 			>
 		</ion-card-header>
 		<ion-card-content>
-			<div>
-				<div class="row">
-					<ion-item class="col-6">
-						<ion-icon name="person-outline"></ion-icon>
-						<ion-input
-							name="name"
-							type="text"
-							[(ngModel)]="newUser.name"
-							placeholder="Name"
-						></ion-input>
-					</ion-item>
-					<ion-item class="col-6">
-						<ion-icon name="person-outline"></ion-icon>
-						<ion-input
-							name="surname"
-							type="text"
-							[(ngModel)]="newUser.surnames"
-							placeholder="Surname"
-						></ion-input>
-					</ion-item>
-				</div>
-				<ion-item>
-					<ion-icon name="mail-outline"></ion-icon>
-					<ion-input
-						name="email"
-						[(ngModel)]="newUser.email"
-						#email
-						type="email"
-						placeholder="Email"
-					></ion-input>
-				</ion-item>
-				<ion-item>
-					<ion-icon name="person-outline"></ion-icon>
-					<ion-input
-						name="born-date"
-						type="date"
-						[(ngModel)]="newUser.bornDate"
-						placeholder="Born-date"
-					></ion-input>
-				</ion-item>
-				<ion-item>
-					<ion-icon name="person-outline"></ion-icon>
-					<ion-input
-						name="dni"
-						type="text"
-						[(ngModel)]="newUser.dni"
-						placeholder="Dni"
-					></ion-input>
-				</ion-item>
-				<ion-item>
-					<ion-icon name="person-outline"></ion-icon>
-					<ion-input
-						name="medicard"
-						type="text"
-						[(ngModel)]="newUser.mediCard"
-						placeholder="Medicard"
-					></ion-input>
-				</ion-item>
-				<ion-item>
-					<ion-icon name="person-outline"></ion-icon>
-					<ion-select
-						value=""
-						okText="Okay"
-						[(ngModel)]="newUser.gender"
-						cancelText="Dismiss"
-					>
-						<ion-select-option value="male">Male</ion-select-option>
-						<ion-select-option value="female">Female</ion-select-option>
-					</ion-select>
-				</ion-item>
+			<ion-grid>
+				<ion-row>
+					<ion-col size="6">
+						<ion-item>
+							<ion-icon name="person-outline"></ion-icon>
+							<ion-input
+								required
+								name="name"
+								type="text"
+								[(ngModel)]="newUser.name"
+								placeholder="Name"
+							></ion-input>
+						</ion-item>
+					</ion-col>
+					<ion-col size-md="6">
+						<ion-item>
+							<ion-icon name="person-outline"></ion-icon>
+							<ion-input
+								required
+								name="surname"
+								type="text"
+								[(ngModel)]="newUser.surnames"
+								placeholder="Surname"
+							></ion-input> </ion-item
+					></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="12">
+						<ion-item>
+							<ion-icon name="mail-outline"></ion-icon>
+							<ion-input
+								required
+								name="email"
+								[(ngModel)]="newUser.email"
+								#email
+								type="email"
+								placeholder="Email"
+							></ion-input>
+						</ion-item> </ion-col
+				></ion-row>
+				<ion-row>
+					<ion-col size="6">
+						<ion-item>
+							<ion-icon name="male-female-outline"></ion-icon>
+							<ion-select
+								required
+								value=""
+								placeholder="gender"
+								okText="Okay"
+								[(ngModel)]="newUser.gender"
+								cancelText="Dismiss"
+							>
+								<ion-select-option value="male">Male</ion-select-option>
+								<ion-select-option value="female"
+									>Female</ion-select-option
+								>
+							</ion-select>
+						</ion-item>
+					</ion-col>
+					<ion-col size="6">
+						<ion-item>
+							<ion-input
+								name="born-date"
+								type="date"
+								[(ngModel)]="newUser.bornDate"
+								placeholder="Born-date"
+							></ion-input> </ion-item
+					></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col size="6">
+						<ion-item>
+							<ion-icon name="card-outline"></ion-icon>
+							<ion-input
+								name="dni"
+								type="text"
+								[(ngModel)]="newUser.dni"
+								placeholder="Dni"
+							></ion-input>
+						</ion-item>
+					</ion-col>
+					<ion-col size-md="6">
+						<ion-item>
+							<ion-icon name="medkit-outline"></ion-icon>
+							<ion-input
+								name="medicard"
+								type="text"
+								[(ngModel)]="newUser.mediCard"
+								placeholder="Medicard"
+							></ion-input>
+						</ion-item>
+					</ion-col>
+				</ion-row>
 
 				<ion-item>
 					<ion-icon name="lock-closed-outline"></ion-icon>
@@ -112,6 +135,7 @@
 				</ion-item>
 				<div class="sign-btn-wrap">
 					<ion-button
+						type="submit"
 						shape="round"
 						expand="block"
 						fill="solid"
@@ -120,7 +144,7 @@
 						>Register</ion-button
 					>
 				</div>
-			</div>
+			</ion-grid>
 		</ion-card-content>
 	</ion-card>
 </ion-content>

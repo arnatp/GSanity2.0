@@ -48,14 +48,19 @@ const routes: Routes = [
 			),
 	},
 	{
-		path: 'tabs',
+		path: 'patient',
 		loadChildren: () =>
-			import('./pages/tabs/tabs.module').then((m) => m.TabsPageModule),
+			import('./pages/patient-pages/tabs/tabs.module').then((m) => m.TabsPageModule),
+	},
+	{
+		path: 'admin',
+		loadChildren: ()=> import('./pages/admin/tabs/tabs.module').then((m)=>m.TabsPageModule),
 	},
 	{
 		path: '**',
 		redirectTo: 'welcome',
 	},
+
 ];
 
 @NgModule({

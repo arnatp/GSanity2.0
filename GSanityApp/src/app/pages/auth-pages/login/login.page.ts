@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
 
 	redirectUser(isVerified: boolean) {
 		if (isVerified) {
-			this.router.navigate(['/tabs']);
+			this.router.navigate(['patient']);
 		} else {
 			this.router.navigate(['/verify-email']);
 		}
