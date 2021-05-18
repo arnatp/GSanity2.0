@@ -32,7 +32,9 @@ ion-card-subtitle {
 ion-card-content {
 	padding-top: 30px;
 }
-
+.half {
+	width: 50%;
+	float: left;
 ion-item {
 	color: #575d66;
 	--border-color: #d4d7db;
