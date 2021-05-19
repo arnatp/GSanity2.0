@@ -1,7 +1,57 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title> Solicitar Page </ion-title>
+		<ion-title> Solicitar </ion-title>
 	</ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+	<div class="solicitarForm">
+		<h3>Solicitar Visita</h3>
+		<br />
+		<form #form="ngForm" (ngSubmit)="create()">
+			<ion-item
+				><div><ion-label>Date</ion-label></div>
+
+				<div>
+					<ion-input
+						type="date"
+						[(ngModel)]="newVisit.date"
+						name="date"
+						required
+						mode="ios"
+					></ion-input>
+				</div>
+			</ion-item>
+			<br />
+			<ion-item>
+				<div>
+					<ion-label>Initial Description</ion-label>
+				</div>
+				<div>
+					<ion-textarea
+						[(ngModel)]="newVisit.initialDescription"
+						name="initialDescription"
+						required="true"
+						minlength="10"
+						mode="ios"
+					>
+					</ion-textarea>
+				</div>
+			</ion-item>
+			<!--<ion-select>
+				<ion-select-option *ngFor="let doctor of doctors" value="doctor.uid"
+					>doctor.name</ion-select-option
+				>
+			</ion-select>-->
+			<br />
+			<ion-button
+				mode="ios"
+				size="large"
+				type="submit"
+				[disabled]="form.invalid"
+				expand="block"
+				>pedir visita</ion-button
+			>
+		</form>
+	</div>
+</ion-content>
