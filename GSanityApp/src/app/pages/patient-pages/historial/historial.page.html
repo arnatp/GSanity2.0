@@ -3,4 +3,13 @@
 		<ion-title> Historial </ion-title>
 	</ion-toolbar>
 </ion-header>
-<ion-content> </ion-content>
+<ion-content>
+<ion-item  *ngFor="let visit of visits | async" >
+	<ion-label>
+      <h2>{{ visit.date}}</h2>
+      <p>Descripcion Inicial: {{ visit.initialDescription }}</p>
+		<p>Resolucion: {{ visit.resolution }}</p>
+    </ion-label>
+</ion-item>
+
+</ion-content>

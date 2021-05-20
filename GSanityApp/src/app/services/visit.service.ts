@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Visit } from '../domain/intefaces';
 import { DatabaseService } from './database.service';
 
@@ -10,5 +11,9 @@ export class VisitService {
 
 	createVisit(newVisit: Visit) {
 		this.dataBaseService.createDocument(newVisit, 'visits', newVisit.id);
+	}
+	getVisitsByUid(uid: string): Observable<Visit[]> {
+
+		return this.dataBaseService.getDocuments<Visit>('visits');
 	}
 }
