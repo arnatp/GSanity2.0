@@ -6,7 +6,6 @@ import {
 	AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 import { ToastService } from 'src/app/services/toast.service';
 

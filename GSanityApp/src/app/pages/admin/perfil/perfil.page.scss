@@ -1,0 +1,24 @@
+ion-header {
+	margin: 0;
+	.logout {
+		--background: transparent;
+		--background-activated: transparent;
+		--color: black;
+	}
+	ion-item {
+		--background: var(--ion-color-green-admin);
+		--border-style: none;
+		margin-top: -1px;
+		border-radius: 0px 0px 30px 30px;
+		text-align: center;
+		h3 {
+			font-weight: 700;
+			font-size: 16px;
+		}
+
+		p {
+			font-weight: 500;
+			font-size: 14px;
+		}
+	}
+}

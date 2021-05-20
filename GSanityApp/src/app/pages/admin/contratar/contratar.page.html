@@ -1,9 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>contratar</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border" mode="ios">
+	<ion-toolbar>
+		<ion-title>contratar</ion-title>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-no-margin">
+	<form>
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<ion-item>
+						<ion-label position="stacked">Name</ion-label>
+						<ion-input
+							required
+							name="name"
+							type="text"
+							[(ngModel)]="newUser.name"
+							placeholder="Name"
+						></ion-input>
+					</ion-item>
+				</ion-col>
+				<ion-col>
+					<ion-item>
+						<ion-label position="stacked">Surname</ion-label>
+						<ion-input
+							required
+							name="surname"
+							type="text"
+							[(ngModel)]="newUser.surname"
+							placeholder="Surname"
+						></ion-input>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</form>
 </ion-content>
