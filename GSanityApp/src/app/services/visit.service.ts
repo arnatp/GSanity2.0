@@ -13,7 +13,6 @@ export class VisitService {
 		this.dataBaseService.createDocument(newVisit, 'visits', newVisit.id);
 	}
 	getVisitsByUid(uid: string): Observable<Visit[]> {
-
 		return this.dataBaseService.getDocuments<Visit>('visits');
 	}
 }

@@ -1,10 +1,7 @@
-ion-header {
-	--ion-background-color: #caebf2;
+ion-toolbar {
+	--background: var(--ion-color-salmon-patient);
 }
 
 .elements:last-child {
 	margin-bottom: 80px;
-}
-ion-toolbar {
-	--background: #ffa384;
 }

@@ -40,4 +40,8 @@ export class UserService {
 		console.log(user.role);
 		return user.role;
 	}
+
+	getAllEmployeeUsers() {
+		return this.dbService.getDocuments<DatabaseUser>('users');
+	}
 }

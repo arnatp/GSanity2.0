@@ -36,6 +36,7 @@
 #container a {
 	text-decoration: none;
 }
+
 ion-toolbar {
-	--background: #ffa384;
+	--background: var(--ion-color-salmon-patient);
 }

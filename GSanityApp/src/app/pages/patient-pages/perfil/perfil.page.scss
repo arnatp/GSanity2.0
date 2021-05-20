@@ -3,6 +3,7 @@
 	--background-activated: transparent;
 	--color: black;
 }
+
 ion-toolbar {
-	--background: #ffa384;
+	--background: var(--ion-color-salmon-patient);
 }

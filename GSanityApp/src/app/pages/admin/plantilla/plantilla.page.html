@@ -1,9 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>plantilla</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-title> Plaintilla </ion-title>
+	</ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+	<ion-item *ngFor="let employee of employees | async">
+		<ion-label>
+			<h2>Nombre: {{ employee.name}}</h2>
+			<p>Apellidos: {{ employee.surnames }}</p>
+			<p>Rol: {{ employee.role }}</p>
+		</ion-label>
+	</ion-item>
 </ion-content>

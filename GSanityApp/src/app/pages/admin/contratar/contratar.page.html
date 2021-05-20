@@ -10,29 +10,118 @@
 			<ion-row>
 				<ion-col>
 					<ion-item>
-						<ion-label position="stacked">Name</ion-label>
+						<ion-label position="floating">Name</ion-label>
 						<ion-input
 							required
-							name="name"
 							type="text"
-							[(ngModel)]="newUser.name"
-							placeholder="Name"
+							[(ngModel)]="newEmployee.name"
+							name="name"
+							clearInput="true"
+							autocapitalize="on"
 						></ion-input>
 					</ion-item>
 				</ion-col>
 				<ion-col>
 					<ion-item>
-						<ion-label position="stacked">Surname</ion-label>
+						<ion-label position="floating">Surnames</ion-label>
 						<ion-input
 							required
-							name="surname"
 							type="text"
-							[(ngModel)]="newUser.surname"
-							placeholder="Surname"
+							[(ngModel)]="newEmployee.surnames"
+							name="surnames"
+							clearInput="true"
+							autocapitalize="on"
 						></ion-input>
 					</ion-item>
 				</ion-col>
 			</ion-row>
+			<ion-row>
+				<ion-col>
+					<ion-item>
+						<ion-label position="floating">DNI</ion-label>
+						<ion-input
+							required
+							type="text"
+							[(ngModel)]="newEmployee.dni"
+							name="dni"
+							clearInput="true"
+						></ion-input>
+					</ion-item>
+				</ion-col>
+				<ion-col>
+					<ion-item>
+						<ion-label position="stacked">Born Date</ion-label>
+						<ion-input
+							required
+							type="date"
+							[(ngModel)]="newEmployee.bornDate"
+							name="bornDate"
+						></ion-input>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<ion-item>
+						<ion-label position="floating">Email</ion-label>
+						<ion-input
+							required
+							type="email"
+							[(ngModel)]="newEmployee.email"
+							name="email"
+							#email
+							clearInput="true"
+						></ion-input>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<ion-item>
+						<ion-label position="floating">Gender</ion-label>
+						<ion-select
+							interface="popover"
+							required
+							name="gender"
+							[(ngModel)]="newEmployee.gender"
+						>
+							<ion-select-option value="male">Male</ion-select-option>
+							<ion-select-option value="female"
+								>Female</ion-select-option
+							>
+						</ion-select>
+					</ion-item>
+				</ion-col>
+				<ion-col>
+					<ion-item>
+						<ion-label position="floating">Puesto</ion-label>
+						<ion-select
+							interface="popover"
+							required
+							name="role"
+							[(ngModel)]="newEmployee.role"
+						>
+							<ion-select-option value="doctor"
+								>Doctor</ion-select-option
+							>
+							<ion-select-option value="auxiliar"
+								>Auxiliar</ion-select-option
+							>
+						</ion-select>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+			<div class="sign-btn-wrap">
+				<ion-button
+					type="submit"
+					shape="round"
+					expand="block"
+					fill="solid"
+					class="sign-btn"
+					(click)="onContract(email)"
+					>Register</ion-button
+				>
+			</div>
 		</ion-grid>
 	</form>
 </ion-content>

@@ -4,6 +4,10 @@
 	margin-top: 5px;
 }
 
+form {
+	--background: var(--ion-color-green-admin);
+}
+
 ion-item {
 	color: #575d66;
 	--border-color: #d4d7db;
@@ -14,4 +18,8 @@ ion-item {
 		//margin-left: 15px;
 		color: #41464e;
 	}
+}
+
+ion-toolbar {
+	--background: var(--ion-color-green-admin);
 }
