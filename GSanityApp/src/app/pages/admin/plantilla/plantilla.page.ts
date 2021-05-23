@@ -14,5 +14,6 @@ export class PlantillaPage implements OnInit {
 
 	ngOnInit() {
 		this.employees = this.userService.getAllEmployeeUsers();
+		console.log(this.employees);
 	}
 }

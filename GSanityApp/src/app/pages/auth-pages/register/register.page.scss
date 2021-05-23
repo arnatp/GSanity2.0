@@ -13,7 +13,7 @@ ion-toolbar {
 }
 
 ion-card-title {
-	margin-top: 50px !important;
+	margin-top: 30px !important;
 	font-size: 25px;
 	color: #53565a;
 	text-align: center;
@@ -29,8 +29,8 @@ ion-card-subtitle {
 	padding: 0 30px;
 }
 
-ion-card-content {
-	padding-top: 30px;
+form {
+	margin-top: -5px;
 }
 
 ion-item {
@@ -39,8 +39,24 @@ ion-item {
 	--highlight-color-focused: #2f5586;
 	--padding-start: 0;
 	--inner-padding-end: 0;
+	position: relative;
+	ion-icon {
+		display: flex;
+		position: absolute;
+		height: 100%;
+		margin-left: 5px;
+	}
+	ion-label {
+		margin-left: 35px;
+	}
 	ion-input {
-		margin-left: 15px;
+		margin-left: 35px;
+		width: 80%;
+		color: #41464e;
+	}
+	ion-select {
+		margin-left: 35px;
+		width: 80%;
 		color: #41464e;
 	}
 }
@@ -51,11 +67,25 @@ ion-back-button {
 
 .sign-btn-wrap {
 	text-align: center;
-	padding-top: 20px;
+	//padding-top: 5px;
 	.sign-btn {
 		--ion-background-color: #215ab7;
 		color: #f4f6f4;
-		font-size: 18px;
+		font-size: 16px;
 		margin: 10px 50px;
 	}
+}
+.date-picker {
+	height: 55px;
+	ion-label {
+		margin-left: 15px;
+	}
+	ion-input {
+		margin-left: 15px;
+	}
+}
+
+.error {
+	color: red;
+	margin-left: 10px;
 }

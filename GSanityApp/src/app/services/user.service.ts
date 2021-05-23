@@ -42,6 +42,20 @@ export class UserService {
 	}
 
 	getAllEmployeeUsers() {
-		return this.dbService.getDocuments<DatabaseUser>('users');
+		return this.dbService.getDocumentsWithOneWhere<DatabaseUser>(
+			'users',
+			'role',
+			'!=',
+			'patient'
+		);
+	}
+
+	getAllDoctors() {
+		return this.dbService.getDocumentsWithOneWhere<DatabaseUser>(
+			'users',
+			'role',
+			'==',
+			'doctor'
+		);
 	}
 }

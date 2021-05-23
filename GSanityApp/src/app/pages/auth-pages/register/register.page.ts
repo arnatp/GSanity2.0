@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { DatabaseUser } from 'src/app/domain/intefaces';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CustomFormValidations } from 'src/app/validations/customformvalidations';
 
 @Component({
 	selector: 'app-register',
@@ -21,13 +23,52 @@ export class RegisterPage implements OnInit {
 		gender: '',
 		role: 'patient',
 	};
+	form: FormGroup;
+	isSubmitted = false;
+
 	constructor(
 		private authSvc: AuthService,
 		private router: Router,
-		private userService: UserService
+		private userService: UserService,
+		public formBuilder: FormBuilder
 	) {}
 
-	ngOnInit() {}
+	get errorControl() {
+		return this.form.controls;
+	}
+
+	ngOnInit() {
+		this.form = this.formBuilder.group({
+			name: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
+			surnames: ['', [Validators.required]],
+			email: [
+				'',
+				[
+					Validators.required,
+					Validators.pattern(
+						// eslint-disable-next-line max-len
+						/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+					),
+				],
+			],
+			gender: ['', [Validators.required]],
+			bornDate: ['', [Validators.required]],
+			dni: ['', [Validators.required, CustomFormValidations.checkDNI]],
+			mediCard: ['', [Validators.required]],
+			password: ['', [Validators.required]],
+			confirmPassword: ['', [Validators.required]],
+		});
+	}
+
+	submitForm() {
+		this.isSubmitted = true;
+		if (!this.form.valid) {
+			console.log('Please provide all the required values!');
+			return false;
+		} else {
+			console.log(this.form.value);
+		}
+	}
 
 	async onRegister(email, password) {
 		try {

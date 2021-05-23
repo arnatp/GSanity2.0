@@ -9,49 +9,66 @@
 		<h3>Solicitar Visita</h3>
 		<br />
 		<form #form="ngForm" (ngSubmit)="create()">
-			<ion-item
-				><div><ion-label position="stacked">Date</ion-label></div>
+			<ion-grid>
+				<ion-row>
+					<ion-col size="6">
+						<ion-item>
+							<ion-label position="stacked">Date</ion-label>
+							<ion-input
+								type="date"
+								[(ngModel)]="newVisit.date"
+								name="date"
+								required
+							></ion-input>
+						</ion-item>
+					</ion-col>
+					<ion-col size="6">
+						<ion-item>
+							<ion-label position="floating">Doctor</ion-label>
+							<ion-select
+								interface="popover"
+								required
+								name="gender"
+								[(ngModel)]="newVisit.doctorUid"
+							>
+								<ion-select-option
+									*ngFor="let doctor of doctors | async"
+									value="doctor.uid"
+									>{{doctor.name}}
+									{{doctor.surnames}}</ion-select-option
+								>
+							</ion-select>
+						</ion-item>
+					</ion-col>
+				</ion-row>
 
-				<div>
-					<ion-input
-						type="date"
-						[(ngModel)]="newVisit.date"
-						name="date"
-						required
-						mode="ios"
-					></ion-input>
-				</div>
-			</ion-item>
-			<br />
-			<ion-item>
-				<div>
-					<ion-label position="stacked">Initial Description</ion-label>
-				</div>
-				<div>
-					<ion-textarea
-						[(ngModel)]="newVisit.initialDescription"
-						name="initialDescription"
-						required="true"
-						minlength="10"
-						mode="ios"
-					>
-					</ion-textarea>
-				</div>
-			</ion-item>
-			<!--<ion-select>
-				<ion-select-option *ngFor="let doctor of doctors" value="doctor.uid"
-					>doctor.name</ion-select-option
+				<br />
+				<ion-item>
+					<div>
+						<ion-label position="stacked">Initial Description</ion-label>
+					</div>
+					<div>
+						<ion-textarea
+							[(ngModel)]="newVisit.initialDescription"
+							name="initialDescription"
+							required="true"
+							minlength="10"
+							mode="ios"
+						>
+						</ion-textarea>
+					</div>
+				</ion-item>
+
+				<br />
+				<ion-button
+					mode="ios"
+					size="large"
+					type="submit"
+					[disabled]="form.invalid"
+					expand="block"
+					>pedir visita</ion-button
 				>
-			</ion-select>-->
-			<br />
-			<ion-button
-				mode="ios"
-				size="large"
-				type="submit"
-				[disabled]="form.invalid"
-				expand="block"
-				>pedir visita</ion-button
-			>
+			</ion-grid>
 		</form>
 	</div>
 </ion-content>

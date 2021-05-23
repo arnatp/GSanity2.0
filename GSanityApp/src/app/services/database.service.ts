@@ -43,4 +43,38 @@ export class DatabaseService {
 			.doc(id);
 		return collection.valueChanges();
 	}
+
+	getDocumentsWithOneWhere<DatabaseObject>(
+		url: string,
+		field: string,
+		operation: any,
+		result: string
+	) {
+		const collection = this.angularFirestore.collection<DatabaseObject>(
+			url,
+			(ref) => ref.where(field, operation, result)
+		);
+		return collection.valueChanges();
+	}
+
+	getDocumentsWithTwoWhere<DatabaseObject>(
+		url: string,
+		fieldOne: string,
+		operationOne: any,
+		resultOne: string,
+		fieldTwo: string,
+		operationTwo: any,
+		resultTwo: string
+	) {
+		const collection = this.angularFirestore.collection<DatabaseObject>(
+			url,
+			(ref) =>
+				ref
+					.where(fieldOne, operationOne, resultOne)
+					.where(fieldTwo, operationTwo, resultTwo)
+		);
+
+		console.log(collection);
+		return collection.valueChanges();
+	}
 }
