@@ -8,6 +8,7 @@ ion-toolbar {
 }
 
 ion-card {
+	border-radius: 0px 5px 5px 0 ;
 	--ion-background-color: transparent;
 	box-shadow: none;
 }
@@ -30,6 +31,8 @@ ion-card-subtitle {
 
 ion-button {
 	margin: 15px 30px 0 30px;
+
+
 }
 
 .signin-buttons {
