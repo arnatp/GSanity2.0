@@ -12,8 +12,8 @@ export class VisitService {
 	createVisit(newVisit: Visit) {
 		this.dataBaseService.createDocument(newVisit, 'visits', newVisit.id);
 	}
-	getVisitsByUid(uid: string): Observable<Visit[]> {
-		return this.dataBaseService.getDocuments<Visit>('visits');
+	getVisitById(id: string): Observable<Visit> {
+		return this.dataBaseService.getDocumentById('visits', id);
 	}
 	getVisitsCompletedByUid(uid: string): Observable<Visit[]> {
 		return this.dataBaseService.getDocumentsWithTwoWhere(

@@ -4,4 +4,23 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+	<ion-card>
+		<ion-item mode="ios">
+			<ion-title>{{visit?.date}}</ion-title>
+		</ion-item>
+		<ion-item>
+			<ion-label position="stacked">Descripcion Inicial:</ion-label>
+			<p>{{visit?.initialDescription}}</p>
+		</ion-item>
+		<ion-item>
+			<ion-label position="stacked">Solucio:</ion-label><br />
+			<p>{{visit?.resolution}}</p> </ion-item
+		><ion-item>
+			<ion-label position="stacked">Doctor:</ion-label><br />
+			<p>{{doctor?.name}}</p> </ion-item
+		><ion-card *ngIf="visit?.prescription"
+			><ion-title>Receta</ion-title></ion-card
+		></ion-card
+	>
+</ion-content>
