@@ -61,10 +61,10 @@ export class DatabaseService {
 		url: string,
 		fieldOne: string,
 		operationOne: any,
-		resultOne: string,
+		resultOne: any,
 		fieldTwo: string,
 		operationTwo: any,
-		resultTwo: string
+		resultTwo: any
 	) {
 		const collection = this.angularFirestore.collection<DatabaseObject>(
 			url,

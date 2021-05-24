@@ -23,11 +23,9 @@ export class AuthGuard implements CanActivate {
 	async canActivate() {
 		// return true;
 		if (!this.authService.isLoggedIn()) {
-			console.log('no esta guardado');
 			return true;
 		} else {
 			await this.userService.getUserRole().then((role) => {
-				console.log(role);
 				this.router.navigate([role]);
 				return false;
 			});

@@ -37,7 +37,6 @@ export class PerfilPage {
 	}
 
 	logout() {
-		console.log('Cerrar sesion');
 		this.authService.logout().then((_) => {
 			this.router.navigate(['welcome']);
 		});

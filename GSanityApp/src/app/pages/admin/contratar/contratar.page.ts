@@ -30,7 +30,6 @@ export class ContratarPage implements OnInit {
 	async onContract(email) {
 		//Creamos la contraseña a partir del nombre y el año de nacimiento del nuevo empleado
 		const password = this.generateNewPassword();
-		console.log(password);
 		const employee = await this.authSvc.register(email.value, password);
 		if (employee) {
 			//Añadimos el usuario a la BD con nuestros datos actualizados

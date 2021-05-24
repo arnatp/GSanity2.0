@@ -13,8 +13,8 @@ export class HistorialPage implements OnInit {
 	constructor(private visitService: VisitService) {}
 
 	ngOnInit() {
-		this.visits = this.visitService.getVisitsByUid(
-			localStorage.getItem('user')
+		this.visits = this.visitService.getVisitsCompletedByUid(
+			JSON.parse(localStorage.getItem('user')).uid
 		);
 	}
 }

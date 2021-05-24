@@ -3,14 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HistorialPage } from './historial.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HistorialPage,
-  }
+	{
+		path: '',
+		component: HistorialPage,
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class HistorialPageRoutingModule { }
+export class HistorialPageRoutingModule {}

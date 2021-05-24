@@ -27,10 +27,24 @@ const routes: Routes = [
 			},
 			{
 				path: 'historial',
-				loadChildren: () =>
-					import('../historial/historial.module').then(
-						(m) => m.HistorialPageModule
-					),
+				children: [
+					{
+						path: '',
+						pathMatch: 'full',
+						loadChildren: () =>
+							import('../historial/historial.module').then(
+								(m) => m.HistorialPageModule
+							),
+					},
+					{
+						path: 'visit/:id',
+						pathMatch: 'full',
+						loadChildren: () =>
+							import('../historial/visit/visit.module').then(
+								(m) => m.VisitPageModule
+							),
+					},
+				],
 			},
 			{
 				path: 'perfil',

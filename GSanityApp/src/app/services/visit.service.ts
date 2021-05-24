@@ -15,4 +15,15 @@ export class VisitService {
 	getVisitsByUid(uid: string): Observable<Visit[]> {
 		return this.dataBaseService.getDocuments<Visit>('visits');
 	}
+	getVisitsCompletedByUid(uid: string): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithTwoWhere(
+			'visits',
+			'patientUid',
+			'==',
+			uid,
+			'completed',
+			'==',
+			true
+		);
+	}
 }
