@@ -11,7 +11,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//translations
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+export function createTranslateLoader(http: HttpClient) {
+	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
 	declarations: [AppComponent],
 	entryComponents: [],
@@ -24,6 +31,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 		AngularFirestoreModule,
 		FormsModule,
 		ReactiveFormsModule,
+		HttpClientModule, // <--- add this,
+		TranslateModule.forRoot({
+			// <--- add this
+			loader: {
+				// <--- add this
+				provide: TranslateLoader, // <--- add this
+				useFactory: createTranslateLoader, // <--- add this
+				deps: [HttpClient], // <--- add this
+			}, // <--- add this
+		}),
 	],
 	providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 	bootstrap: [AppComponent],
