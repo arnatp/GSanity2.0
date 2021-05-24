@@ -5,11 +5,15 @@ ion-card {
 
 ion-header {
 	position: absolute;
+	.return {
+		--background: transparent;
+		--background-activated: transparent;
+		--color: black;
+	}
 }
 
 ion-toolbar {
 	--ion-background-color: transparent;
-	--opacity: 0;
 }
 
 ion-card-title {
@@ -45,8 +49,8 @@ ion-item {
 	}
 }
 
-ion-back-button {
-	--color: black;
+ion-button {
+	--color: black !important;
 }
 
 .sign-btn-wrap {

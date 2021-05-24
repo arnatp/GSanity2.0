@@ -86,17 +86,21 @@ export class RegisterPage implements OnInit {
 	submitForm() {
 		this.isSubmitted = true;
 		if (!this.form.valid) {
-			console.log('Please provide all the required values!');
 			return false;
 		} else {
-			console.log(this.form.value);
+			for (const key in this.form.controls) {
+				if (key !== 'password' && key !== 'confirmPassword') {
+					const control = this.form.get(key);
+					this.newUser[key] = control.value;
+				}
+			}
+			this.onRegister(this.form.value.email, this.form.value.password);
 		}
 	}
 
 	async onRegister(email, password) {
 		try {
-			console.log();
-			const user = await this.authSvc.register(email.value, password.value);
+			const user = await this.authSvc.register(email, password);
 			if (user) {
 				//Añadimos el usuario a la BD con nuestros datos actualizados
 				this.newUser.uid = user.uid;

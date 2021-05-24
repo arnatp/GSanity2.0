@@ -49,7 +49,6 @@ export class CustomFormValidations {
 			],
 			confirmPassword: [
 				{ type: 'required', message: 'Confirm Password is required.' },
-				{ type: 'passwordNotMatch', message: 'Passwords does not match' },
 			],
 		};
 	}
@@ -72,10 +71,6 @@ export class CustomFormValidations {
 	static validatePasswords(form: FormGroup) {
 		const { value: password } = form.get('password');
 		const { value: confirmPassword } = form.get('confirmPassword');
-		console.log(password, confirmPassword);
-		console.log(
-			password === confirmPassword ? null : { passwordNotMatch: true }
-		);
 		return password === confirmPassword ? null : { passwordNotMatch: true };
 	}
 }

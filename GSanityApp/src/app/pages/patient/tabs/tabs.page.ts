@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-tabs',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
 	styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage {
-	constructor() {}
+	constructor(private router: Router) {}
+
+	//Este método sirve para que no se propague un navigate dentro de una vista del tab
+	clickTab(event: Event, tab: string) {
+		event.stopImmediatePropagation();
+		console.log(event, tab);
+		this.router.navigate([`${'patient/'}${tab}`]);
+	}
 }

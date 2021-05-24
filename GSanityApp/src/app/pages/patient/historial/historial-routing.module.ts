@@ -5,7 +5,20 @@ import { HistorialPage } from './historial.page';
 const routes: Routes = [
 	{
 		path: '',
-		component: HistorialPage,
+		children: [
+			{
+				path: '',
+				component: HistorialPage,
+			},
+			{
+				path: 'visit/:id',
+				pathMatch: 'full',
+				loadChildren: () =>
+					import('../historial/visit/visit.module').then(
+						(m) => m.VisitPageModule
+					),
+			},
+		],
 	},
 ];
 
