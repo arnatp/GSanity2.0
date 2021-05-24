@@ -28,6 +28,6 @@ export function createTranslateLoader(http: HttpClient) {
 			},
 		}),
 	],
-	declarations: [WelcomePage, [WelcomePage]],
+	declarations: [WelcomePage],
 })
 export class WelcomePageModule {}
