@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DatabaseUser } from 'src/app/domain/intefaces';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { CustomFormValidations } from 'src/app/validations/customformvalidations';
 
 @Component({
@@ -26,6 +26,8 @@ export class RegisterPage implements OnInit {
 	form: FormGroup;
 	isSubmitted = false;
 
+	validationMessages = CustomFormValidations.validationFormRegisterMessages();
+
 	constructor(
 		private authSvc: AuthService,
 		private router: Router,
@@ -38,26 +40,47 @@ export class RegisterPage implements OnInit {
 	}
 
 	ngOnInit() {
-		this.form = this.formBuilder.group({
-			name: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
-			surnames: ['', [Validators.required]],
-			email: [
-				'',
-				[
-					Validators.required,
-					Validators.pattern(
-						// eslint-disable-next-line max-len
-						/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-					),
+		this.form = this.formBuilder.group(
+			{
+				name: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
+				surnames: ['', [Validators.required]],
+				email: [
+					'',
+					[
+						Validators.required,
+						Validators.pattern(
+							// eslint-disable-next-line max-len
+							/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+						),
+					],
 				],
-			],
-			gender: ['', [Validators.required]],
-			bornDate: ['', [Validators.required]],
-			dni: ['', [Validators.required, CustomFormValidations.checkDNI]],
-			mediCard: ['', [Validators.required]],
-			password: ['', [Validators.required]],
-			confirmPassword: ['', [Validators.required]],
-		});
+				gender: ['', [Validators.required]],
+				bornDate: ['', [Validators.required]],
+				dni: ['', [Validators.required, CustomFormValidations.checkDNI]],
+				mediCard: [
+					'',
+					[
+						Validators.required,
+						Validators.minLength(10),
+						Validators.maxLength(10),
+					],
+				],
+				password: [
+					'',
+					[
+						Validators.required,
+						Validators.minLength(8),
+						Validators.pattern(
+							'(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$'
+						),
+					],
+				],
+				confirmPassword: ['', [Validators.required]],
+			},
+			{
+				validators: CustomFormValidations.validatePasswords.bind(this),
+			}
+		);
 	}
 
 	submitForm() {

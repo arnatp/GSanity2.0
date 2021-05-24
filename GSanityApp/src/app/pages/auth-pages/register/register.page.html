@@ -34,18 +34,17 @@
 							type="text"
 						></ion-input>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.name.errors?.required"
-					>
-						Name is required.
-					</span>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.name.errors?.pattern"
-					>
-						Name cannot contain spaces.
-					</span>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.name"
+						>
+							<div
+								*ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 				<ion-col>
 					<ion-item>
@@ -57,12 +56,17 @@
 							type="text"
 						></ion-input>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.surnames.errors?.required"
-					>
-						Surname is required.
-					</span></ion-col
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.surnames"
+						>
+							<div
+								*ngIf="form.get('surnames').hasError(validation.type) && (form.get('surnames').dirty || form.get('surnames').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div></ion-col
 				>
 			</ion-row>
 			<ion-row>
@@ -76,18 +80,17 @@
 							type="email"
 						></ion-input>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.email.errors?.required"
-					>
-						Email is required.
-					</span>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.email.errors?.pattern"
-					>
-						Email format is incorrect
-					</span>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.email"
+						>
+							<div
+								*ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -108,12 +111,17 @@
 							>
 						</ion-select>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.gender.errors?.required"
-					>
-						Gender is required.
-					</span>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.gender"
+						>
+							<div
+								*ngIf="form.get('gender').hasError(validation.type) && (form.get('gender').dirty || form.get('gender').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 				<ion-col size="6">
 					<ion-item class="date-picker">
@@ -124,12 +132,17 @@
 							type="date"
 						></ion-input>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.bornDate.errors?.required"
-					>
-						Born date is required.
-					</span></ion-col
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.bornDate"
+						>
+							<div
+								*ngIf="form.get('bornDate').hasError(validation.type) && (form.get('bornDate').dirty || form.get('bornDate').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div></ion-col
 				>
 			</ion-row>
 			<ion-row>
@@ -139,18 +152,17 @@
 						<ion-label position="floating">DNI*</ion-label>
 						<ion-input formControlName="dni" type="text"></ion-input>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.dni.errors?.required"
-					>
-						DNI is required.
-					</span>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.dni.errors?.dniInvalid"
-					>
-						DNI don't have valid format.
-					</span>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.dni"
+						>
+							<div
+								*ngIf="form.get('dni').hasError(validation.type) && (form.get('dni').dirty || form.get('dni').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 				<ion-col size="6">
 					<ion-item>
@@ -158,12 +170,17 @@
 						<ion-label position="floating">MediCard*</ion-label>
 						<ion-input formControlName="mediCard" type="text"></ion-input>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.mediCard.errors?.required"
-					>
-						Medic Card is required.
-					</span>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.mediCard"
+						>
+							<div
+								*ngIf="form.get('mediCard').hasError(validation.type) && (form.get('mediCard').dirty || form.get('mediCard').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -176,12 +193,17 @@
 							type="password"
 						></ion-input>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.password.errors?.required"
-					>
-						Password is required.
-					</span>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.password"
+						>
+							<div
+								*ngIf="form.get('password').hasError(validation.type) && (form.get('password').dirty || form.get('password').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -194,12 +216,23 @@
 							type="password"
 						></ion-input>
 					</ion-item>
-					<span
-						class="error ion-no-padding"
-						*ngIf="isSubmitted && errorControl.confirmPassword.errors?.required"
-					>
-						Confirm Password is required.
-					</span>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.confirmPassword"
+						>
+							<div
+								*ngIf="form.get('confirmPassword').hasError(validation.type) && (form.get('confirmPassword').dirty || form.get('confirmPassword').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+						<div
+							class="error-message"
+							*ngIf="!form.get('confirmPassword').errors && form.hasError('passwordNotMatch') && (form.get('confirmPassword').dirty || form.get('confirmPassword').touched)"
+						>
+							Password and Confirm Password fields should match
+						</div>
+					</div>
 				</ion-col>
 			</ion-row>
 			<ion-row>
