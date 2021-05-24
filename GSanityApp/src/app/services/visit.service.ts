@@ -26,4 +26,23 @@ export class VisitService {
 			true
 		);
 	}
+	getVisitsAssignedToDoctorByUid(uid: string): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithTwoWhere(
+			'visits',
+			'doctorUid',
+			'==',
+			uid,
+			'dated',
+			'==',
+			true
+		);
+	}
+	getNotDatedVisits(): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithOneWhere(
+			'visits',
+			'dated',
+			'==',
+			false
+		);
+	}
 }

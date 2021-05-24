@@ -48,7 +48,7 @@ export class DatabaseService {
 		url: string,
 		field: string,
 		operation: any,
-		result: string
+		result: any
 	) {
 		const collection = this.angularFirestore.collection<DatabaseObject>(
 			url,
