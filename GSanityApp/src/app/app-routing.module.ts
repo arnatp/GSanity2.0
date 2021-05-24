@@ -52,14 +52,14 @@ const routes: Routes = [
 	{
 		path: 'patient',
 		loadChildren: () =>
-			import('./pages/patient-pages/tabs/tabs.module').then(
+			import('./pages/patient/tabs/tabs.module').then(
 				(m) => m.TabsPageModule
 			),
 	},
 	{
 		path: 'doctor',
 		loadChildren: () =>
-			import('./pages/doctor-pages/tabs/tabs.module').then(
+			import('./pages/doctor/tabs/tabs.module').then(
 				(m) => m.TabsPageModule
 			),
 	},
