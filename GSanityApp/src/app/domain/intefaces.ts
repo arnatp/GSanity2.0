@@ -34,7 +34,6 @@ export interface Visit {
 	doctorUid: string;
 }
 export interface Prescription {
-	id: string;
 	medicamentName: string;
 	quantity: number;
 	schedule: Text;

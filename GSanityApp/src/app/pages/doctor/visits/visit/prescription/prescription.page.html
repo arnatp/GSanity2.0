@@ -1,0 +1,37 @@
+<ion-content
+	><ion-grid
+		><ion-row
+			><ion-col> <ion-title>Prescription</ion-title></ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col size="6">
+				<ion-input
+					type="text"
+					placeholder="Medicament"
+					[(ngModel)]="prescription.medicamentName"
+				></ion-input>
+			</ion-col>
+			<ion-col size="6">
+				<ion-input
+					type="number"
+					placeholder="Quantity"
+					[(ngModel)]="prescription.quantity"
+				></ion-input>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-textarea [(ngModel)]="prescription.schedule"> </ion-textarea>
+		</ion-row>
+		<ion-row
+			><ion-col>
+				<ion-button expand="block" (click)="dimiss()"
+					>Dimiss</ion-button
+				> </ion-col
+			><ion-col>
+				<ion-button expand="block" (click)="createPrescription()"
+					>Create</ion-button
+				>
+			</ion-col></ion-row
+		>
+	</ion-grid>
+</ion-content>
