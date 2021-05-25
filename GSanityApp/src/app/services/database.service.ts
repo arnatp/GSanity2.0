@@ -26,6 +26,10 @@ export class DatabaseService {
 		const collection = this.angularFirestore.collection<DatabaseObject>(url);
 		return collection.valueChanges();
 	}
+	updateDocument<DabaseObject>(data: DabaseObject, url: string, id: string) {
+		const collection = this.angularFirestore.collection<any>(url);
+		return collection.doc(id).update(data);
+	}
 
 	editDocument<DabaseObject>(data: DabaseObject, url: string, id: string) {
 		const collection = this.angularFirestore.collection<any>(url);
@@ -74,7 +78,29 @@ export class DatabaseService {
 					.where(fieldTwo, operationTwo, resultTwo)
 		);
 
-		console.log(collection);
+		return collection.valueChanges();
+	}
+	getDocumentsWithThreeWhere<DatabaseObject>(
+		url: string,
+		fieldOne: string,
+		operationOne: any,
+		resultOne: any,
+		fieldTwo: string,
+		operationTwo: any,
+		resultTwo: any,
+		fieldTrhee: string,
+		operationThree: any,
+		resultThree: any
+	) {
+		const collection = this.angularFirestore.collection<DatabaseObject>(
+			url,
+			(ref) =>
+				ref
+					.where(fieldOne, operationOne, resultOne)
+					.where(fieldTwo, operationTwo, resultTwo)
+					.where(fieldTrhee, operationThree, resultThree)
+		);
+
 		return collection.valueChanges();
 	}
 }

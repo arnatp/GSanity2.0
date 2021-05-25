@@ -1,0 +1,40 @@
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { DatabaseUser, Prescription } from 'src/app/domain/intefaces';
+import { VisitService } from 'src/app/services/visit.service';
+@Component({
+	selector: 'app-prescription',
+	templateUrl: './prescription.page.html',
+	styleUrls: ['./prescription.page.scss'],
+})
+export class PrescriptionPage implements OnInit {
+	prescription = {
+		medicamentName: '',
+		quantity: 0,
+		schedule: null,
+	};
+
+	idvisit;
+	constructor(
+		public modalController: ModalController,
+		private visitService: VisitService
+	) {}
+
+	ngOnInit() {
+		console.log(`${this.idvisit}`);
+	}
+	async dimiss() {
+		await this.modalController.dismiss();
+	}
+	async createPrescription() {
+		let newPrescription = {
+			prescription: this.prescription,
+		};
+		console.log(this.prescription, newPrescription);
+		await this.visitService.updateVisitPrescription(
+			newPrescription,
+			this.idvisit
+		);
+		await this.modalController.dismiss();
+	}
+}

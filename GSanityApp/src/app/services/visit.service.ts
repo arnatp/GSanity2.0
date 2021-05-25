@@ -15,6 +15,9 @@ export class VisitService {
 	getVisitById(id: string): Observable<Visit> {
 		return this.dataBaseService.getDocumentById('visits', id);
 	}
+	updateVisit(visit: Visit) {
+		this.dataBaseService.editDocument(visit, 'visits', visit.id);
+	}
 	getVisitsCompletedByUid(uid: string): Observable<Visit[]> {
 		return this.dataBaseService.getDocumentsWithTwoWhere(
 			'visits',
@@ -27,14 +30,17 @@ export class VisitService {
 		);
 	}
 	getVisitsAssignedToDoctorByUid(uid: string): Observable<Visit[]> {
-		return this.dataBaseService.getDocumentsWithTwoWhere(
+		return this.dataBaseService.getDocumentsWithThreeWhere(
 			'visits',
 			'doctorUid',
 			'==',
 			uid,
 			'dated',
 			'==',
-			true
+			true,
+			'completed',
+			'==',
+			false
 		);
 	}
 	getNotDatedVisits(): Observable<Visit[]> {
@@ -44,5 +50,8 @@ export class VisitService {
 			'==',
 			false
 		);
+	}
+	updateVisitPrescription(prescription: any, idvisit: any) {
+		this.dataBaseService.updateDocument(prescription, 'visits', idvisit);
 	}
 }
