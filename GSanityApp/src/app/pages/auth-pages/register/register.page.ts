@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { CustomFormValidations } from 'src/app/validations/customformvalidations';
+import { ValidationMessages } from 'src/app/validations/validation-messages';
 
 @Component({
 	selector: 'app-register',
@@ -26,7 +27,7 @@ export class RegisterPage implements OnInit {
 	form: FormGroup;
 	isSubmitted = false;
 
-	validationMessages = CustomFormValidations.validationFormRegisterMessages();
+	validationMessages = ValidationMessages.validationFormRegisterMessages();
 
 	constructor(
 		private authSvc: AuthService,

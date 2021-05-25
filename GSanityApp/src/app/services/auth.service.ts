@@ -106,6 +106,35 @@ export class AuthService {
 		}
 	}
 
+	async hire(email: string, password: string): Promise<User> {
+		try {
+			const { user } = await this.afAuth.createUserWithEmailAndPassword(
+				email,
+				password
+			);
+			await this.resetPassword(email);
+			return user;
+		} catch (error) {
+			console.log('Ha ocurrido un error al hacer registro: ', error);
+			this.toastService.presentToast(
+				'Ha ocurrido un error al hacer registro'
+			);
+		}
+	}
+
+	/*async delete(email: string, password: string): Promise<User> {
+		try {
+			const { user } = await this.afAuth
+			await this.resetPassword(email);
+			return user;
+		} catch (error) {
+			console.log('Ha ocurrido un error al hacer registro: ', error);
+			this.toastService.presentToast(
+				'Ha ocurrido un error al hacer registro'
+			);
+		}
+	}*/
+
 	private updateUserData(user: User) {
 		const userRef: AngularFirestoreDocument<User> = this.afs.doc(
 			`users/${user.uid}`

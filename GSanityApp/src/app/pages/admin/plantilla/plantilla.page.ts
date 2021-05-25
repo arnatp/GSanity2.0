@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DatabaseUser } from 'src/app/domain/intefaces';
+import { AlertService } from 'src/app/services/alert.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,9 +11,17 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PlantillaPage implements OnInit {
 	public employees: Observable<DatabaseUser[]>;
-	constructor(private userService: UserService) {}
+	constructor(
+		public userService: UserService,
+		private alertService: AlertService
+	) {}
 
 	ngOnInit() {
 		this.employees = this.userService.getAllEmployeeUsers();
+	}
+
+	deleteEmployee(employeeUid) {
+		console.log('Quieres borrar el empleado: ' + employeeUid);
+		this.alertService.presentAlertConfirmDeleteUser(employeeUid);
 	}
 }

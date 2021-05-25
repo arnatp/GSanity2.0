@@ -1,3 +1,16 @@
 ion-toolbar {
-	--background: var(--ion-color-green-admin);
+	--background: var(--ion-color-salmon-admin);
+}
+
+ion-button {
+	height: 50%;
+	width: 15%;
+	--background: transparent;
+	--background-activated: transparent;
+	--background-activated-opacity: 0;
+	--box-shadow: white;
+	--color: black;
+	ion-icon {
+		font-size: 25px;
+	}
 }

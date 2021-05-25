@@ -30,6 +30,7 @@ export class UserService {
 	}
 
 	delete(uid: string) {
+		console.log('borrando ' + uid);
 		return this.dbService.deleteDocument<DatabaseUser>('users', uid);
 	}
 

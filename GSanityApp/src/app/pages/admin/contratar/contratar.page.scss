@@ -4,10 +4,6 @@
 	margin-top: 5px;
 }
 
-form {
-	--background: var(--ion-color-green-admin);
-}
-
 ion-item {
 	color: #575d66;
 	--border-color: #d4d7db;
@@ -21,5 +17,10 @@ ion-item {
 }
 
 ion-toolbar {
-	--background: var(--ion-color-green-admin);
+	--background: var(--ion-color-salmon-admin);
+}
+
+.error {
+	color: red;
+	margin-left: 10px;
 }

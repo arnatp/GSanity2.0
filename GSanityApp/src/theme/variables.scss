@@ -82,9 +82,9 @@
 	--ion-color-red-charmander: #f76c6c;
 	--ion-color-blue-lugia: #a8d0e6;
 
-	--ion-color-salmon-patient: #ffa384;
+	--ion-color-salmon-admin: #ffa384;
 	--ion-color-yellow-employee: #f8e9a1;
-	--ion-color-green-admin: #b1d8b7;
+	--ion-color-green-patient: #b1d8b7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -92,7 +92,7 @@
    * Dark Colors
    * -------------------------------------------
    */
-/*
+	/*
 	body {
 
 		--ion-color-primary: #428cff;
@@ -163,7 +163,7 @@
    * iOS Dark Theme
    * -------------------------------------------
    */
-/*
+	/*
 	.ios body {
 		--ion-background-color: #000000;
 		--ion-background-color-rgb: 0, 0, 0;
@@ -206,7 +206,7 @@
    * Material Design Dark Theme
    * -------------------------------------------
    */
-/*
+	/*
 	.md body {
 		--ion-background-color: #121212;
 		--ion-background-color-rgb: 18, 18, 18;
@@ -245,5 +245,6 @@
 		--ion-card-background: #1e1e1e;
 	}*/
 }
-
-
+ion-content {
+	--background: var(--ion-color-background-color);
+}

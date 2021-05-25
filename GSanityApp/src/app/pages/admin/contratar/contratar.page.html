@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content class="ion-no-margin">
-	<form>
+	<form [formGroup]="hireForm" (ngSubmit)="submitForm()" novalidate>
 		<ion-grid>
 			<ion-row>
 				<ion-col>
@@ -14,12 +14,22 @@
 						<ion-input
 							required
 							type="text"
-							[(ngModel)]="newEmployee.name"
-							name="name"
+							formControlName="name"
 							clearInput="true"
 							autocapitalize="on"
 						></ion-input>
 					</ion-item>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.name"
+						>
+							<div
+								*ngIf="hireForm.get('name').hasError(validation.type) && (hireForm.get('name').dirty || hireForm.get('name').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 				<ion-col>
 					<ion-item>
@@ -27,12 +37,22 @@
 						<ion-input
 							required
 							type="text"
-							[(ngModel)]="newEmployee.surnames"
-							name="surnames"
+							formControlName="surnames"
 							clearInput="true"
 							autocapitalize="on"
 						></ion-input>
 					</ion-item>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.surnames"
+						>
+							<div
+								*ngIf="hireForm.get('surnames').hasError(validation.type) && (hireForm.get('surnames').dirty || hireForm.get('surnames').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -42,11 +62,21 @@
 						<ion-input
 							required
 							type="text"
-							[(ngModel)]="newEmployee.dni"
-							name="dni"
+							formControlName="dni"
 							clearInput="true"
 						></ion-input>
 					</ion-item>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.dni"
+						>
+							<div
+								*ngIf="hireForm.get('dni').hasError(validation.type) && (hireForm.get('dni').dirty || hireForm.get('dni').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 				<ion-col>
 					<ion-item>
@@ -54,10 +84,20 @@
 						<ion-input
 							required
 							type="date"
-							[(ngModel)]="newEmployee.bornDate"
-							name="bornDate"
+							formControlName="bornDate"
 						></ion-input>
 					</ion-item>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.bornDate"
+						>
+							<div
+								*ngIf="hireForm.get('bornDate').hasError(validation.type) && (hireForm.get('bornDate').dirty || hireForm.get('bornDate').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -67,12 +107,21 @@
 						<ion-input
 							required
 							type="email"
-							[(ngModel)]="newEmployee.email"
-							name="email"
-							#email
+							formControlName="email"
 							clearInput="true"
 						></ion-input>
 					</ion-item>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.email"
+						>
+							<div
+								*ngIf="hireForm.get('email').hasError(validation.type) && (hireForm.get('email').dirty || hireForm.get('email').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 			</ion-row>
 			<ion-row>
@@ -82,8 +131,7 @@
 						<ion-select
 							interface="popover"
 							required
-							name="gender"
-							[(ngModel)]="newEmployee.gender"
+							formControlName="gender"
 						>
 							<ion-select-option value="male">Male</ion-select-option>
 							<ion-select-option value="female"
@@ -91,6 +139,17 @@
 							>
 						</ion-select>
 					</ion-item>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.gender"
+						>
+							<div
+								*ngIf="hireForm.get('gender').hasError(validation.type) && (hireForm.get('gender').dirty || hireForm.get('gender').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 				<ion-col>
 					<ion-item>
@@ -98,8 +157,7 @@
 						<ion-select
 							interface="popover"
 							required
-							name="role"
-							[(ngModel)]="newEmployee.role"
+							formControlName="role"
 						>
 							<ion-select-option value="doctor"
 								>Doctor</ion-select-option
@@ -109,6 +167,17 @@
 							>
 						</ion-select>
 					</ion-item>
+					<div class="error">
+						<ng-container
+							*ngFor="let validation of validationMessages.role"
+						>
+							<div
+								*ngIf="hireForm.get('role').hasError(validation.type) && (hireForm.get('role').dirty || hireForm.get('role').touched || isSubmitted)"
+							>
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
 				</ion-col>
 			</ion-row>
 			<div class="sign-btn-wrap">
@@ -118,7 +187,6 @@
 					expand="block"
 					fill="solid"
 					class="sign-btn"
-					(click)="onContract(email)"
 					>Register</ion-button
 				>
 			</div>

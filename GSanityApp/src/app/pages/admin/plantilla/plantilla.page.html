@@ -4,11 +4,14 @@
 	</ion-toolbar>
 </ion-header>
 <ion-content>
-	<ion-item *ngFor="let employee of employees | async">
+	<ion-item *ngFor="let employee of employees | async" class="elementsList">
 		<ion-label>
 			<h2>Nombre: {{ employee.name}}</h2>
 			<p>Apellidos: {{ employee.surnames }}</p>
 			<p>Rol: {{ employee.role }}</p>
 		</ion-label>
+		<ion-button (click)="deleteEmployee(employee.uid)">
+			<ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+		</ion-button>
 	</ion-item>
 </ion-content>
