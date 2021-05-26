@@ -8,7 +8,7 @@
 	<div class="solicitarForm">
 		<h3>Solicitar Visita</h3>
 		<br />
-		<form #form="ngForm" (ngSubmit)="create()">
+		<form [formGroup]="form"  (ngSubmit)="create()">
 			<ion-grid>
 				<ion-row>
 					<ion-col size="6">
@@ -33,7 +33,7 @@
 							>
 								<ion-select-option
 									*ngFor="let doctor of doctors | async"
-									value="doctor.uid"
+									value="{{doctor.uid}}"
 									>{{doctor.name}}
 									{{doctor.surnames}}</ion-select-option
 								>

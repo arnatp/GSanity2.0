@@ -1,0 +1,36 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>visit</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<form #form="ngForm" (ngSubmit)="updateVisit()">
+			<ion-item mode="ios">
+				<ion-title>{{visit?.date}}</ion-title>
+			</ion-item>
+			<ion-item>
+				<ion-label position="stacked">Descripcion Inicial:</ion-label>
+				<p>{{visit?.initialDescription}}</p>
+			</ion-item>
+			<ion-item>
+				<ion-label position="stacked">Solucio:</ion-label><br />
+				<ion-textarea
+					[(ngModel)]="visit.resolution"
+					[ngModelOptions]="{standalone: true}"
+				></ion-textarea> </ion-item
+			><ion-item>
+				<ion-label position="stacked">Doctor:</ion-label><br />
+				<p>{{doctor?.name}}</p>
+			</ion-item>
+			<ion-button
+				expand="block"
+				[disabled]="form.invalid"
+				mode="ios"
+				type="submit"
+				>Update Visit</ion-button
+			>
+		</form></ion-card
+	>
+</ion-content>

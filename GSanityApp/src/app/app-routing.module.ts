@@ -64,6 +64,13 @@ const routes: Routes = [
 			),
 	},
 	{
+		path: 'auxiliar',
+		loadChildren: () =>
+			import('./pages/auxiliar/tabs/tabs.module').then(
+				(m) => m.TabsPageModule
+			),
+	},
+	{
 		path: 'admin',
 		loadChildren: () =>
 			import('./pages/admin/tabs/tabs.module').then((m) => m.TabsPageModule),
@@ -72,6 +79,8 @@ const routes: Routes = [
 		path: '**',
 		redirectTo: 'welcome',
 	},
+
+
 ];
 
 @NgModule({

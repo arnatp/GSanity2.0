@@ -1,0 +1,17 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>visits</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-item
+		*ngFor="let visit of visits | async"
+		routerLink="visit/{{visit.id}}"
+	>
+		<ion-label>
+			<h2>{{ visit.date}}</h2>
+			<p>Descripcion Inicial: {{ visit?.initialDescription }}</p>
+		</ion-label>
+	</ion-item>
+</ion-content>
