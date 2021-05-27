@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DatabaseUser, Visit } from 'src/app/domain/intefaces';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -15,7 +16,7 @@ export class SolicitarPage implements OnInit {
 	newVisit: Visit = {
 		id: '',
 		date: null,
-		time: null,
+		time: '',
 		completed: false,
 		dated: false,
 		initialDescription: null,
@@ -31,7 +32,8 @@ export class SolicitarPage implements OnInit {
 		private visitService: VisitService,
 		private databaseService: DatabaseService,
 		private userService: UserService,
-		private formBuilder: FormBuilder
+		private formBuilder: FormBuilder,
+		private router: Router
 	) {}
 	get errorControl() {
 		return this.form.controls;
@@ -44,12 +46,12 @@ export class SolicitarPage implements OnInit {
 	}
 
 	async create() {
-		//this.form.reset();
 		try {
 			this.newVisit.id = this.databaseService.createCustomId();
 			this.newVisit.patientUid = JSON.parse(
 				localStorage.getItem('user')
 			).uid;
+			this.router;
 			this.visitService.createVisit(this.newVisit);
 		} catch (error) {
 			console.log('Error', error);

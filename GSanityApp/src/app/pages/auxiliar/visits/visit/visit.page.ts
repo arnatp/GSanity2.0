@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DatabaseUser, Visit } from 'src/app/domain/intefaces';
 import { UserService } from 'src/app/services/user.service';
 import { VisitService } from 'src/app/services/visit.service';
-import { ModalController, IonDatetime } from '@ionic/angular';
-import { Timestamp } from 'rxjs/internal/operators/timestamp';
+import { ModalController } from '@ionic/angular';
 
 @Component({
 	selector: 'app-visit',
@@ -12,7 +11,7 @@ import { Timestamp } from 'rxjs/internal/operators/timestamp';
 	styleUrls: ['./visit.page.scss'],
 })
 export class VisitPage implements OnInit {
-	time: Date ;
+	public time;
 
 	public visit: Visit;
 	public doctor: DatabaseUser;
@@ -21,7 +20,8 @@ export class VisitPage implements OnInit {
 		private visitService: VisitService,
 		private activateRoute: ActivatedRoute,
 		private userService: UserService,
-		public modalConroller: ModalController
+		public modalConroller: ModalController,
+		private router: Router
 	) {}
 
 	ngOnInit() {
@@ -36,11 +36,13 @@ export class VisitPage implements OnInit {
 	}
 
 	updateVisit() {
-		console.log(this.time);
-		if (this.visit.time) {
+		const date = new Date(this.time);
+
+		if (this.time) {
+			this.visit.time = date.getHours() + ':' + date.getMinutes();
 			this.visit.dated = true;
 			this.visitService.updateVisit(this.visit);
 		}
-		console.log(this.visit);
+		this.router.navigate(['/auxiliar/visits']);
 	}
 }

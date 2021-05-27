@@ -10,6 +10,7 @@ export class VisitService {
 	constructor(private dataBaseService: DatabaseService) {}
 
 	createVisit(newVisit: Visit) {
+		console.log(newVisit);
 		this.dataBaseService.createDocument(newVisit, 'visits', newVisit.id);
 	}
 	getVisitById(id: string): Observable<Visit> {
