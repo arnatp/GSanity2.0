@@ -20,8 +20,7 @@ export class PlantillaPage implements OnInit {
 		this.employees = this.userService.getAllEmployeeUsers();
 	}
 
-	deleteEmployee(employeeUid) {
-		console.log('Quieres borrar el empleado: ' + employeeUid);
+	/*deleteEmployee(employeeUid) {
 		this.alertService.presentAlertConfirmDeleteUser(employeeUid);
-	}
+	}*/
 }

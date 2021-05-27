@@ -8,67 +8,19 @@
 </ion-header>
 
 <ion-content ion-no-margin>
-	<div>
-		<div class="row">
-			<ion-item class="col-6">
-				<ion-icon name="person-outline"></ion-icon>
-				<ion-input
-					name="name"
-					type="text"
-					[(ngModel)]="user.name"
-					placeholder="Name"
-				></ion-input>
-			</ion-item>
-			<ion-item class="col-6">
-				<ion-icon name="person-outline"></ion-icon>
-				<ion-input
-					name="surname"
-					type="text"
-					[(ngModel)]="user.surnames"
-					placeholder="Surname"
-				></ion-input>
-			</ion-item>
-		</div>
-		<ion-item>
-			<ion-icon name="mail-outline"></ion-icon>
-			<ion-input
-				name="email"
-				[(ngModel)]="user.email"
-				#email
-				type="email"
-				placeholder="Email"
-			></ion-input>
-		</ion-item>
-		<ion-item>
-			<ion-icon name="person-outline"></ion-icon>
-			<ion-input
-				name="born-date"
-				type="date"
-				[(ngModel)]="user.bornDate"
-				placeholder="Born-date"
-			></ion-input>
-		</ion-item>
-		<ion-item>
-			<ion-icon name="person-outline"></ion-icon>
-			<ion-input
-				name="dni"
-				type="text"
-				[(ngModel)]="user.dni"
-				placeholder="Dni"
-			></ion-input>
-		</ion-item>
-		<ion-item>
-			<ion-icon name="person-outline"></ion-icon>
-			<ion-input
-				name="medicard"
-				type="text"
-				[(ngModel)]="user.mediCard"
-				placeholder="Medicard"
-			></ion-input>
-		</ion-item>
-		<ion-item>
-			<ion-icon name="person-outline"></ion-icon>
-			<ion-input [(ngModel)]="user.gender"> </ion-input>
-		</ion-item>
-	</div>
+	<ion-label>{{user.name}} {{user.surnames}}</ion-label>
+	<ion-button
+		(click)="changeEmail()"
+		mode="ios"
+		expand="block"
+		class="profileButtons"
+		>Cambiar Email</ion-button
+	>
+	<ion-button
+		(click)="changePassword()"
+		mode="ios"
+		expand="block"
+		class="profileButtons"
+		>Cambiar Contraseña</ion-button
+	>
 </ion-content>

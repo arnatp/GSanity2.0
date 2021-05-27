@@ -77,4 +77,43 @@ export class ValidationMessages {
 			],
 		};
 	}
+
+	static validationFormNewEmailMessages() {
+		return {
+			newEmail: [
+				{ type: 'required', message: 'Email is required.' },
+				{
+					type: 'pattern',
+					message: 'Email format is incorrect',
+				},
+			],
+			confirmNewEmail: [
+				{ type: 'required', message: 'Email is required.' },
+				{
+					type: 'pattern',
+					message: 'Email format is incorrect',
+				},
+			],
+		};
+	}
+
+	static validationFormNewPasswordMessages() {
+		return {
+			password: [
+				{ type: 'required', message: 'Password is required.' },
+				{
+					type: 'minlength',
+					message: 'Password must contain 8 characters at least',
+				},
+				{
+					type: 'pattern',
+					message:
+						'Password must contain 1 lowercase character, 1 uppercase character, 1 number and 1 special character',
+				},
+			],
+			confirmPassword: [
+				{ type: 'required', message: 'Confirm Password is required.' },
+			],
+		};
+	}
 }

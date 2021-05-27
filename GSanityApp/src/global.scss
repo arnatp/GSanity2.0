@@ -35,7 +35,6 @@
 	text-align: center;
 }
 
-
 .elementsList:last-child {
 	margin-bottom: 80px;
 }
@@ -46,4 +45,13 @@
 	position: absolute;
 	display: block;
 	border-radius: 20px 20px 0 0;
+}
+
+.modal .modal-wrapper {
+	height: 50%;
+	width: 90%;
+	bottom: 30%;
+	position: absolute;
+	display: block;
+	border-radius: 20px;
 }

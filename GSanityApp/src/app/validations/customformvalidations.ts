@@ -21,4 +21,10 @@ export class CustomFormValidations {
 		const { value: confirmPassword } = form.get('confirmPassword');
 		return password === confirmPassword ? null : { passwordNotMatch: true };
 	}
+
+	static validateNewEmail(form: FormGroup) {
+		const { value: oldEmail } = form.get('newEmail');
+		const { value: newEmail } = form.get('confirmNewEmail');
+		return oldEmail === newEmail ? null : { newEmailNotMatch: true };
+	}
 }

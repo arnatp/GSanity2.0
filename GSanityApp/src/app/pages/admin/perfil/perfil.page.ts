@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { DatabaseUser, User } from 'src/app/domain/intefaces';
+import { ModalController } from '@ionic/angular';
+import { DatabaseUser } from 'src/app/domain/intefaces';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import { ChangeEmailPasswordModalPage } from '../../common/change-email-password-modal/change-email-password-modal.page';
 
 @Component({
 	selector: 'app-perfil',
@@ -27,7 +29,8 @@ export class PerfilPage {
 		private userService: UserService,
 		private firebase: AngularFireAuth,
 		private authService: AuthService,
-		private router: Router
+		private router: Router,
+		public modalConroller: ModalController
 	) {
 		this.firebase.currentUser.then((authUser) => {
 			this.userService.getUserByUid(authUser.uid).subscribe((user) => {
@@ -40,5 +43,36 @@ export class PerfilPage {
 		this.authService.logout().then((_) => {
 			this.router.navigate(['welcome']);
 		});
+	}
+
+	async changeEmail() {
+		console.log('cambiar email');
+		const modal = await this.modalConroller.create({
+			component: ChangeEmailPasswordModalPage,
+			componentProps: {
+				mode: 'email',
+			},
+			animated: true,
+			mode: 'ios',
+			backdropDismiss: false,
+			cssClass: 'modal',
+		});
+		return await modal.present();
+	}
+
+	async changePassword() {
+		console.log('cambiar password');
+		const modal = await this.modalConroller.create({
+			component: ChangeEmailPasswordModalPage,
+			componentProps: {
+				mode: 'password',
+				data: this.user.email,
+			},
+			animated: true,
+			mode: 'ios',
+			backdropDismiss: false,
+			cssClass: 'modal',
+		});
+		return await modal.present();
 	}
 }
