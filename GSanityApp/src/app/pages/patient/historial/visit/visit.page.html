@@ -19,10 +19,10 @@
 		><ion-item>
 			<ion-label position="stacked">Doctor:</ion-label><br />
 			<p>{{doctor?.name}}</p> </ion-item
-		><ion-card *ngIf="visit?.prescription"
+		><ion-card *ngIf="visit?.prescription" mode="ios"
 			><ion-grid
 					><ion-row
-						><ion-col><ion-title>Receta</ion-title></ion-col></ion-row
+						><ion-col><ion-title mode="ios">Receta</ion-title></ion-col></ion-row
 					>
 					<ion-row
 						><ion-col size="6">
@@ -34,5 +34,5 @@
 						><ion-col>{{visit.prescription.schedule}}</ion-col></ion-row
 					></ion-grid
 				></ion-card
-	>
+	></ion-card>
 </ion-content>

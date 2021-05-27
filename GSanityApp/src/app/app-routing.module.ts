@@ -64,6 +64,13 @@ const routes: Routes = [
 			),
 	},
 	{
+		path: 'auxiliar',
+		loadChildren: () =>
+			import('./pages/auxiliar/tabs/tabs.module').then(
+				(m) => m.TabsPageModule
+			),
+	},
+	{
 		path: 'admin',
 		loadChildren: () =>
 			import('./pages/admin/tabs/tabs.module').then((m) => m.TabsPageModule),
@@ -71,11 +78,14 @@ const routes: Routes = [
 	{
 		path: '**',
 		redirectTo: 'welcome',
-	},  {
-    path: 'change-email-password-modal',
-    loadChildren: () => import('./pages/common/change-email-password-modal/change-email-password-modal.module').then( m => m.ChangeEmailPasswordModalPageModule)
-  },
-
+	},
+	{
+		path: 'change-email-password-modal',
+		loadChildren: () =>
+			import(
+				'./pages/common/change-email-password-modal/change-email-password-modal.module'
+			).then((m) => m.ChangeEmailPasswordModalPageModule),
+	},
 ];
 
 @NgModule({

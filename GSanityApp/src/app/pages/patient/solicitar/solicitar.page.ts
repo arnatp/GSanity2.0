@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { DatabaseUser, Visit } from 'src/app/domain/intefaces';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -14,6 +15,7 @@ export class SolicitarPage implements OnInit {
 	newVisit: Visit = {
 		id: '',
 		date: null,
+		time : null,
 		completed: false,
 		dated: false,
 		initialDescription: null,
@@ -22,19 +24,28 @@ export class SolicitarPage implements OnInit {
 		patientUid: '',
 		doctorUid: null,
 	};
+	public form: FormGroup;
 	public doctors: Observable<DatabaseUser[]>;
 
 	constructor(
 		private visitService: VisitService,
 		private databaseService: DatabaseService,
-		private userService: UserService
-	) {}
+		private userService: UserService,
+		private formBuilder: FormBuilder
+	) {
+	}
+	get errorControl() {
+		return this.form.controls;
+	}
 
 	ngOnInit() {
+		this.form = this.formBuilder.group({});
+
 		this.doctors = this.userService.getAllDoctors();
 	}
 
 	async create() {
+		this.form.reset();
 		try {
 			this.newVisit.id = this.databaseService.createCustomId();
 			this.newVisit.patientUid = JSON.parse(

@@ -11,6 +11,7 @@ import { HomePage } from './home.page';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {  NgCalendarModule } from 'ionic2-calendar';
 export function createTranslateLoader(http: HttpClient) {
 	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -27,6 +28,7 @@ export function createTranslateLoader(http: HttpClient) {
 				deps: [HttpClient],
 			},
 		}),
+		NgCalendarModule,
 	],
 	declarations: [HomePage],
 })

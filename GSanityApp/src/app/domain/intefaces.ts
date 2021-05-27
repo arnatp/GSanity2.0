@@ -25,6 +25,7 @@ export interface DatabaseUser {
 export interface Visit {
 	id: string;
 	date: IonDatetime;
+	time : IonDatetime;
 	completed: boolean;
 	dated: boolean;
 	initialDescription: Text;
