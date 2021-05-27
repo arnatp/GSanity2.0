@@ -15,7 +15,7 @@ export class SolicitarPage implements OnInit {
 	newVisit: Visit = {
 		id: '',
 		date: null,
-		time : null,
+		time: null,
 		completed: false,
 		dated: false,
 		initialDescription: null,
@@ -32,8 +32,7 @@ export class SolicitarPage implements OnInit {
 		private databaseService: DatabaseService,
 		private userService: UserService,
 		private formBuilder: FormBuilder
-	) {
-	}
+	) {}
 	get errorControl() {
 		return this.form.controls;
 	}
@@ -45,7 +44,7 @@ export class SolicitarPage implements OnInit {
 	}
 
 	async create() {
-		this.form.reset();
+		//this.form.reset();
 		try {
 			this.newVisit.id = this.databaseService.createCustomId();
 			this.newVisit.patientUid = JSON.parse(

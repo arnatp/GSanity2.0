@@ -85,7 +85,6 @@ export class RegisterPage implements OnInit {
 	}
 
 	submitForm() {
-		this.form.reset();
 		this.isSubmitted = true;
 		if (!this.form.valid) {
 			return false;

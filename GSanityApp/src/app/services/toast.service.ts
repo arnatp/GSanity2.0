@@ -18,4 +18,16 @@ export class ToastService {
 		});
 		toast.present();
 	}
+
+	async presentValidToast(customMessage: string) {
+		const toast = await this.toastController.create({
+			message: customMessage,
+			duration: 2500,
+			mode: 'ios',
+			translucent: false,
+			color: 'success',
+			cssClass: 'toast',
+		});
+		toast.present();
+	}
 }

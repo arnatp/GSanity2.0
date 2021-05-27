@@ -42,7 +42,7 @@ export class ValidationMessages {
 				{
 					type: 'pattern',
 					message:
-						'Password must contain 1 lowercase character, 1 uppercase character, 1 number and 1 special character',
+						'Password must contain 1 lowercase character, 1 uppercase character and 1 number',
 				},
 			],
 			confirmPassword: [
@@ -80,6 +80,25 @@ export class ValidationMessages {
 
 	static validationFormNewEmailMessages() {
 		return {
+			email: [
+				{ type: 'required', message: 'Email is required.' },
+				{
+					type: 'pattern',
+					message: 'Email format is incorrect',
+				},
+			],
+			password: [
+				{ type: 'required', message: 'Password is required.' },
+				{
+					type: 'minlength',
+					message: 'Password must contain 8 characters at least',
+				},
+				{
+					type: 'pattern',
+					message:
+						'Password must contain 1 lowercase character, 1 uppercase character and 1 number',
+				},
+			],
 			newEmail: [
 				{ type: 'required', message: 'Email is required.' },
 				{
@@ -99,6 +118,25 @@ export class ValidationMessages {
 
 	static validationFormNewPasswordMessages() {
 		return {
+			email: [
+				{ type: 'required', message: 'Email is required.' },
+				{
+					type: 'pattern',
+					message: 'Email format is incorrect',
+				},
+			],
+			currentPassword: [
+				{ type: 'required', message: 'Password is required.' },
+				{
+					type: 'minlength',
+					message: 'Password must contain 8 characters at least',
+				},
+				{
+					type: 'pattern',
+					message:
+						'Password must contain 1 lowercase character, 1 uppercase character and 1 number',
+				},
+			],
 			password: [
 				{ type: 'required', message: 'Password is required.' },
 				{
@@ -108,7 +146,7 @@ export class ValidationMessages {
 				{
 					type: 'pattern',
 					message:
-						'Password must contain 1 lowercase character, 1 uppercase character, 1 number and 1 special character',
+						'Password must contain 1 lowercase character, 1 uppercase character and 1 number',
 				},
 			],
 			confirmPassword: [

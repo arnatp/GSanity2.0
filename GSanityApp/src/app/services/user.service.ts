@@ -29,6 +29,10 @@ export class UserService {
 		return this.dbService.editDocument<DatabaseUser>(user, 'users', user.uid);
 	}
 
+	updateField(uid, field) {
+		return this.dbService.updateDocument(field, 'users', uid);
+	}
+
 	delete(uid: string) {
 		console.log('borrando ' + uid);
 		return this.dbService.deleteDocument<DatabaseUser>('users', uid);

@@ -20,18 +20,7 @@ export class AuthService {
 		private toastService: ToastService,
 		private afAuth: AngularFireAuth,
 		private afs: AngularFirestore
-	) {
-		this.afAuth.authState.subscribe((user) => {
-			if (user) {
-				this.userData = user;
-				localStorage.setItem('user', JSON.stringify(this.userData));
-				JSON.parse(localStorage.getItem('user'));
-			} else {
-				localStorage.setItem('user', null);
-				JSON.parse(localStorage.getItem('user'));
-			}
-		});
-	}
+	) {}
 
 	public isLoggedIn(): boolean {
 		const user = JSON.parse(localStorage.getItem('user'));
@@ -86,6 +75,7 @@ export class AuthService {
 				password
 			);
 			await this.updateUserData(user);
+			localStorage.setItem('user', JSON.stringify(user));
 			return user;
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer login: ', error);
@@ -134,6 +124,67 @@ export class AuthService {
 			);
 		}
 	}*/
+
+	async changeEmail(
+		currentEmail: string,
+		currentPassword: string,
+		email: string
+	) {
+		try {
+			const { user } = await this.afAuth.signInWithEmailAndPassword(
+				currentEmail,
+				currentPassword
+			);
+			user
+				.updateEmail(email)
+				.then(() => {
+					this.toastService.presentValidToast(
+						'Se ha cambiado el mail correctamente'
+					);
+				})
+				.catch(() => {
+					this.toastService.presentToast(
+						'Ha ocurrido un error al intentar cambiar el mail'
+					);
+				});
+		} catch (error) {
+			console.log('Ha ocurrido un error al cambiar el mail: ', error);
+			this.toastService.presentToast(
+				'Ha ocurrido un error al intentar cambiar el mail'
+			);
+		}
+	}
+
+	async changePassword(
+		currentEmail: string,
+		currentPassword: string,
+		newPassword: string
+	) {
+		try {
+			const { user } = await this.afAuth.signInWithEmailAndPassword(
+				currentEmail,
+				currentPassword
+			);
+			user
+				.updatePassword(newPassword)
+				.then(() => {
+					this.toastService.presentValidToast(
+						'Se ha cambiado la contraseña correctamente'
+					);
+				})
+				.catch(() => {
+					this.toastService.presentToast(
+						'Ha ocurrido un error al intentar cambiar la contraseña'
+					);
+				});
+		} catch (error) {
+			console.log(currentEmail, currentPassword, newPassword);
+			console.log('Ha ocurrido un error al cambiar la password: ', error);
+			this.toastService.presentToast(
+				'Ha ocurrido un error al intentar cambiar la password'
+			);
+		}
+	}
 
 	private updateUserData(user: User) {
 		const userRef: AngularFirestoreDocument<User> = this.afs.doc(

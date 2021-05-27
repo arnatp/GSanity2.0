@@ -12,7 +12,6 @@ import { ValidationMessages } from 'src/app/validations/validation-messages';
 })
 export class ChangeEmailPasswordModalPage implements OnInit {
 	public mode;
-	data;
 
 	emailForm: FormGroup;
 	passwordForm: FormGroup;
@@ -30,7 +29,7 @@ export class ChangeEmailPasswordModalPage implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(`${this.mode}, ${this.data}`);
+		console.log(`${this.mode}`);
 		if (this.mode === 'email') {
 			this.validationMessages =
 				ValidationMessages.validationFormNewEmailMessages();
@@ -40,6 +39,26 @@ export class ChangeEmailPasswordModalPage implements OnInit {
 		}
 		this.emailForm = this.formBuilder.group(
 			{
+				email: [
+					'',
+					[
+						Validators.required,
+						Validators.pattern(
+							// eslint-disable-next-line max-len
+							/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+						),
+					],
+				],
+				password: [
+					'',
+					[
+						Validators.required,
+						Validators.minLength(8),
+						Validators.pattern(
+							'(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$'
+						),
+					],
+				],
 				newEmail: [
 					'',
 					[
@@ -67,6 +86,26 @@ export class ChangeEmailPasswordModalPage implements OnInit {
 		);
 		this.passwordForm = this.formBuilder.group(
 			{
+				email: [
+					'',
+					[
+						Validators.required,
+						Validators.pattern(
+							// eslint-disable-next-line max-len
+							/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+						),
+					],
+				],
+				currentPassword: [
+					'',
+					[
+						Validators.required,
+						Validators.minLength(8),
+						/*Validators.pattern(
+							'(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$'
+						),*/
+					],
+				],
 				password: [
 					'',
 					[
@@ -95,7 +134,12 @@ export class ChangeEmailPasswordModalPage implements OnInit {
 		if (!this.emailForm.valid) {
 			return false;
 		} else {
-			this.updateEmail(this.emailForm.value.newEmail);
+			this.authService.changeEmail(
+				this.emailForm.value.email,
+				this.emailForm.value.password,
+				this.emailForm.value.newEmail
+			);
+			this.dimiss();
 		}
 	}
 
@@ -104,15 +148,12 @@ export class ChangeEmailPasswordModalPage implements OnInit {
 		if (!this.passwordForm.valid) {
 			return false;
 		} else {
-			this.updatePassword(this.passwordForm.value.password);
+			this.authService.changePassword(
+				this.passwordForm.value.email,
+				this.passwordForm.value.currentPassword,
+				this.passwordForm.value.password
+			);
+			this.dimiss();
 		}
-	}
-
-	updateEmail(email) {
-		console.log('updateando email a: ', email);
-	}
-
-	updatePassword(password) {
-		console.log('updateando password a: ', password);
 	}
 }

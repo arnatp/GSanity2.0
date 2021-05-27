@@ -27,16 +27,13 @@ export class PerfilPage {
 
 	constructor(
 		private userService: UserService,
-		private firebase: AngularFireAuth,
 		private authService: AuthService,
 		private router: Router,
 		public modalConroller: ModalController
 	) {
-		this.firebase.currentUser.then((authUser) => {
-			this.userService.getUserByUid(authUser.uid).subscribe((user) => {
-				this.user = user;
-			});
-		});
+		this.userService
+			.getUserByUid(JSON.parse(localStorage.getItem('user')).uid)
+			.subscribe((user) => (this.user = user));
 	}
 
 	logout() {
@@ -46,7 +43,6 @@ export class PerfilPage {
 	}
 
 	async changeEmail() {
-		console.log('cambiar email');
 		const modal = await this.modalConroller.create({
 			component: ChangeEmailPasswordModalPage,
 			componentProps: {
@@ -61,12 +57,10 @@ export class PerfilPage {
 	}
 
 	async changePassword() {
-		console.log('cambiar password');
 		const modal = await this.modalConroller.create({
 			component: ChangeEmailPasswordModalPage,
 			componentProps: {
 				mode: 'password',
-				data: this.user.email,
 			},
 			animated: true,
 			mode: 'ios',
