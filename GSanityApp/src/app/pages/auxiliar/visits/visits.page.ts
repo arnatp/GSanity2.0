@@ -13,8 +13,6 @@ export class VisitsPage implements OnInit {
 	constructor(private visitService: VisitService) {}
 
 	ngOnInit() {
-		this.visits = this.visitService.getVisitsAssignedToDoctorByUid(
-			JSON.parse(localStorage.getItem('user')).uid
-		);
+		this.visits = this.visitService.getNotDatedVisits();
 	}
 }

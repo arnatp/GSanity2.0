@@ -25,6 +25,7 @@ export function createTranslateLoader(http: HttpClient) {
 				deps: [HttpClient],
 			},
 		}),
+
 	],
 	declarations: [HomePage],
 })

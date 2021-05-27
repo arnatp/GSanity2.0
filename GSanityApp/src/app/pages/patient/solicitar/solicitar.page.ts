@@ -15,6 +15,7 @@ export class SolicitarPage implements OnInit {
 	newVisit: Visit = {
 		id: '',
 		date: null,
+		time : null,
 		completed: false,
 		dated: false,
 		initialDescription: null,

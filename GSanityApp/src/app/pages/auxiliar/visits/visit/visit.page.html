@@ -15,14 +15,12 @@
 				<p>{{visit?.initialDescription}}</p>
 			</ion-item>
 			<ion-item>
-				<ion-label position="stacked">Solucio:</ion-label><br />
-				<ion-textarea
-					[(ngModel)]="visit.resolution"
-					[ngModelOptions]="{standalone: true}"
-				></ion-textarea> </ion-item
-			><ion-item>
 				<ion-label position="stacked">Doctor:</ion-label><br />
 				<p>{{doctor?.name}}</p>
+			</ion-item>
+			<ion-item>
+				<ion-label position="stacked">Hora:</ion-label><br />
+				<ion-datetime [(ngModel)]="time" displayFormat="HH:mm" hourValues="8,9,10,11,12,13,15,16,17,18,19" minuteValues="0,30"  required></ion-datetime>
 			</ion-item>
 			<ion-button
 				expand="block"

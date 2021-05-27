@@ -4,18 +4,27 @@ import { Routes, RouterModule } from '@angular/router';
 import { VisitsPage } from './visits.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: VisitsPage
-  },
-  {
-    path: 'visit',
-    loadChildren: () => import('./visit/visit.module').then( m => m.VisitPageModule)
-  }
+	{
+		path: '',
+		children: [
+			{
+				path: '',
+				component: VisitsPage,
+			},
+			{
+				path: 'visit/:id',
+				pathMatch: 'full',
+				loadChildren: () =>
+					import('../visits/visit/visit.module').then(
+						(m) => m.VisitPageModule
+					),
+			},
+		],
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class VisitsPageRoutingModule {}

@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DatabaseUser, Visit } from 'src/app/domain/intefaces';
 import { UserService } from 'src/app/services/user.service';
 import { VisitService } from 'src/app/services/visit.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonDatetime } from '@ionic/angular';
+import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 @Component({
 	selector: 'app-visit',
@@ -11,6 +12,8 @@ import { ModalController } from '@ionic/angular';
 	styleUrls: ['./visit.page.scss'],
 })
 export class VisitPage implements OnInit {
+	time: Date ;
+
 	public visit: Visit;
 	public doctor: DatabaseUser;
 
@@ -33,8 +36,9 @@ export class VisitPage implements OnInit {
 	}
 
 	updateVisit() {
-		if (this.visit.resolution.nodeValue != '') {
-			this.visit.completed = true;
+		console.log(this.time);
+		if (this.visit.time) {
+			this.visit.dated = true;
 			this.visitService.updateVisit(this.visit);
 		}
 		console.log(this.visit);
