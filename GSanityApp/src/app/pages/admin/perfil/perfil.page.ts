@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { DatabaseUser } from 'src/app/domain/intefaces';
-import { AuthService } from 'src/app/services/auth.service';
+import { AlertService } from 'src/app/services/alert.service';
 import { UserService } from 'src/app/services/user.service';
 import { ChangeEmailPasswordModalPage } from '../../common/change-email-password-modal/change-email-password-modal.page';
 
@@ -12,7 +10,7 @@ import { ChangeEmailPasswordModalPage } from '../../common/change-email-password
 	templateUrl: 'perfil.page.html',
 	styleUrls: ['perfil.page.scss'],
 })
-export class PerfilPage {
+export class PerfilPage implements OnInit {
 	user: DatabaseUser = {
 		uid: null,
 		bornDate: null,
@@ -27,23 +25,22 @@ export class PerfilPage {
 
 	constructor(
 		private userService: UserService,
-		private authService: AuthService,
-		private router: Router,
-		public modalConroller: ModalController
-	) {
+		private modalController: ModalController,
+		private alertService: AlertService
+	) {}
+
+	ngOnInit() {
 		this.userService
 			.getUserByUid(JSON.parse(localStorage.getItem('user')).uid)
 			.subscribe((user) => (this.user = user));
 	}
 
 	logout() {
-		this.authService.logout().then((_) => {
-			this.router.navigate(['welcome']);
-		});
+		this.alertService.presentAlertConfirmLogout();
 	}
 
 	async changeEmail() {
-		const modal = await this.modalConroller.create({
+		const modal = await this.modalController.create({
 			component: ChangeEmailPasswordModalPage,
 			componentProps: {
 				mode: 'email',
@@ -57,7 +54,7 @@ export class PerfilPage {
 	}
 
 	async changePassword() {
-		const modal = await this.modalConroller.create({
+		const modal = await this.modalController.create({
 			component: ChangeEmailPasswordModalPage,
 			componentProps: {
 				mode: 'password',

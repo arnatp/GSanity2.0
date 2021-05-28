@@ -13,19 +13,16 @@ ion-toolbar {
 }
 
 ion-card {
-	ion-card-header {
-		text-align: center;
-		ion-avatar {
-			display: flex;
-			position: absolute;
-		}
-		ion-card-title {
-			margin-left: 40px;
-			font-size: 20px;
-		}
-		ion-card-subtitle {
-			margin-left: 40px;
-			text-decoration: underline;
+	ion-avatar {
+		width: 50px;
+		height: 50px;
+	}
+	ion-card-content {
+		ion-item {
+			ion-icon {
+				width: 23px;
+				margin-right: 5px;
+			}
 		}
 	}
 }

@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PerfilPageRoutingModule } from './perfil-routing.module';
 
 import { PerfilPage } from './perfil.page';
+import { TextAvatarModule } from 'src/app/components/text-avatar';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PerfilPageRoutingModule
-  ],
-  declarations: [PerfilPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		TextAvatarModule,
+		PerfilPageRoutingModule,
+	],
+	declarations: [PerfilPage],
 })
 export class PerfilPageModule {}

@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { DatabaseUser } from 'src/app/domain/intefaces';
-import { AuthService } from 'src/app/services/auth.service';
+import { AlertService } from 'src/app/services/alert.service';
 import { UserService } from 'src/app/services/user.service';
+import { ChangeEmailPasswordModalPage } from '../../common/change-email-password-modal/change-email-password-modal.page';
 
 @Component({
 	selector: 'app-perfil',
 	templateUrl: './perfil.page.html',
 	styleUrls: ['./perfil.page.scss'],
 })
-export class PerfilPage {
+export class PerfilPage implements OnInit {
 	user: DatabaseUser = {
 		uid: null,
 		bornDate: null,
@@ -25,21 +25,45 @@ export class PerfilPage {
 
 	constructor(
 		private userService: UserService,
-		private firebase: AngularFireAuth,
-		private authService: AuthService,
-		private router: Router
-	) {
-		this.firebase.currentUser.then((authUser) => {
-			this.userService.getUserByUid(authUser.uid).subscribe((user) => {
-				this.user = user;
-			});
-		});
+		private modalController: ModalController,
+		private alertService: AlertService
+	) {}
+
+	ngOnInit() {
+		this.userService
+			.getUserByUid(JSON.parse(localStorage.getItem('user')).uid)
+			.subscribe((user) => (this.user = user));
 	}
 
 	logout() {
-		console.log('Cerrar sesion');
-		this.authService.logout().then((_) => {
-			this.router.navigate(['welcome']);
+		this.alertService.presentAlertConfirmLogout();
+	}
+
+	async changeEmail() {
+		const modal = await this.modalController.create({
+			component: ChangeEmailPasswordModalPage,
+			componentProps: {
+				mode: 'email',
+			},
+			animated: true,
+			mode: 'ios',
+			backdropDismiss: false,
+			cssClass: 'modal',
 		});
+		return await modal.present();
+	}
+
+	async changePassword() {
+		const modal = await this.modalController.create({
+			component: ChangeEmailPasswordModalPage,
+			componentProps: {
+				mode: 'password',
+			},
+			animated: true,
+			mode: 'ios',
+			backdropDismiss: false,
+			cssClass: 'modal',
+		});
+		return await modal.present();
 	}
 }

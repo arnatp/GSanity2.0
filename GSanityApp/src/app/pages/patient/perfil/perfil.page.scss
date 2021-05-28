@@ -1,9 +1,33 @@
-.logout {
-	--background: transparent;
-	--background-activated: transparent;
-	--color: black;
+ion-header {
+	margin: 0;
+	height: 60px;
+	.logout {
+		--background: transparent;
+		--background-activated: transparent;
+		--color: black;
+	}
 }
 
 ion-toolbar {
 	--background: var(--ion-color-green-patient);
+}
+
+ion-card {
+	ion-avatar {
+		width: 50px;
+		height: 50px;
+	}
+	ion-card-content {
+		ion-item {
+			ion-icon {
+				width: 23px;
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+.profileButtons {
+	margin: 2% 5%;
+	font-size: 18px;
 }
