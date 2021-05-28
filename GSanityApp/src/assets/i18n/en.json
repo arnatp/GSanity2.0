@@ -1,5 +1,19 @@
 {
 	"wellcome": {
-	  "title": "Wellcome"
+		"title": "Wellcome"
+	},
+	"patient": {
+		"home": "Home",
+		"history": "History",
+		"request": "Request",
+		"requestVisit": "Request Visit"
+	},
+	"visit": {
+		"visit": "Visit",
+		"InitialDescription": "Initial Description",
+		"Resolution": "Resolution",
+		"date": "Date",
+		"doctor": "Doctor",
+		"presctiption": "Presctiption"
 	}
- }
+}

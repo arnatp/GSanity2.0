@@ -1,19 +1,21 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title> Solicitar </ion-title>
+		<ion-title> {{"patient.request"|translate}} </ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
 	<div class="solicitarForm">
-		<h3>Solicitar Visita</h3>
+		<h3>{{"patient.requestVisit"|translate}}</h3>
 		<br />
 		<form (ngSubmit)="create()">
 			<ion-grid>
 				<ion-row>
 					<ion-col size="6">
 						<ion-item>
-							<ion-label position="stacked">Date</ion-label>
+							<ion-label position="stacked"
+								>{{"visit.date"|translate}}</ion-label
+							>
 							<ion-input
 								type="date"
 								[(ngModel)]="newVisit.date"
@@ -24,7 +26,9 @@
 					</ion-col>
 					<ion-col size="6">
 						<ion-item>
-							<ion-label position="floating">Doctor</ion-label>
+							<ion-label position="floating"
+								>{{"visit.doctor"|translate}}</ion-label
+							>
 							<ion-select
 								interface="popover"
 								required
@@ -45,7 +49,9 @@
 				<br />
 				<ion-item>
 					<div>
-						<ion-label position="stacked">Initial Description</ion-label>
+						<ion-label position="stacked"
+							>{{"visit.InitialDescription"|translate}}</ion-label
+						>
 					</div>
 					<div>
 						<ion-textarea
@@ -66,7 +72,7 @@
 					type="submit"
 					[disabled]="form.invalid"
 					expand="block"
-					>pedir visita</ion-button
+					>{{"patient.requestVisit"|translate}}</ion-button
 				>
 			</ion-grid>
 		</form>

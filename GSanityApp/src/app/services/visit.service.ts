@@ -8,7 +8,6 @@ import { DatabaseService } from './database.service';
 	providedIn: 'root',
 })
 export class VisitService {
-
 	constructor(private dataBaseService: DatabaseService) {}
 
 	createVisit(newVisit: Visit) {
@@ -69,7 +68,18 @@ export class VisitService {
 	updateVisitPrescription(prescription: any, idvisit: any) {
 		this.dataBaseService.updateDocument(prescription, 'visits', idvisit);
 	}
-	getVisitsByDate(date: IonDatetime,uid:string):Observable<Visit[]> {
-		return this.dataBaseService.getDocumentsWithTwoWhere('visit','date','==',date,'doctorUid','==',uid);
+	getVisitsByDate(date: IonDatetime, uid: string): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithThreeWhere(
+			'visits',
+			'date',
+			'==',
+			date,
+			'doctorUid',
+			'==',
+			uid,
+			'dated',
+			'==',
+			true
+		);
 	}
 }

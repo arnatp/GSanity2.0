@@ -1,5 +1,19 @@
 {
 	"wellcome": {
-	  "title": "Bienvenido"
+		"title": "Bienvenido"
+	},
+	"patient": {
+		"home": "Inicio",
+		"history": "Historial",
+		"request": "Solicitar",
+		"requestVisit": "Solicitar Visita"
+	},
+	"visit": {
+		"visit": "Visita",
+		"InitialDescription": "Descripcion Inicial",
+		"Resolution": "Solución",
+		"date": "Fecha",
+		"doctor": "Doctor",
+		"presctiption": "Receta"
 	}
- }
+}
