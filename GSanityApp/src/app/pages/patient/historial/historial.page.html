@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
 	<ion-toolbar>
-		<ion-title> Historial </ion-title>
+		<ion-title> {{"patient.history"|translate}} </ion-title>
 	</ion-toolbar>
 </ion-header>
 <ion-content>
@@ -9,9 +9,12 @@
 		routerLink="visit/{{visit.id}}"
 	>
 		<ion-label>
-			<h2>{{ visit.date}}</h2>
-			<p>Descripcion Inicial: {{ visit.initialDescription }}</p>
-			<p>Resolucion: {{ visit.resolution }}</p>
+			<h2>{{ visit.date | date:'dd/MM/YYYY'}}</h2>
+			<p>
+				{{"visit.InitialDescription"|translate}}: {{
+				visit.initialDescription }}
+			</p>
+			<p>{{"visit.Resolution"|translate}}: {{ visit.resolution }}</p>
 		</ion-label>
 	</ion-item>
 </ion-content>
