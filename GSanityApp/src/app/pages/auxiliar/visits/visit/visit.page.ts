@@ -15,6 +15,7 @@ export class VisitPage implements OnInit {
 
 	public visit: Visit;
 	public doctor: DatabaseUser;
+	private hoursPicked;
 
 	constructor(
 		private visitService: VisitService,
@@ -33,6 +34,8 @@ export class VisitPage implements OnInit {
 				this.doctor = doctor;
 			});
 		});
+		this.hoursPicked = this.getHoursPicked();
+		console.log(this.hoursPicked);
 	}
 
 	updateVisit() {
@@ -44,5 +47,16 @@ export class VisitPage implements OnInit {
 			this.visitService.updateVisit(this.visit);
 		}
 		this.router.navigate(['/auxiliar/visits']);
+	}
+	getHoursPicked(){
+		//falla el recoger horas
+		var hours = [];
+		console.log(this.visit.date);
+		this.visitService.getVisitsByDate(this.visit.date ,this.visit.doctorUid).subscribe((visits) =>{
+			visits.forEach(visit=>{
+				hours.push(visit.time);
+			});
+		});
+		this.hoursPicked = hours;
 	}
 }

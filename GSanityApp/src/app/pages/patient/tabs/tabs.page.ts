@@ -12,7 +12,6 @@ export class TabsPage {
 	//Este método sirve para que no se propague un navigate dentro de una vista del tab
 	clickTab(event: Event, tab: string) {
 		event.stopImmediatePropagation();
-		console.log(event, tab);
 		this.router.navigate([`${'patient/'}${tab}`]);
 	}
 }

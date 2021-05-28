@@ -12,7 +12,6 @@ export class TabsPage implements OnInit {
 	ngOnInit() {}
 	clickTab(event: Event, tab: string) {
 		event.stopImmediatePropagation();
-		console.log(event, tab);
 		this.router.navigate([`${'doctor/'}${tab}`]);
 	}
 }

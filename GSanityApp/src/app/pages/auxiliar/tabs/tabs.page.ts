@@ -10,9 +10,9 @@ export class TabsPage implements OnInit {
 	constructor(private router: Router) {}
 
 	ngOnInit() {}
+
 	clickTab(event: Event, tab: string) {
 		event.stopImmediatePropagation();
-		console.log(event, tab);
 		this.router.navigate([`${'auxiliar/'}${tab}`]);
 	}
 }

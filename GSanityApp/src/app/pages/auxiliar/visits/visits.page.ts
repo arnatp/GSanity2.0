@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Visit } from 'src/app/domain/intefaces';
+import { Visit, DatabaseUser } from 'src/app/domain/intefaces';
+import { UserService } from 'src/app/services/user.service';
 import { VisitService } from 'src/app/services/visit.service';
 
 @Component({
@@ -10,9 +11,26 @@ import { VisitService } from 'src/app/services/visit.service';
 })
 export class VisitsPage implements OnInit {
 	public visits: Observable<Visit[]>;
-	constructor(private visitService: VisitService) {}
+	public doctors: Observable<DatabaseUser[]>;
+	doctorUid: string = '';
 
-	ngOnInit() {
-		this.visits = this.visitService.getNotDatedVisits();
+	constructor(
+		private visitService: VisitService,
+		private userService: UserService
+	) {
+		this.doctors = this.userService.getAllDoctors();
+	}
+
+	ngOnInit() {this.getDoctorVisits()}
+
+	getDoctorVisits() {
+		console.log(this.doctorUid);
+		if (this.doctorUid == '') {
+			this.visits = this.visitService.getNotDatedVisits();
+		} else {
+			this.visits = this.visitService.getNotDatedVisitsByDoctorUid(
+				this.doctorUid
+			);
+		}
 	}
 }

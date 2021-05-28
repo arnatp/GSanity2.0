@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IonDatetime } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Visit } from '../domain/intefaces';
 import { DatabaseService } from './database.service';
@@ -7,6 +8,7 @@ import { DatabaseService } from './database.service';
 	providedIn: 'root',
 })
 export class VisitService {
+
 	constructor(private dataBaseService: DatabaseService) {}
 
 	createVisit(newVisit: Visit) {
@@ -30,6 +32,7 @@ export class VisitService {
 			true
 		);
 	}
+
 	getVisitsAssignedToDoctorByUid(uid: string): Observable<Visit[]> {
 		return this.dataBaseService.getDocumentsWithThreeWhere(
 			'visits',
@@ -52,7 +55,21 @@ export class VisitService {
 			false
 		);
 	}
+	getNotDatedVisitsByDoctorUid(uid: string): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithTwoWhere(
+			'visits',
+			'doctorUid',
+			'==',
+			uid,
+			'dated',
+			'==',
+			false
+		);
+	}
 	updateVisitPrescription(prescription: any, idvisit: any) {
 		this.dataBaseService.updateDocument(prescription, 'visits', idvisit);
+	}
+	getVisitsByDate(date: IonDatetime,uid:string):Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithTwoWhere('visit','date','==',date,'doctorUid','==',uid);
 	}
 }
