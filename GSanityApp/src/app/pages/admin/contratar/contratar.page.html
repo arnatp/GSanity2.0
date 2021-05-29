@@ -1,195 +1,224 @@
 <ion-header class="ion-no-border" mode="ios">
-	<ion-toolbar>
+	<ion-toolbar class="GSanity-toolbar">
 		<ion-title>{{"admin.hire"|translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-no-margin">
-	<form [formGroup]="hireForm" (ngSubmit)="submitForm()" novalidate>
-		<ion-grid>
-			<ion-row>
-				<ion-col>
-					<ion-item>
-						<ion-label position="floating">{{"user.name"|translate}}</ion-label>
-						<ion-input
-							required
-							type="text"
-							formControlName="name"
-							clearInput="true"
-							autocapitalize="on"
-						></ion-input>
-					</ion-item>
-					<div class="error">
-						<ng-container
-							*ngFor="let validation of validationMessages.name"
-						>
-							<div
-								*ngIf="hireForm.get('name').hasError(validation.type) && (hireForm.get('name').dirty || hireForm.get('name').touched || isSubmitted)"
+	<form
+		[formGroup]="hireForm"
+		(ngSubmit)="submitForm(formDirective)"
+		#formDirective="ngForm"
+		novalidate
+	>
+		<ion-card>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<ion-item>
+							<ion-label position="floating"
+								>{{"user.name"|translate}}</ion-label
 							>
-								{{ validation.message }}
-							</div>
-						</ng-container>
-					</div>
-				</ion-col>
-				<ion-col>
-					<ion-item>
-						<ion-label position="floating">{{"user.surnames"|translate}}</ion-label>
-						<ion-input
-							required
-							type="text"
-							formControlName="surnames"
-							clearInput="true"
-							autocapitalize="on"
-						></ion-input>
-					</ion-item>
-					<div class="error">
-						<ng-container
-							*ngFor="let validation of validationMessages.surnames"
-						>
-							<div
-								*ngIf="hireForm.get('surnames').hasError(validation.type) && (hireForm.get('surnames').dirty || hireForm.get('surnames').touched || isSubmitted)"
+							<ion-input
+								required
+								type="text"
+								formControlName="name"
+								clearInput="true"
+								autocapitalize="on"
+							></ion-input>
+						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.name"
 							>
-								{{ validation.message }}
-							</div>
-						</ng-container>
-					</div>
-				</ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col>
-					<ion-item>
-						<ion-label position="floating">{{"user.dni"|translate}}</ion-label>
-						<ion-input
-							required
-							type="text"
-							formControlName="dni"
-							clearInput="true"
-						></ion-input>
-					</ion-item>
-					<div class="error">
-						<ng-container
-							*ngFor="let validation of validationMessages.dni"
-						>
-							<div
-								*ngIf="hireForm.get('dni').hasError(validation.type) && (hireForm.get('dni').dirty || hireForm.get('dni').touched || isSubmitted)"
+								<div
+									*ngIf="hireForm.get('name').hasError(validation.type) && (hireForm.get('name').dirty || hireForm.get('name').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
+					</ion-col>
+					<ion-col>
+						<ion-item>
+							<ion-label position="floating"
+								>{{"user.surnames"|translate}}</ion-label
 							>
-								{{ validation.message }}
-							</div>
-						</ng-container>
-					</div>
-				</ion-col>
-				<ion-col>
-					<ion-item>
-						<ion-label position="stacked">{{"user.bornDate"|translate}}</ion-label>
-						<ion-input
-							required
-							type="date"
-							formControlName="bornDate"
-						></ion-input>
-					</ion-item>
-					<div class="error">
-						<ng-container
-							*ngFor="let validation of validationMessages.bornDate"
-						>
-							<div
-								*ngIf="hireForm.get('bornDate').hasError(validation.type) && (hireForm.get('bornDate').dirty || hireForm.get('bornDate').touched || isSubmitted)"
+							<ion-input
+								required
+								type="text"
+								formControlName="surnames"
+								clearInput="true"
+								autocapitalize="on"
+							></ion-input>
+						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.surnames"
 							>
-								{{ validation.message }}
-							</div>
-						</ng-container>
-					</div>
-				</ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col>
-					<ion-item>
-						<ion-label position="floating">{{"user.email"|translate}}</ion-label>
-						<ion-input
-							required
-							type="email"
-							formControlName="email"
-							clearInput="true"
-						></ion-input>
-					</ion-item>
-					<div class="error">
-						<ng-container
-							*ngFor="let validation of validationMessages.email"
-						>
-							<div
-								*ngIf="hireForm.get('email').hasError(validation.type) && (hireForm.get('email').dirty || hireForm.get('email').touched || isSubmitted)"
+								<div
+									*ngIf="hireForm.get('surnames').hasError(validation.type) && (hireForm.get('surnames').dirty || hireForm.get('surnames').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<ion-item>
+							<ion-label position="floating"
+								>{{"user.dni"|translate}}</ion-label
 							>
-								{{ validation.message }}
-							</div>
-						</ng-container>
-					</div>
-				</ion-col>
-			</ion-row>
-			<ion-row>
-				<ion-col>
-					<ion-item>
-						<ion-label position="floating">{{"user.gender"|translate}}</ion-label>
-						<ion-select
-							interface="popover"
-							required
-							formControlName="gender"
-						>
-							<ion-select-option value="male">{{"user.male"|translate}}</ion-select-option>
-							<ion-select-option value="female"
-								>{{"user.female"|translate}}</ion-select-option
+							<ion-input
+								required
+								type="text"
+								formControlName="dni"
+								clearInput="true"
+							></ion-input>
+						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.dni"
 							>
-						</ion-select>
-					</ion-item>
-					<div class="error">
-						<ng-container
-							*ngFor="let validation of validationMessages.gender"
-						>
-							<div
-								*ngIf="hireForm.get('gender').hasError(validation.type) && (hireForm.get('gender').dirty || hireForm.get('gender').touched || isSubmitted)"
+								<div
+									*ngIf="hireForm.get('dni').hasError(validation.type) && (hireForm.get('dni').dirty || hireForm.get('dni').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
+					</ion-col>
+					<ion-col>
+						<ion-item>
+							<ion-label position="stacked"
+								>{{"user.bornDate"|translate}}</ion-label
 							>
-								{{ validation.message }}
-							</div>
-						</ng-container>
-					</div>
-				</ion-col>
-				<ion-col>
-					<ion-item>
-						<ion-label position="floating">{{"user.workPlace"|translate}}</ion-label>
-						<ion-select
-							interface="popover"
-							required
-							formControlName="role"
-						>
-							<ion-select-option value="doctor"
-								>{{"user.doctor"|translate}}</ion-select-option
+							<ion-input
+								required
+								type="date"
+								formControlName="bornDate"
+							></ion-input>
+						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.bornDate"
 							>
-							<ion-select-option value="auxiliar"
-								>{{"user.auxiliar"|translate}}</ion-select-option
+								<div
+									*ngIf="hireForm.get('bornDate').hasError(validation.type) && (hireForm.get('bornDate').dirty || hireForm.get('bornDate').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<ion-item>
+							<ion-label position="floating"
+								>{{"user.email"|translate}}</ion-label
 							>
-						</ion-select>
-					</ion-item>
-					<div class="error">
-						<ng-container
-							*ngFor="let validation of validationMessages.role"
-						>
-							<div
-								*ngIf="hireForm.get('role').hasError(validation.type) && (hireForm.get('role').dirty || hireForm.get('role').touched || isSubmitted)"
+							<ion-input
+								required
+								type="email"
+								formControlName="email"
+								clearInput="true"
+							></ion-input>
+						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.email"
 							>
-								{{ validation.message }}
-							</div>
-						</ng-container>
-					</div>
-				</ion-col>
-			</ion-row>
-			<div class="sign-btn-wrap">
-				<ion-button
-					type="submit"
-					shape="round"
-					expand="block"
-					fill="solid"
-					class="sign-btn"
-					>{{"admin.hire"|translate}}</ion-button
-				>
-			</div>
-		</ion-grid>
+								<div
+									*ngIf="hireForm.get('email').hasError(validation.type) && (hireForm.get('email').dirty || hireForm.get('email').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<ion-item>
+							<ion-label position="floating"
+								>{{"user.gender"|translate}}</ion-label
+							>
+							<ion-select
+								interface="popover"
+								required
+								formControlName="gender"
+							>
+								<ion-select-option value="male"
+									>{{"user.male"|translate}}</ion-select-option
+								>
+								<ion-select-option value="female"
+									>{{"user.female"|translate}}</ion-select-option
+								>
+							</ion-select>
+						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.gender"
+							>
+								<div
+									*ngIf="hireForm.get('gender').hasError(validation.type) && (hireForm.get('gender').dirty || hireForm.get('gender').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
+					</ion-col>
+					<ion-col>
+						<ion-item>
+							<ion-label position="floating"
+								>{{"user.workPlace"|translate}}</ion-label
+							>
+							<ion-select
+								interface="popover"
+								required
+								formControlName="role"
+							>
+								<ion-select-option value="doctor"
+									>{{"user.doctor"|translate}}</ion-select-option
+								>
+								<ion-select-option value="auxiliar"
+									>{{"user.auxiliar"|translate}}</ion-select-option
+								>
+							</ion-select>
+						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.role"
+							>
+								<div
+									*ngIf="hireForm.get('role').hasError(validation.type) && (hireForm.get('role').dirty || hireForm.get('role').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card>
+		<ion-button
+			type="submit"
+			expand="block"
+			fill="solid"
+			class="hireButton"
+			mode="ios"
+			>{{"admin.hire"|translate}}</ion-button
+		>
+		<ion-button
+			expand="block"
+			fill="clear"
+			class="clearForm"
+			mode="ios"
+			(click)="clearForm(formDirective)"
+			>{{"admin.clearForm"|translate}}</ion-button
+		>
 	</form>
 </ion-content>

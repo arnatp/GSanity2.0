@@ -14,7 +14,6 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class AuthService {
 	public user$: Observable<User>;
-	private userData: User;
 
 	constructor(
 		private toastService: ToastService,
@@ -103,6 +102,9 @@ export class AuthService {
 				password
 			);
 			await this.resetPassword(email);
+			this.toastService.presentValidToast(
+				'Se ha creado correctamente el nuevo usuario'
+			);
 			return user;
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer registro: ', error);

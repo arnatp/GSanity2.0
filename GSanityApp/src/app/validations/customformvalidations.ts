@@ -2,16 +2,30 @@ import { FormGroup } from '@angular/forms';
 
 export class CustomFormValidations {
 	static checkDNI(form: FormGroup) {
-		let letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
-		const dni = form.value.toLowerCase();
+		if (form.value) {
+			let letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+			const dni = form.value.toLowerCase();
 
-		let numero = dni.substr(0, dni.length - 1);
-		const letr = dni.substr(dni.length - 1, 1);
-		numero = numero % 23;
-		letra = letra.substring(numero, numero + 1);
-		if (letra !== letr.toUpperCase()) {
-			return { dniInvalid: true };
-		} else {
+			let numero = dni.substr(0, dni.length - 1);
+			const letr = dni.substr(dni.length - 1, 1);
+			numero = numero % 23;
+			letra = letra.substring(numero, numero + 1);
+			if (letra !== letr.toUpperCase()) {
+				return { dniInvalid: true };
+			} else {
+				return null;
+			}
+		}
+	}
+
+	static checkBornDate(form: FormGroup) {
+		if (form.value) {
+			const today = new Date();
+			const datePicked = form.value;
+			const datePickedInDateFormat = new Date(datePicked);
+			if (datePickedInDateFormat > today) {
+				return { dateInvalid: true };
+			}
 			return null;
 		}
 	}

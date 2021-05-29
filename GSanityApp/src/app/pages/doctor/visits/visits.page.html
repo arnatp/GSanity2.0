@@ -1,5 +1,5 @@
-<ion-header>
-	<ion-toolbar>
+<ion-header class="ion-no-border">
+	<ion-toolbar mode="ios" class="GSanity-toolbar">
 		<ion-title>{{"visit.visits"|translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
@@ -11,7 +11,10 @@
 	>
 		<ion-label>
 			<h2>{{ visit.date}}</h2>
-			<p>{{"visit.InitialDescription"|translate}}: {{ visit?.initialDescription }}</p>
+			<p>
+				{{"visit.InitialDescription"|translate}}: {{
+				visit?.initialDescription }}
+			</p>
 		</ion-label>
 	</ion-item>
 </ion-content>

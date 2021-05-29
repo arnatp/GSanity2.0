@@ -11,13 +11,28 @@ ion-item {
 	--padding-start: 15px;
 	--inner-padding-end: 0;
 	ion-input {
-		//margin-left: 15px;
 		color: #41464e;
 	}
 }
 
 ion-toolbar {
 	--background: var(--ion-color-salmon-admin);
+}
+
+.hireButton {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	height: 45px;
+	--background: var(--ion-color-red-charmander);
+}
+
+.clearForm {
+	width: 70%;
+	margin-top: 15px;
+	margin-left: 15%;
+	margin-right: 15%;
+	height: 30px;
 }
 
 .error {

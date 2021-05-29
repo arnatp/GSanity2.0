@@ -13,6 +13,6 @@ export class AppComponent {
 		this.initializeApp();
 	}
 	initializeApp() {
-		this.translate.setDefaultLang('es'); // add this
+		this.translate.setDefaultLang('en'); // add this
 	}
 }

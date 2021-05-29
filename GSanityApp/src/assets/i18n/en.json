@@ -20,17 +20,16 @@
 		"presctiption": "Presctiption",
 		"allDoctors": "All doctors",
 		"time": "Time",
-
-		"updateVisit": "Set time",
-		"finishVisit": "Finish visit",
-		"createPrescription": "Create prescription",
-		"dismiss": "Dismis",
+		"updateVisit": "Set Time",
+		"finishVisit": "Finish Visit",
+		"createPrescription": "Create Prescription",
+		"dismiss": "Dismiss",
 		"create": "Create"
 	},
 	"perfil": {
-		"profile": "Profile",
-		"changeMail": "Cange Email",
-		"changePassw": "Cange Password"
+		"profile": "PROFILE",
+		"changeMail": "Change Email",
+		"changePassw": "Change Password"
 	},
 	"user": {
 		"name": "Name",
@@ -45,9 +44,12 @@
 		"mediCard": "Medic Card",
 		"gender": "Gender",
 		"male": "Male",
-		"female": "Female","workPlace":"Work place"
+		"female": "Female",
+		"workPlace": "Work place"
 	},
 	"admin": {
-		"hire": "Hire"
+		"hire": "HIRE",
+		"clearForm": "Clear Form",
+		"staff": "STAFF"
 	}
 }

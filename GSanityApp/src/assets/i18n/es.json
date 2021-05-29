@@ -38,17 +38,18 @@
 		"patient": "Paciente",
 		"doctor": "Doctor/a",
 		"auxiliar": "Auxiliar",
-		"admin": "Administrador",
+		"admin": "Administrador/a",
 		"bornDate": "Fecha de nacimiento",
-		"email": "Correo Electronico",
+		"email": "Correo Electrónico",
 		"dni": "DNI",
-		"mediCard": "Targeta sanitaria",
+		"mediCard": "Tarjeta sanitaria",
 		"gender": "Sexo",
 		"male": "Hombre",
-		"female": "Mujer","workPlace":"Puesto de Trabajo"
+		"female": "Mujer",
+		"workPlace": "Puesto de Trabajo"
 	},
 	"admin": {
 		"hire": "Contratar",
-		"staff":"Plantillas"
+		"staff": "Plantilla"
 	}
 }

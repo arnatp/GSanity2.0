@@ -1,5 +1,5 @@
-<ion-header>
-	<ion-toolbar>
+<ion-header class="ion-no-border">
+	<ion-toolbar mode="ios" class="GSanity-toolbar">
 		<ion-title>{{"visit.visit"|translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
@@ -11,17 +11,23 @@
 				<ion-title>{{visit?.date}}</ion-title>
 			</ion-item>
 			<ion-item>
-				<ion-label position="stacked">{{"visit.InitialDescription"|translate}}:</ion-label>
+				<ion-label position="stacked"
+					>{{"visit.InitialDescription"|translate}}:</ion-label
+				>
 				<p>{{visit?.initialDescription}}</p>
 			</ion-item>
 			<ion-item>
-				<ion-label position="stacked">{{"visit.Resolution"|translate}}:</ion-label><br />
+				<ion-label position="stacked"
+					>{{"visit.Resolution"|translate}}:</ion-label
+				><br />
 				<ion-textarea
 					[(ngModel)]="resolution"
 					name="resolution"
 				></ion-textarea> </ion-item
 			><ion-item>
-				<ion-label position="stacked">{{"visit.doctor"|translate}}:</ion-label><br />
+				<ion-label position="stacked"
+					>{{"visit.doctor"|translate}}:</ion-label
+				><br />
 				<p>{{doctor?.name}}</p>
 			</ion-item>
 			<ion-button
@@ -36,7 +42,11 @@
 			<ion-card *ngIf="visit?.prescription"
 				><ion-grid
 					><ion-row
-						><ion-col><ion-title>{{"visit.presctiption"|translate}}</ion-title></ion-col></ion-row
+						><ion-col
+							><ion-title
+								>{{"visit.presctiption"|translate}}</ion-title
+							></ion-col
+						></ion-row
 					>
 					<ion-row
 						><ion-col size="6">

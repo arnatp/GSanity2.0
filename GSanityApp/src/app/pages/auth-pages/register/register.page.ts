@@ -56,7 +56,10 @@ export class RegisterPage implements OnInit {
 					],
 				],
 				gender: ['', [Validators.required]],
-				bornDate: ['', [Validators.required]],
+				bornDate: [
+					'',
+					[Validators.required, CustomFormValidations.checkBornDate],
+				],
 				dni: ['', [Validators.required, CustomFormValidations.checkDNI]],
 				mediCard: [
 					'',

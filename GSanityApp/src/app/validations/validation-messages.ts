@@ -17,7 +17,13 @@ export class ValidationMessages {
 				},
 			],
 			gender: [{ type: 'required', message: 'Gender is required.' }],
-			bornDate: [{ type: 'required', message: 'Born Date is required.' }],
+			bornDate: [
+				{ type: 'required', message: 'Born Date is required.' },
+				{
+					type: 'dateInvalid',
+					message: 'Born Date can not be greater than today.',
+				},
+			],
 			dni: [
 				{ type: 'required', message: 'DNI is required.' },
 				{ type: 'dniInvalid', message: 'DNI format is invalid.' },
@@ -70,7 +76,13 @@ export class ValidationMessages {
 			],
 			gender: [{ type: 'required', message: 'Gender is required.' }],
 			role: [{ type: 'required', message: 'Role is required.' }],
-			bornDate: [{ type: 'required', message: 'Born Date is required.' }],
+			bornDate: [
+				{ type: 'required', message: 'Born Date is required.' },
+				{
+					type: 'dateInvalid',
+					message: 'Born Date can not be greater than today.',
+				},
+			],
 			dni: [
 				{ type: 'required', message: 'DNI is required.' },
 				{ type: 'dniInvalid', message: 'DNI format is invalid.' },
