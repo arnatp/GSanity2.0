@@ -1,6 +1,5 @@
 ion-header {
 	margin: 0;
-	height: 60px;
 	.logout {
 		--background: transparent;
 		--background-activated: transparent;
@@ -13,10 +12,6 @@ ion-toolbar {
 }
 
 ion-card {
-	ion-avatar {
-		width: 50px;
-		height: 50px;
-	}
 	ion-card-content {
 		ion-item {
 			ion-icon {

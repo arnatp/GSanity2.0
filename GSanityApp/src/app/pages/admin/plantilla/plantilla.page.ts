@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PlantillaPage implements OnInit {
 	public employees: Observable<DatabaseUser[]>;
+
 	constructor(
 		public userService: UserService,
 		private alertService: AlertService

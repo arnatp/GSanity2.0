@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { CalendarComponent } from 'ionic2-calendar';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'app-home',
@@ -7,14 +6,5 @@ import { CalendarComponent } from 'ionic2-calendar';
 	styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-	eventSource = [];
-	viewTitle: string;
-
-	calendar = {
-		mode: 'week',
-		currentDate: new Date(),
-	};
-
-	@ViewChild(CalendarComponent) myCal: CalendarComponent;
 	constructor() {}
 }
