@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border" mode="ios">
 	<ion-toolbar>
-		<ion-title>contratar</ion-title>
+		<ion-title>{{"admin.hire"|translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -10,7 +10,7 @@
 			<ion-row>
 				<ion-col>
 					<ion-item>
-						<ion-label position="floating">Name</ion-label>
+						<ion-label position="floating">{{"user.name"|translate}}</ion-label>
 						<ion-input
 							required
 							type="text"
@@ -33,7 +33,7 @@
 				</ion-col>
 				<ion-col>
 					<ion-item>
-						<ion-label position="floating">Surnames</ion-label>
+						<ion-label position="floating">{{"user.surnames"|translate}}</ion-label>
 						<ion-input
 							required
 							type="text"
@@ -58,7 +58,7 @@
 			<ion-row>
 				<ion-col>
 					<ion-item>
-						<ion-label position="floating">DNI</ion-label>
+						<ion-label position="floating">{{"user.dni"|translate}}</ion-label>
 						<ion-input
 							required
 							type="text"
@@ -80,7 +80,7 @@
 				</ion-col>
 				<ion-col>
 					<ion-item>
-						<ion-label position="stacked">Born Date</ion-label>
+						<ion-label position="stacked">{{"user.bornDate"|translate}}</ion-label>
 						<ion-input
 							required
 							type="date"
@@ -103,7 +103,7 @@
 			<ion-row>
 				<ion-col>
 					<ion-item>
-						<ion-label position="floating">Email</ion-label>
+						<ion-label position="floating">{{"user.email"|translate}}</ion-label>
 						<ion-input
 							required
 							type="email"
@@ -127,15 +127,15 @@
 			<ion-row>
 				<ion-col>
 					<ion-item>
-						<ion-label position="floating">Gender</ion-label>
+						<ion-label position="floating">{{"user.gender"|translate}}</ion-label>
 						<ion-select
 							interface="popover"
 							required
 							formControlName="gender"
 						>
-							<ion-select-option value="male">Male</ion-select-option>
+							<ion-select-option value="male">{{"user.male"|translate}}</ion-select-option>
 							<ion-select-option value="female"
-								>Female</ion-select-option
+								>{{"user.female"|translate}}</ion-select-option
 							>
 						</ion-select>
 					</ion-item>
@@ -153,17 +153,17 @@
 				</ion-col>
 				<ion-col>
 					<ion-item>
-						<ion-label position="floating">Puesto</ion-label>
+						<ion-label position="floating">{{"user.workPlace"|translate}}</ion-label>
 						<ion-select
 							interface="popover"
 							required
 							formControlName="role"
 						>
 							<ion-select-option value="doctor"
-								>Doctor</ion-select-option
+								>{{"user.doctor"|translate}}</ion-select-option
 							>
 							<ion-select-option value="auxiliar"
-								>Auxiliar</ion-select-option
+								>{{"user.auxiliar"|translate}}</ion-select-option
 							>
 						</ion-select>
 					</ion-item>
@@ -187,7 +187,7 @@
 					expand="block"
 					fill="solid"
 					class="sign-btn"
-					>Register</ion-button
+					>{{"admin.hire"|translate}}</ion-button
 				>
 			</div>
 		</ion-grid>

@@ -1,6 +1,6 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title>visits</ion-title>
+		<ion-title>{{"visit.visits"|translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
 	>
 		<ion-label>
 			<h2>{{ visit.date}}</h2>
-			<p>Descripcion Inicial: {{ visit?.initialDescription }}</p>
+			<p>{{"visit.InitialDescription"|translate}}: {{ visit?.initialDescription }}</p>
 		</ion-label>
 	</ion-item>
 </ion-content>

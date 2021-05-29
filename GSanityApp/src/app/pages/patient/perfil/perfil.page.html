@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
 	<ion-toolbar mode="ios">
-		<ion-title slot="start"> Perfil </ion-title>
+		<ion-title slot="start"> {{"perfil.profile"|translate}} </ion-title>
 		<ion-button slot="end" (click)="logout()" class="logout"
 			><ion-icon name="power-outline"></ion-icon
 		></ion-button>
@@ -23,33 +23,33 @@
 							{{user.name}} {{user.surnames}}
 						</h2></ion-text
 					>
-					<p>{{user.role}}</p>
+					<p>{{"user."+user.role|translate}}</p>
 				</ion-label>
 			</ion-item>
 		</ion-card-header>
 		<ion-card-content>
 			<ion-item lines="inset">
 				<ion-icon name="calendar-clear-outline"></ion-icon>
-				<ion-label><h3>Fecha de Nacimiento:</h3></ion-label>
+				<ion-label><h3>{{"user.bornDate"|translate}}:</h3></ion-label>
 				<ion-text><h3>{{user.bornDate | date:'dd/MM/YYYY'}}</h3></ion-text>
 			</ion-item>
 			<ion-item lines="inset">
 				<ion-icon name="mail-outline"></ion-icon>
-				<ion-label><h3>Email:</h3></ion-label>
+				<ion-label><h3>{{"user.email"|translate}}:</h3></ion-label>
 				<ion-text><h3>{{user.email}}</h3></ion-text>
 			</ion-item>
 			<ion-item lines="inset">
 				<ion-icon name="card-outline"></ion-icon>
-				<ion-label><h3>Dni:</h3></ion-label>
+				<ion-label><h3>{{"user.dni"|translate}}:</h3></ion-label>
 				<ion-text><h3>{{user.dni}}</h3></ion-text>
 			</ion-item>
 			<ion-item lines="inset">
 				<ion-icon name="medkit-outline"></ion-icon>
-				<ion-label><h3>Tarjeta Sanitaria:</h3></ion-label>
+				<ion-label><h3>{{"user.mediCard"|translate}}:</h3></ion-label>
 				<ion-text><h3>{{user.mediCard}}</h3></ion-text>
 			</ion-item>
 			<ion-item lines="inset">
-				<ion-label><h3>Género:</h3></ion-label>
+				<ion-label><h3>{{"user.gender"|translate}}:</h3></ion-label>
 				<ion-icon
 					*ngIf="user.gender == 'male'"
 					name="male-outline"
@@ -67,13 +67,13 @@
 		mode="ios"
 		expand="block"
 		class="profileButtons"
-		>Cambiar Email</ion-button
+		>{{"perfil.changeMail"|translate}}</ion-button
 	>
 	<ion-button
 		(click)="changePassword()"
 		mode="ios"
 		expand="block"
 		class="profileButtons"
-		>Cambiar Contraseña</ion-button
+		>{{"perfil.changePassw"|translate}}</ion-button
 	>
 </ion-content>
