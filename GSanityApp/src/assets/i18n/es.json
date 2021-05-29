@@ -3,17 +3,52 @@
 		"title": "Bienvenido"
 	},
 	"patient": {
-		"home": "Inicio",
 		"history": "Historial",
 		"request": "Solicitar",
 		"requestVisit": "Solicitar Visita"
 	},
+	"home": {
+		"home": "Inicio"
+	},
 	"visit": {
+		"visits": "Visitas",
 		"visit": "Visita",
 		"InitialDescription": "Descripcion Inicial",
 		"Resolution": "Solución",
 		"date": "Fecha",
 		"doctor": "Doctor",
-		"presctiption": "Receta"
+		"presctiption": "Receta",
+		"allDoctors": "Todos",
+		"time": "Hora",
+
+		"updateVisit": "Selecionar Hora",
+		"finishVisit": "Finalizar visita",
+		"createPrescription": "Crear receta",
+		"dismiss": "Cancelar",
+		"create": "Crear"
+	},
+	"perfil": {
+		"profile": "Perfil",
+		"changeMail": "Cambiar Correo",
+		"changePassw": "Cambiar Contraseña"
+	},
+	"user": {
+		"name": "Nombre",
+		"surnames": "Apellidos",
+		"patient": "Paciente",
+		"doctor": "Doctor/a",
+		"auxiliar": "Auxiliar",
+		"admin": "Administrador",
+		"bornDate": "Fecha de nacimiento",
+		"email": "Correo Electronico",
+		"dni": "DNI",
+		"mediCard": "Targeta sanitaria",
+		"gender": "Sexo",
+		"male": "Hombre",
+		"female": "Mujer","workPlace":"Puesto de Trabajo"
+	},
+	"admin": {
+		"hire": "Contratar",
+		"staff":"Plantillas"
 	}
 }

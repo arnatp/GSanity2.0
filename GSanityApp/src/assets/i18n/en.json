@@ -3,17 +3,51 @@
 		"title": "Wellcome"
 	},
 	"patient": {
-		"home": "Home",
 		"history": "History",
 		"request": "Request",
 		"requestVisit": "Request Visit"
 	},
+	"home": {
+		"home": "Home"
+	},
 	"visit": {
+		"visits": "Visits",
 		"visit": "Visit",
 		"InitialDescription": "Initial Description",
 		"Resolution": "Resolution",
 		"date": "Date",
 		"doctor": "Doctor",
-		"presctiption": "Presctiption"
+		"presctiption": "Presctiption",
+		"allDoctors": "All doctors",
+		"time": "Time",
+
+		"updateVisit": "Set time",
+		"finishVisit": "Finish visit",
+		"createPrescription": "Create prescription",
+		"dismiss": "Dismis",
+		"create": "Create"
+	},
+	"perfil": {
+		"profile": "Profile",
+		"changeMail": "Cange Email",
+		"changePassw": "Cange Password"
+	},
+	"user": {
+		"name": "Name",
+		"surnames": "Surnames",
+		"patient": "Patient",
+		"doctor": "Doctor",
+		"auxiliar": "Auxiliar",
+		"admin": "Admin",
+		"bornDate": "Born date",
+		"email": "E-mail",
+		"dni": "DNI",
+		"mediCard": "Medic Card",
+		"gender": "Gender",
+		"male": "Male",
+		"female": "Female","workPlace":"Work place"
+	},
+	"admin": {
+		"hire": "Hire"
 	}
 }

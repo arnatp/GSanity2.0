@@ -7,14 +7,27 @@ import { IonicModule } from '@ionic/angular';
 import { VisitPageRoutingModule } from './visit-routing.module';
 
 import { VisitPage } from './visit.page';
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+export function createTranslateLoader(http: HttpClient) {
+	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    VisitPageRoutingModule
-  ],
-  declarations: [VisitPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		VisitPageRoutingModule,
+		TranslateModule.forChild({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: createTranslateLoader,
+				deps: [HttpClient],
+			},
+		}),
+	],
+	declarations: [VisitPage],
 })
 export class VisitPageModule {}
