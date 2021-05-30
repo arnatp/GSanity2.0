@@ -4,4 +4,25 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"> </ion-content>
+<ion-content [fullscreen]="true">
+	<ion-card mode="ios">
+		<ion-card-title style="text-align: center"
+			>{{"patient.inCommingVisits"|translate}}</ion-card-title
+		>
+
+		<ion-card-content>
+			<ion-item *ngFor="let visit of visits | async">
+				<ion-label>
+					<h2>{{ visit.date | date:'dd/MM/YYYY'}}</h2>
+					<p *ngIf="visit.time">
+						{{"visit.time"|translate}}: {{visit.time}}
+					</p>
+					<p>
+						{{"visit.InitialDescription"|translate}}: {{
+						visit.initialDescription }}
+					</p>
+				</ion-label>
+			</ion-item>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

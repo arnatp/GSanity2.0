@@ -92,4 +92,15 @@ export class VisitService {
 			true
 		);
 	}
+	geVisitsByPatientUid(uid: string): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithTwoWhere(
+			'visits',
+			'patientUid',
+			'==',
+			uid,
+			'completed',
+			'==',
+			false
+		);
+	}
 }
