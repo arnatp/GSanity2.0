@@ -1,12 +1,7 @@
-#container {
-	text-align: center;
-
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
+ion-toolbar {
+	--background: var(--ion-color-green-patient);
 }
+
 .solicitarForm {
 	padding: 5px;
 	margin: 5px;
@@ -19,24 +14,9 @@
 		text-align: center;
 	}
 }
-#container strong {
-	font-size: 20px;
-	line-height: 26px;
-}
 
-#container p {
-	font-size: 16px;
-	line-height: 22px;
-
-	color: #8c8c8c;
-
-	margin: 0;
-}
-
-#container a {
-	text-decoration: none;
-}
-
-ion-toolbar {
-	--background: var(--ion-color-green-patient);
+ion-textarea {
+	margin-top: 3px;
+	margin-bottom: 1px;
+	//--background: rgb(246, 246, 246);
 }

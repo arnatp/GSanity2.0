@@ -1,3 +1,46 @@
 ion-toolbar {
 	--background: var(--ion-color-green-patient);
 }
+
+ion-card {
+	ion-card-title {
+		margin-top: 5px;
+		font-size: 20px;
+		text-align: center;
+	}
+	ion-card-subtitle {
+		text-align: center;
+	}
+	ion-card-content {
+		margin: -15px;
+		ion-item {
+			//padding: 5px;
+			--padding-start: 10px;
+			--padding-end: 10px;
+			--padding-top: 15px;
+			--min-height: 30px;
+			ion-label {
+				margin-top: -2px;
+			}
+			p {
+				color: gray;
+			}
+		}
+	}
+	ion-card {
+		--background: #e4ffe4;
+		ion-card-title {
+			font-size: 16px;
+		}
+		ion-card-content {
+			text-align: center;
+			h5 {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.schedule {
+	margin: 10px;
+}

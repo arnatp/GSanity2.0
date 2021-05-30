@@ -2,17 +2,27 @@ import { Injectable } from '@angular/core';
 import { IonDatetime } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Visit } from '../domain/intefaces';
+import { AlertService } from './alert.service';
 import { DatabaseService } from './database.service';
+import { ToastService } from './toast.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class VisitService {
-	constructor(private dataBaseService: DatabaseService) {}
+	constructor(
+		private dataBaseService: DatabaseService,
+		private toastService: ToastService
+	) {}
 
 	createVisit(newVisit: Visit) {
-		console.log(newVisit);
-		this.dataBaseService.createDocument(newVisit, 'visits', newVisit.id);
+		return this.dataBaseService
+			.createDocument(newVisit, 'visits', newVisit.id)
+			.then(() => {
+				this.toastService.presentValidToast(
+					'Se ha creado la visita con éxito'
+				);
+			});
 	}
 	getVisitById(id: string): Observable<Visit> {
 		return this.dataBaseService.getDocumentById('visits', id);

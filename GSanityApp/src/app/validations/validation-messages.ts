@@ -166,4 +166,36 @@ export class ValidationMessages {
 			],
 		};
 	}
+
+	static validationFormVisitMessages() {
+		return {
+			date: [
+				{ type: 'required', message: 'Visit Date is required.' },
+				{
+					type: 'datePrevious',
+					message: 'Visit Date can not be previous than today.',
+				},
+				{
+					type: 'datePosterior',
+					message: 'Visit Date can not be greater than two weeks ahead.',
+				},
+				{
+					type: 'dateWeekends',
+					message: 'Visit Date can not be placed in weekends.',
+				},
+			],
+			doctorUid: [{ type: 'required', message: 'Doctor is required.' }],
+			initialDescription: [
+				{
+					type: 'required',
+					message: 'The initial Description is required.',
+				},
+				{
+					type: 'minlength',
+					message:
+						'Initial Description must contain at least 10 characters.',
+				},
+			],
+		};
+	}
 }

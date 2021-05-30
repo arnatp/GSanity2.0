@@ -16,5 +16,6 @@ export class HistorialPage implements OnInit {
 		this.visits = this.visitService.getVisitsCompletedByUid(
 			JSON.parse(localStorage.getItem('user')).uid
 		);
+		console.log(this.visits);
 	}
 }

@@ -5,17 +5,19 @@
 </ion-header>
 
 <ion-content>
-	<ion-item
-		*ngFor="let visit of visits | async"
-		routerLink="visit/{{visit.id}}"
-	>
-		<ion-label>
-			<h2>{{ visit.date | date:'dd/MM/YYYY'}}</h2>
-			<p>
-				{{"visit.InitialDescription"|translate}}: {{
-				visit.initialDescription }}
-			</p>
-			<p>{{"visit.Resolution"|translate}}: {{ visit.resolution }}</p>
-		</ion-label>
-	</ion-item>
+	<ion-list mode="ios" class="elementsList" lines="full">
+		<ion-item
+			*ngFor="let visit of visits | async"
+			routerLink="visit/{{visit.id}}"
+		>
+			<ion-label>
+				<h2>{{ visit.date | date:'dd/MM/YYYY'}}</h2>
+				<p>
+					{{"visit.InitialDescription"|translate}}: {{
+					visit.initialDescription }}
+				</p>
+				<p>{{"visit.Resolution"|translate}}: {{ visit.resolution }}</p>
+			</ion-label>
+		</ion-item>
+	</ion-list>
 </ion-content>

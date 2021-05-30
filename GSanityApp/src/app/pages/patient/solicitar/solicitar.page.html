@@ -8,32 +8,46 @@
 	<div class="solicitarForm">
 		<h3>{{"patient.requestVisit"|translate}}</h3>
 		<br />
-		<form (ngSubmit)="create()">
+		<form
+			[formGroup]="form"
+			(ngSubmit)="submitForm(formDirective)"
+			#formDirective="ngForm"
+			novalidate
+		>
 			<ion-grid>
 				<ion-row>
-					<ion-col size="6">
-						<ion-item>
+					<ion-col size="6" class="calendar">
+						<ion-item lines="full">
 							<ion-label position="stacked"
 								>{{"visit.date"|translate}}</ion-label
 							>
 							<ion-input
 								type="date"
-								[(ngModel)]="newVisit.date"
-								name="date"
+								formControlName="date"
 								required
 							></ion-input>
 						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.date"
+							>
+								<div
+									*ngIf="form.get('date').hasError(validation.type) && (form.get('date').dirty || form.get('date').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
 					</ion-col>
 					<ion-col size="6">
-						<ion-item>
+						<ion-item lines="full">
 							<ion-label position="floating"
 								>{{"visit.doctor"|translate}}</ion-label
 							>
 							<ion-select
 								interface="popover"
 								required
-								name="gender"
-								[(ngModel)]="newVisit.doctorUid"
+								formControlName="doctorUid"
 							>
 								<ion-select-option
 									*ngFor="let doctor of doctors | async"
@@ -43,28 +57,43 @@
 								>
 							</ion-select>
 						</ion-item>
+						<div class="error">
+							<ng-container
+								*ngFor="let validation of validationMessages.doctorUid"
+							>
+								<div
+									*ngIf="form.get('doctorUid').hasError(validation.type) && (form.get('doctorUid').dirty || form.get('doctorUid').touched || isSubmitted)"
+								>
+									{{ validation.message }}
+								</div>
+							</ng-container>
+						</div>
 					</ion-col>
 				</ion-row>
-
 				<br />
 				<ion-item>
-					<div>
-						<ion-label position="stacked"
-							>{{"visit.InitialDescription"|translate}}</ion-label
-						>
-					</div>
-					<div>
-						<ion-textarea
-							[(ngModel)]="newVisit.initialDescription"
-							name="initialDescription"
-							required="true"
-							minlength="10"
-							mode="ios"
-						>
-						</ion-textarea>
-					</div>
+					<ion-label position="stacked"
+						>{{"visit.InitialDescription"|translate}}</ion-label
+					>
+					<ion-textarea
+						formControlName="initialDescription"
+						required="true"
+						minlength="10"
+						autoGrow="true"
+					>
+					</ion-textarea>
 				</ion-item>
-
+				<div class="error">
+					<ng-container
+						*ngFor="let validation of validationMessages.initialDescription"
+					>
+						<div
+							*ngIf="form.get('initialDescription').hasError(validation.type) && (form.get('initialDescription').dirty || form.get('initialDescription').touched || isSubmitted)"
+						>
+							{{ validation.message }}
+						</div>
+					</ng-container>
+				</div>
 				<br />
 				<ion-button
 					mode="ios"

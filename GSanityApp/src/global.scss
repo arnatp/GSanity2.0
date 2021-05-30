@@ -68,7 +68,24 @@
 
 .GSanity-toolbar {
 	height: 58px;
+	ion-buttons {
+		height: 58px;
+		margin-top: -5px;
+		margin-left: 5px;
+		ion-back-button {
+			--color: black;
+		}
+	}
 	ion-title {
 		height: 58px;
 	}
+}
+
+.error {
+	color: red;
+	margin-left: 10px;
+}
+
+.calendar {
+	bottom: 2.5px;
 }

@@ -30,6 +30,26 @@ export class CustomFormValidations {
 		}
 	}
 
+	static checkVisitDate(form: FormGroup) {
+		if (form.value) {
+			const today = new Date();
+			today.setDate(today.getDate() - 1);
+			const twoWeeksAhead = new Date(Date.now() + 12096e5);
+			const datePicked = form.value;
+			const datePickedInDateFormat = new Date(datePicked);
+			if ([6, 0].includes(datePickedInDateFormat.getUTCDay())) {
+				return { dateWeekends: true };
+			}
+			if (datePickedInDateFormat <= today) {
+				return { datePrevious: true };
+			}
+			if (datePickedInDateFormat > twoWeeksAhead) {
+				return { datePosterior: true };
+			}
+			return null;
+		}
+	}
+
 	static validatePasswords(form: FormGroup) {
 		const { value: password } = form.get('password');
 		const { value: confirmPassword } = form.get('confirmPassword');

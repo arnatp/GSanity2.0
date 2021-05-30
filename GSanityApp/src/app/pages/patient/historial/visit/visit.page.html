@@ -1,48 +1,63 @@
 <ion-header class="ion-no-border">
 	<ion-toolbar mode="ios" class="GSanity-toolbar">
+		<ion-buttons slot="start">
+			<ion-back-button
+				defaultHref="history"
+				icon="chevron-back-outline"
+				text=""
+				mode="ios"
+			>
+			</ion-back-button>
+		</ion-buttons>
 		<ion-title>{{"visit.visit"|translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-card>
-		<ion-item mode="ios">
-			<ion-title>{{visit?.date}}</ion-title>
-		</ion-item>
-		<ion-item>
-			<ion-label position="stacked"
-				>{{"visit.InitialDescription"|translate}}:</ion-label
-			>
-			<p>{{visit?.initialDescription}}</p>
-		</ion-item>
-		<ion-item>
-			<ion-label position="stacked"
-				>{{"visit.Resolution"|translate}}</ion-label
-			><br />
-			<p>{{visit?.resolution}}</p> </ion-item
-		><ion-item>
-			<ion-label position="stacked">{{"visit.doctor"|translate}}</ion-label
-			><br />
-			<p>{{doctor?.name}}</p> </ion-item
-		><ion-card *ngIf="visit?.prescription" mode="ios"
-			><ion-grid
-				><ion-row
-					><ion-col
-						><ion-title mode="ios"
-							>{{"visit.presctiption"|translate}}</ion-title
-						></ion-col
-					></ion-row
+	<ion-card mode="ios">
+		<ion-card-title> {{visit?.date | date:'dd/MM/YYYY'}} </ion-card-title>
+		<ion-card-subtitle
+			>{{doctor?.name}} {{doctor?.surnames}}</ion-card-subtitle
+		>
+		<ion-card-content>
+			<ion-item>
+				<ion-label position="stacked"
+					>{{"visit.InitialDescription"|translate}}:</ion-label
 				>
-				<ion-row
-					><ion-col size="6">
-						{{visit.prescription.medicamentName}} </ion-col
-					><ion-col size="6">
-						{{visit.prescription.quantity}}
-					</ion-col></ion-row
-				><ion-row
-					><ion-col>{{visit.prescription.schedule}}</ion-col></ion-row
-				></ion-grid
-			></ion-card
-		></ion-card
-	>
+				<p>{{visit?.initialDescription}}</p>
+			</ion-item>
+			<ion-item>
+				<ion-label position="stacked"
+					>{{"visit.Resolution"|translate}}</ion-label
+				>
+				<p>{{visit?.resolution}}</p>
+			</ion-item>
+			<ion-card *ngIf="visit?.prescription" mode="md">
+				<ion-card-title>
+					{{"visit.presctiption"|translate}}
+				</ion-card-title>
+				<ion-card-content>
+					<ion-grid
+						><ion-row
+							><ion-col>
+								<ion-label>
+									<h5>Medicamento</h5>
+									<p>{{visit.prescription.medicamentName}}</p>
+								</ion-label>
+							</ion-col>
+							<ion-col>
+								<ion-label>
+									<h5>Cantidad</h5>
+									<p>{{visit.prescription.quantity}}</p>
+								</ion-label>
+							</ion-col>
+						</ion-row>
+						<ion-row class="ion-text-justify schedule"
+							>{{visit.prescription.schedule}}</ion-row
+						></ion-grid
+					>
+				</ion-card-content></ion-card
+			>
+		</ion-card-content>
+	</ion-card>
 </ion-content>

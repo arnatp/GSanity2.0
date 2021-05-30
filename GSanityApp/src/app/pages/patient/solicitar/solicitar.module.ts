@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolicitarPage } from './solicitar.page';
 
 import { SolicitarPageRoutingModule } from './solicitar-routing.module';
@@ -18,6 +18,7 @@ export function createTranslateLoader(http: HttpClient) {
 		FormsModule,
 		IonicModule,
 		SolicitarPageRoutingModule,
+		ReactiveFormsModule,
 		TranslateModule.forChild({
 			loader: {
 				provide: TranslateLoader,
