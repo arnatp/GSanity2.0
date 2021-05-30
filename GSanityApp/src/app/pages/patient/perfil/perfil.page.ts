@@ -4,6 +4,7 @@ import { DatabaseUser, User } from 'src/app/domain/intefaces';
 import { AlertService } from 'src/app/services/alert.service';
 import { UserService } from 'src/app/services/user.service';
 import { ChangeEmailPasswordModalPage } from '../../common/change-email-password-modal/change-email-password-modal.page';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-perfil',
@@ -11,6 +12,8 @@ import { ChangeEmailPasswordModalPage } from '../../common/change-email-password
 	styleUrls: ['perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+	language: string = this.translateService.currentLang;
+
 	user: DatabaseUser = {
 		uid: null,
 		bornDate: null,
@@ -26,7 +29,8 @@ export class PerfilPage implements OnInit {
 	constructor(
 		private userService: UserService,
 		private modalController: ModalController,
-		private alertService: AlertService
+		private alertService: AlertService,
+		private translateService: TranslateService
 	) {}
 
 	ngOnInit() {
@@ -66,4 +70,7 @@ export class PerfilPage implements OnInit {
 		});
 		return await modal.present();
 	}
+	languageChange() {
+		this.translateService.use(this.language);
+	 }
 }

@@ -5,6 +5,7 @@
 	"patient": {
 		"history": "Historial",
 		"request": "Solicitar",
+		"inCommingVisits": "Proximas visitas",
 		"requestVisit": "Solicitar Visita"
 	},
 	"home": {
@@ -46,7 +47,8 @@
 		"gender": "Sexo",
 		"male": "Hombre",
 		"female": "Mujer",
-		"workPlace": "Puesto de Trabajo"
+		"workPlace": "Puesto de Trabajo",
+		"lang": "Idioma"
 	},
 	"admin": {
 		"hire": "Contratar",
