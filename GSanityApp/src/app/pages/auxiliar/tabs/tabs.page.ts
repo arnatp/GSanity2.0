@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Visit } from 'src/app/domain/intefaces';
+import { VisitService } from 'src/app/services/visit.service';
 
 @Component({
 	selector: 'app-tabs',
@@ -7,9 +10,12 @@ import { Router } from '@angular/router';
 	styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-	constructor(private router: Router) {}
+	public visits: Observable<Visit[]>;
+	constructor(private router: Router, private visitService: VisitService) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.visits = this.visitService.getNotDatedVisits();
+	}
 
 	clickTab(event: Event, tab: string) {
 		event.stopImmediatePropagation();

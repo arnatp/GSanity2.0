@@ -28,7 +28,7 @@ export class VisitService {
 		return this.dataBaseService.getDocumentById('visits', id);
 	}
 	updateVisit(visit: Visit) {
-		this.dataBaseService.editDocument(visit, 'visits', visit.id);
+		return this.dataBaseService.editDocument(visit, 'visits', visit.id);
 	}
 	getVisitsCompletedByUid(uid: string): Observable<Visit[]> {
 		return this.dataBaseService.getDocumentsWithTwoWhere(

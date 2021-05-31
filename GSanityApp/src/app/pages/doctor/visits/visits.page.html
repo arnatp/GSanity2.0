@@ -8,6 +8,7 @@
 	<ion-item
 		*ngFor="let visit of visits | async"
 		routerLink="visit/{{visit.id}}"
+		class="elementsList"
 	>
 		<ion-label>
 			<h2>{{ visit.date}}</h2>
