@@ -72,5 +72,5 @@ export class PerfilPage implements OnInit {
 	}
 	languageChange() {
 		this.translateService.use(this.language);
-	 }
+	}
 }

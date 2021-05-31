@@ -12,6 +12,7 @@
 		"home": "Inicio"
 	},
 	"visit": {
+		"hours": "Horas",
 		"visits": "Visitas",
 		"visit": "Visita",
 		"InitialDescription": "Descripcion Inicial",

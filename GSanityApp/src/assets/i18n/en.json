@@ -12,6 +12,7 @@
 		"home": "Home"
 	},
 	"visit": {
+		"hours": "Hours",
 		"visits": "Visits",
 		"visit": "Visit",
 		"InitialDescription": "Initial Description",
