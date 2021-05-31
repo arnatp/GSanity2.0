@@ -5,53 +5,60 @@
 </ion-header>
 
 <ion-content>
-	<ion-segment>
-		<ion-grid>
-			<ion-row>
-				<section *ngFor="let hour of hours ">
-					<ion-col *ngIf="hoursPicked.indexOf(hour.hour)==-1">
-						<span>{{hour.hour}}</span></ion-col
+	<ion-title>{{"visit.hours"|translate}}</ion-title>
+	<div class="scroll">
+		<section *ngFor="let hour of hours ">
+			<span *ngIf="hoursPicked.indexOf(hour.hour)==-1">
+				<h4>
+					{{hour.hour}}<span *ngIf="hour.hour.indexOf('30')==-1">0</span>
+				</h4>
+			</span>
+			<span *ngIf="hoursPicked.indexOf(hour.hour)!=-1">
+				<h4 style="color: lightgray">
+					{{hour.hour}}<span *ngIf="hour.hour.indexOf('30')==-1">0</span>
+				</h4>
+			</span>
+		</section>
+	</div>
+	<div>
+		<ion-card>
+			<form #form="ngForm" (ngSubmit)="updateVisit()">
+				<ion-item mode="ios">
+					<ion-title>{{visit?.date}}</ion-title>
+				</ion-item>
+				<ion-item>
+					<ion-label position="stacked"
+						>{{"visit.InitialDescription"|translate}}:</ion-label
 					>
-				</section>
-			</ion-row>
-		</ion-grid></ion-segment
-	>
-	<ion-card>
-		<form #form="ngForm" (ngSubmit)="updateVisit()">
-			<ion-item mode="ios">
-				<ion-title>{{visit?.date}}</ion-title>
-			</ion-item>
-			<ion-item>
-				<ion-label position="stacked"
-					>{{"visit.InitialDescription"|translate}}:</ion-label
+					<p>{{visit?.initialDescription}}</p>
+				</ion-item>
+				<ion-item>
+					<ion-label position="stacked"
+						>{{"visit.doctor"|translate}}:</ion-label
+					><br />
+					<p>{{doctor?.name}}</p>
+				</ion-item>
+				<ion-item>
+					<ion-label position="stacked"
+						>{{"visit.time"|translate}}:</ion-label
+					><br />
+					<ion-datetime
+						[(ngModel)]="time"
+						name="time"
+						displayFormat="HH:mm"
+						hourValues="8,9,10,11,12,15,16,17,18,19"
+						minuteValues="0,30"
+						required
+					></ion-datetime>
+				</ion-item>
+				<ion-button
+					expand="block"
+					[disabled]="form.invalid"
+					mode="ios"
+					type="submit"
+					>{{"visit.updateVisit"|translate}}</ion-button
 				>
-				<p>{{visit?.initialDescription}}</p>
-			</ion-item>
-			<ion-item>
-				<ion-label position="stacked"
-					>{{"visit.doctor"|translate}}:</ion-label
-				><br />
-				<p>{{doctor?.name}}</p>
-			</ion-item>
-			<ion-item>
-				<ion-label position="stacked">{{"visit.time"|translate}}:</ion-label
-				><br />
-				<ion-datetime
-					[(ngModel)]="time"
-					name="time"
-					displayFormat="HH:mm"
-					hourValues="8,9,10,11,12,15,16,17,18,19"
-					minuteValues="0,30"
-					required
-				></ion-datetime>
-			</ion-item>
-			<ion-button
-				expand="block"
-				[disabled]="form.invalid"
-				mode="ios"
-				type="submit"
-				>{{"visit.updateVisit"|translate}}</ion-button
-			>
-		</form></ion-card
-	>
+			</form></ion-card
+		>
+	</div>
 </ion-content>

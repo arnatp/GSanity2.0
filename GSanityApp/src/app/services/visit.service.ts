@@ -41,7 +41,20 @@ export class VisitService {
 			true
 		);
 	}
-
+	getTodayVisitsByDoctorUid(uid: string, today: string): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithThreeWhere(
+			'visits',
+			'doctorUid',
+			'==',
+			uid,
+			'date',
+			'==',
+			today,
+			'completed',
+			'==',
+			false
+		);
+	}
 	getVisitsAssignedToDoctorByUid(uid: string): Observable<Visit[]> {
 		return this.dataBaseService.getDocumentsWithThreeWhere(
 			'visits',
