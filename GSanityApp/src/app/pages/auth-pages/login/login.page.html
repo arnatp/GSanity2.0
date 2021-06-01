@@ -13,7 +13,7 @@
 
 <ion-content>
 	<ion-card mode="ios" class="ion-no-margin">
-		<ion-card-title>LOGIN</ion-card-title>
+		<ion-card-title>{{"welcome.login"|translate}}</ion-card-title>
 
 		<ion-img src="assets/images/RegisterAsset.png"></ion-img>
 
@@ -25,7 +25,7 @@
 						type="email"
 						#email
 						required
-						placeholder="Email"
+						placeholder="{{'user.email'|translate}}"
 					></ion-input>
 				</ion-item>
 				<ion-item>
@@ -43,8 +43,8 @@
 					fill="clear"
 					class="ion-no-padding"
 					href="/login/recover-password"
-					>Forgot Password?</ion-button
-				>
+					>{{"auth.forgotenPassw"|translate}}?
+				</ion-button>
 			</div>
 			<div class="sign-btn-wrap">
 				<ion-button
@@ -53,14 +53,18 @@
 					fill="solid"
 					class="sign-btn"
 					(click)="onLogin(email,password)"
-					>Login</ion-button
+					>{{"welcome.login"|translate}}</ion-button
 				>
 			</div>
 		</ion-card-content>
 	</ion-card>
 
 	<div class="custom-footer">
-		<span>Don't have an account?</span
-		><a href="/register"><button class="ion-no-padding">Sign Up</button></a>
+		<span>{{"auth.noAccount"|translate}}? </span
+		><a href="/register"
+			><button class="ion-no-padding">
+				{{"welcome.signUp"|translate}}
+			</button></a
+		>
 	</div>
 </ion-content>

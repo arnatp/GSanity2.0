@@ -1,6 +1,11 @@
 {
-	"wellcome": {
-		"title": "Wellcome"
+	"welcome": {
+		"title": "Welcome",
+		"text": "In this application you can manage all your medical visits ",
+		"login": "Login",
+		"signUp": "Sign Up",
+		"creado": "Crated by",
+		"y": "&"
 	},
 	"patient": {
 		"history": "History",
@@ -54,5 +59,17 @@
 		"hire": "HIRE",
 		"clearForm": "Clear Form",
 		"staff": "STAFF"
+	},
+	"auth": {
+		"verifyEmail": "Verify Email",
+		"verifyText": "An email has been sent to the address provided to confirm it, if you have not received it, press the next button",
+		"verifyBtn": "Send Confirmation Email",
+		"signUpText": " You have to fill the fields below to register correctly Para poder registrarte deberás rellenar estos campos",
+		"forgotPassText": "Enter your Email here to reset your password",
+		"noAccount": "Don't have an account",
+		"forgotenPassw": "Forgot Password",
+		"passw": "Password",
+		"confirmPassw": "Confirm Password",
+		"passwError": "Both passwords have to be equals"
 	}
 }

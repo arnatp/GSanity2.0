@@ -6,10 +6,9 @@
 	<ion-card mode="ios" class="ion-no-margin">
 		<ion-img src="assets/images/LoginAsset.png"></ion-img>
 		<ion-card-header>
-			<ion-card-title>   {{ 'wellcome.title' | translate }} </ion-card-title>
+			<ion-card-title> {{ 'welcome.title' | translate }} </ion-card-title>
 			<ion-card-subtitle class="ion-text-lowercase">
-				En esta aplicación podrás gestionar todas tus visitas
-				médicas</ion-card-subtitle
+				{{"welcome.text"|translate}}</ion-card-subtitle
 			>
 		</ion-card-header>
 		<ion-card-content>
@@ -20,17 +19,20 @@
 					shape="round"
 					class="loginbtn"
 					href="/login"
-					>Login</ion-button
+					>{{"welcome.login"|translate}}</ion-button
 				>
 				<ion-button
 					expand="block"
 					fill="outline"
 					shape="round"
 					href="/register"
-					>Register</ion-button
+					>{{"welcome.signUp"|translate}}</ion-button
 				>
 			</div>
 		</ion-card-content>
 	</ion-card>
-	<p class="footer">Created By: Alberto Bergantiños & Arnau Torres</p>
+	<p class="footer">
+		{{"welcome.creado"|translate}}: Alberto Bergantiños
+		{{"welcome.y"|translate}} Arnau Torres
+	</p>
 </ion-content>
