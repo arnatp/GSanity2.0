@@ -12,7 +12,7 @@ import { VisitService } from 'src/app/services/visit.service';
 export class VisitsPage implements OnInit {
 	public visits: Observable<Visit[]>;
 	public doctors: Observable<DatabaseUser[]>;
-	doctorUid: string = '';
+	public doctorUid = '';
 
 	constructor(
 		private visitService: VisitService,
@@ -21,7 +21,9 @@ export class VisitsPage implements OnInit {
 		this.doctors = this.userService.getAllDoctors();
 	}
 
-	ngOnInit() {this.getDoctorVisits()}
+	ngOnInit() {
+		this.getDoctorVisits();
+	}
 
 	getDoctorVisits() {
 		console.log(this.doctorUid);

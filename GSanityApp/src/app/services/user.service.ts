@@ -63,4 +63,13 @@ export class UserService {
 			'doctor'
 		);
 	}
+
+	getAllPatients() {
+		return this.dbService.getDocumentsWithOneWhere<DatabaseUser>(
+			'users',
+			'role',
+			'==',
+			'patient'
+		);
+	}
 }

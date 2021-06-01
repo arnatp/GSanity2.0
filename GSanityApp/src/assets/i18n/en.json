@@ -8,6 +8,9 @@
 		"inCommingVisits": "In comming visits",
 		"requestVisit": "Request Visit"
 	},
+	"doctor": {
+		"history": "history"
+	},
 	"home": {
 		"home": "Home"
 	},
@@ -26,7 +29,8 @@
 		"finishVisit": "Finish Visit",
 		"createPrescription": "Create Prescription",
 		"dismiss": "Dismiss",
-		"create": "Create"
+		"create": "Create",
+		"allPatients": "All patients"
 	},
 	"perfil": {
 		"profile": "PROFILE",

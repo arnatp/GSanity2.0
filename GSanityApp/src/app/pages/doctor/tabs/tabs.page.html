@@ -12,6 +12,10 @@
 				class="badge"
 				>{{(visits | async)?.length}}</ion-badge
 			>
+			<ion-icon name="document-text"></ion-icon>
+		</ion-tab-button>
+
+		<ion-tab-button tab="history" (click)="clickTab($event, 'history')">
 			<ion-icon name="file-tray-full"></ion-icon>
 		</ion-tab-button>
 

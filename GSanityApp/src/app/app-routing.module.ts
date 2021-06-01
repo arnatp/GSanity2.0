@@ -76,15 +76,15 @@ const routes: Routes = [
 			import('./pages/admin/tabs/tabs.module').then((m) => m.TabsPageModule),
 	},
 	{
-		path: '**',
-		redirectTo: 'welcome',
-	},
-	{
 		path: 'change-email-password-modal',
 		loadChildren: () =>
 			import(
 				'./pages/common/change-email-password-modal/change-email-password-modal.module'
 			).then((m) => m.ChangeEmailPasswordModalPageModule),
+	},
+	{
+		path: '**',
+		redirectTo: 'welcome',
 	},
 ];
 

@@ -30,15 +30,24 @@ export class VisitService {
 	updateVisit(visit: Visit) {
 		return this.dataBaseService.editDocument(visit, 'visits', visit.id);
 	}
+	getVisitsCompleted(): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithOneWhere(
+			'visits',
+			'completed',
+			'==',
+			true
+		);
+	}
 	getVisitsCompletedByUid(uid: string): Observable<Visit[]> {
-		return this.dataBaseService.getDocumentsWithTwoWhere(
+		return this.dataBaseService.getDocumentsWithTwoWhereAndOneOrder(
 			'visits',
 			'patientUid',
 			'==',
 			uid,
 			'completed',
 			'==',
-			true
+			true,
+			'date'
 		);
 	}
 	getTodayVisitsByDoctorUid(uid: string, today: string): Observable<Visit[]> {

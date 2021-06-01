@@ -26,6 +26,13 @@ const routes: Routes = [
 					),
 			},
 			{
+				path: 'history',
+				loadChildren: () =>
+					import('../history/history.module').then(
+						(m) => m.HistoryPageModule
+					),
+			},
+			{
 				path: 'perfil',
 				loadChildren: () =>
 					import('../perfil/perfil.module').then(

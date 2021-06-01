@@ -11,7 +11,7 @@
 		class="elementsList"
 	>
 		<ion-label>
-			<h2>{{ visit.date}}</h2>
+			<h2>{{ visit.date | date:'dd/MM/YYYY'}}</h2>
 			<p>
 				{{"visit.InitialDescription"|translate}}: {{
 				visit?.initialDescription }}

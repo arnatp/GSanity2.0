@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+	<ion-toolbar mode="ios" class="GSanity-toolbar">
+		<ion-title class="ion-text-start">
+			{{"doctor.history"|translate}}
+		</ion-title>
+		<ion-select
+			[(ngModel)]="patientUid"
+			name="patientUid"
+			(ionChange)="getCompletedVisitsByPatient()"
+			slot="end"
+			placeholder="{{'history.selectPatient'|translate}}"
+			interface="action-sheet"
+		>
+			<ion-select-option
+				value="{{patient.uid}}"
+				*ngFor="let patient of patients | async"
+			>
+				{{patient.name}} {{patient.surnames}}
+			</ion-select-option>
+		</ion-select>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list mode="ios" class="elementsList" lines="full">
+		<ion-item
+			*ngFor="let visit of visits | async"
+			routerLink="visit/{{visit.id}}"
+		>
+			<ion-label>
+				<h2>{{ visit?.date | date:'dd/MM/YYYY'}}</h2>
+				<p class="ion-text-wrap">{{ visit?.initialDescription }}</p>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+	<div *ngIf="(visits | async)?.length === 0">
+		<ion-img src="assets/images/notResultsFound.png"></ion-img>
+		<ion-title class="ion-text-center not-found">Not Results Found</ion-title>
+	</div>
+</ion-content>

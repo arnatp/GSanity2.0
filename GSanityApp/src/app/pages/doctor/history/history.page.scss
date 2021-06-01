@@ -1,0 +1,20 @@
+ion-toolbar {
+	--background: var(--ion-color-yellow-employee);
+}
+
+ion-select {
+	position: absolute;
+	top: 25%;
+	right: 2%;
+}
+
+ion-img {
+	background-color: transparent;
+	margin: auto;
+	width: 30%;
+	margin-top: 50%;
+}
+
+.not-found {
+	color: rgb(165, 164, 164);
+}
