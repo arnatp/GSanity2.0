@@ -1,5 +1,14 @@
 <ion-header class="ion-no-border">
 	<ion-toolbar mode="ios" class="GSanity-toolbar">
+		<ion-buttons slot="start">
+			<ion-back-button
+				defaultHref="history"
+				icon="chevron-back-outline"
+				text=""
+				mode="ios"
+			>
+			</ion-back-button>
+		</ion-buttons>
 		<ion-title>{{"visit.visit"|translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
@@ -8,7 +17,7 @@
 	<ion-card>
 		<form #form="ngForm" (ngSubmit)="updateVisit()">
 			<ion-item mode="ios">
-				<ion-title>{{visit?.date}}</ion-title>
+				<ion-title>{{visit?.date | date:'dd/MM/YYYY'}}</ion-title>
 			</ion-item>
 			<ion-item>
 				<ion-label position="stacked"

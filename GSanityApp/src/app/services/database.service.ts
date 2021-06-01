@@ -81,6 +81,7 @@ export class DatabaseService {
 
 		return collection.valueChanges();
 	}
+
 	getDocumentsWithThreeWhere<DatabaseObject>(
 		url: string,
 		fieldOne: string,
@@ -100,6 +101,28 @@ export class DatabaseService {
 					.where(fieldOne, operationOne, resultOne)
 					.where(fieldTwo, operationTwo, resultTwo)
 					.where(fieldTrhee, operationThree, resultThree)
+		);
+
+		return collection.valueChanges();
+	}
+
+	getDocumentsWithTwoWhereAndOneOrder<DatabaseObject>(
+		url: string,
+		fieldOne: string,
+		operationOne: any,
+		resultOne: any,
+		fieldTwo: string,
+		operationTwo: any,
+		resultTwo: any,
+		orderField: any
+	) {
+		const collection = this.angularFirestore.collection<DatabaseObject>(
+			url,
+			(ref) =>
+				ref
+					.where(fieldOne, operationOne, resultOne)
+					.where(fieldTwo, operationTwo, resultTwo)
+					.orderBy(orderField, 'desc')
 		);
 
 		return collection.valueChanges();

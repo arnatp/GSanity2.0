@@ -13,7 +13,6 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class VisitPage implements OnInit {
 	public time;
-
 	public visit: Visit;
 	public doctor: DatabaseUser;
 	public hoursPicked: string[] = [];
@@ -50,7 +49,7 @@ export class VisitPage implements OnInit {
 	) {}
 
 	ngOnInit() {
-		var hours: string[] = [];
+		const hours: string[] = [];
 		const visitId: string = this.activateRoute.snapshot.paramMap.get('id');
 		this.visitService.getVisitById(visitId).subscribe((visit) => {
 			this.visit = visit;
@@ -61,8 +60,8 @@ export class VisitPage implements OnInit {
 			this.visitService
 				.getVisitsByDate(this.visit.date, this.visit.doctorUid)
 				.subscribe((visits) => {
-					visits.forEach((visit) => {
-						hours.push(visit.time);
+					visits.forEach((concreteVisit) => {
+						hours.push(concreteVisit.time);
 					});
 				});
 		});
@@ -80,7 +79,11 @@ export class VisitPage implements OnInit {
 			} else {
 				this.visit.time = time;
 				this.visit.dated = true;
-				this.visitService.updateVisit(this.visit);
+				this.visitService.updateVisit(this.visit).then(() => {
+					this.toastService.presentValidToast(
+						'Se ha asignado la hora con éxito'
+					);
+				});
 				this.router.navigate(['/auxiliar/visits']);
 			}
 		}

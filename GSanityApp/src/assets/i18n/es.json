@@ -13,6 +13,9 @@
 		"inCommingVisits": "Proximas visitas",
 		"requestVisit": "Solicitar Visita"
 	},
+	"doctor": {
+		"history": "Historial"
+	},
 	"home": {
 		"home": "Inicio"
 	},
@@ -27,12 +30,12 @@
 		"presctiption": "Receta",
 		"allDoctors": "Todos",
 		"time": "Hora",
-
 		"updateVisit": "Selecionar Hora",
 		"finishVisit": "Finalizar visita",
 		"createPrescription": "Crear receta",
 		"dismiss": "Cancelar",
-		"create": "Crear"
+		"create": "Crear",
+		"allPatients": "Todos los pacientes"
 	},
 	"perfil": {
 		"profile": "Perfil",

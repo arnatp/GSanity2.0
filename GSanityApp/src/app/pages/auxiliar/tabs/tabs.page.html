@@ -5,6 +5,13 @@
 		</ion-tab-button>
 
 		<ion-tab-button tab="visits" (click)="clickTab($event, 'visits')">
+			<ion-badge
+				*ngIf="(visits | async)?.length > 0"
+				color="danger"
+				mode="ios"
+				class="badge"
+				>{{(visits | async)?.length}}</ion-badge
+			>
 			<ion-icon name="file-tray-full"></ion-icon>
 		</ion-tab-button>
 
