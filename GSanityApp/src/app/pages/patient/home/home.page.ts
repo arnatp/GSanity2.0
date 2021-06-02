@@ -23,8 +23,6 @@ export class HomePage implements OnInit {
 	}
 
 	cancelVisit(visitId) {
-		console.log('vas a cancelar la visita:', visitId);
-
 		this.alertService
 			.presentCustomAlert(
 				'Cancelar Visita',

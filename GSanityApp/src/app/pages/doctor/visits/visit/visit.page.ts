@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 import { VisitService } from 'src/app/services/visit.service';
 import { ModalController } from '@ionic/angular';
 import { PrescriptionPage } from './prescription/prescription.page';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
 	selector: 'app-visit',
@@ -20,7 +21,8 @@ export class VisitPage implements OnInit {
 		private activateRoute: ActivatedRoute,
 		private userService: UserService,
 		public modalConroller: ModalController,
-		private router: Router
+		private router: Router,
+		private alertService: AlertService
 	) {}
 
 	ngOnInit() {
@@ -52,7 +54,19 @@ export class VisitPage implements OnInit {
 			this.visit.completed = true;
 			this.visitService.updateVisit(this.visit);
 		}
-		console.log(this.visit);
 		this.router.navigate(['doctor/visits']);
+	}
+	notPresented(id: string) {
+		this.alertService
+			.presentCustomAlert(
+				'Presentado',
+				'Seguro que quieres eliminar la visita'
+			)
+			.then((result) => {
+				if (result.data) {
+					this.visitService.deleteVisit(id);
+					this.router.navigate(['doctor/visits']);
+				}
+			});
 	}
 }
