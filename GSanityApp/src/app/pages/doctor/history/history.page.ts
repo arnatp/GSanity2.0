@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DatabaseUser, Visit } from 'src/app/domain/intefaces';
+import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user.service';
 import { VisitService } from 'src/app/services/visit.service';
 
@@ -15,7 +16,8 @@ export class HistoryPage implements OnInit {
 	public patientUid = '';
 	constructor(
 		private visitService: VisitService,
-		private userService: UserService
+		private userService: UserService,
+		private toastService: ToastService
 	) {
 		this.patients = this.userService.getAllPatients();
 	}
@@ -26,5 +28,8 @@ export class HistoryPage implements OnInit {
 
 	async getCompletedVisitsByPatient() {
 		this.visits = this.visitService.getVisitsCompletedByUid(this.patientUid);
+	}
+	print(uid: string) {
+		this.toastService.presentToast('Imprimir un historial no disponible');
 	}
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatabaseUser, Visit } from 'src/app/domain/intefaces';
+import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user.service';
 import { VisitService } from 'src/app/services/visit.service';
 
@@ -16,7 +17,8 @@ export class VisitPage implements OnInit {
 	constructor(
 		private visitService: VisitService,
 		private activateRoute: ActivatedRoute,
-		private userService: UserService
+		private userService: UserService,
+		private toastService: ToastService
 	) {}
 
 	ngOnInit() {
@@ -33,5 +35,8 @@ export class VisitPage implements OnInit {
 				this.doctor = doctor;
 			});
 		});
+	}
+	print(uid: string) {
+		this.toastService.presentToast('Imprimir una visita no disponible');
 	}
 }

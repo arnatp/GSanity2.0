@@ -1,13 +1,20 @@
 <ion-header class="ion-no-border">
 	<ion-toolbar mode="ios" class="GSanity-toolbar">
-		<ion-title class="ion-text-start">
+		<ion-title class="ion-text-end">
 			{{"doctor.history"|translate}}
 		</ion-title>
+		<ion-button
+			slot="end"
+			(click)="print(patientUid)"
+			*ngIf="patientUid"
+			class="print"
+			><ion-icon name="print"></ion-icon
+		></ion-button>
 		<ion-select
 			[(ngModel)]="patientUid"
 			name="patientUid"
 			(ionChange)="getCompletedVisitsByPatient()"
-			slot="end"
+			slot="start"
 			placeholder="{{'history.selectPatient'|translate}}"
 			interface="action-sheet"
 		>
@@ -29,7 +36,10 @@
 		>
 			<ion-label>
 				<h2>{{ visit?.date | date:'dd/MM/YYYY'}}</h2>
-				<p class="ion-text-wrap">{{ visit?.initialDescription }}</p>
+				<p class="ion-text-wrap">
+					{{"visit.InitialDescription"|translate}}: {{
+					visit?.initialDescription }}
+				</p>
 			</ion-label>
 		</ion-item>
 	</ion-list>

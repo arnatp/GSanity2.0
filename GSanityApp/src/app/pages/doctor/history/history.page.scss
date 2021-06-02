@@ -5,7 +5,7 @@ ion-toolbar {
 ion-select {
 	position: absolute;
 	top: 25%;
-	right: 2%;
+	left: 2%;
 }
 
 ion-img {
@@ -13,6 +13,11 @@ ion-img {
 	margin: auto;
 	width: 30%;
 	margin-top: 50%;
+}
+.print {
+	--background: transparent;
+	--background-activated: transparent;
+	--color: black;
 }
 
 .not-found {
