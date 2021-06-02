@@ -68,6 +68,29 @@ export class VisitService {
 			true
 		);
 	}
+	getTodayVisitsByDoctorUidOrderedByTime(
+		uid: string,
+		today: string,
+		order: string
+	): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithFourWhereAndOrder(
+			'visits',
+			'doctorUid',
+			'==',
+			uid,
+			'date',
+			'==',
+			today,
+			'completed',
+			'==',
+			false,
+			'dated',
+			'==',
+			true,
+			'time',
+			order
+		);
+	}
 	getVisitsAssignedToDoctorByUid(uid: string): Observable<Visit[]> {
 		return this.dataBaseService.getDocumentsWithThreeWhere(
 			'visits',

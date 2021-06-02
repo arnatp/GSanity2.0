@@ -11,7 +11,12 @@
 			routerLink="visit/{{visit.id}}"
 		>
 			<ion-label>
-				<h2>{{ visit.date | date:'dd/MM/YYYY'}} | {{visit.time}}</h2>
+				<h2>
+					{{ visit.date | date:'dd/MM/YYYY'}} | {{visit.time}}<span
+						*ngIf="visit.time.indexOf('30')==-1"
+						>0</span
+					>
+				</h2>
 				<p>
 					{{"visit.InitialDescription"|translate}}: {{
 					visit?.initialDescription }}

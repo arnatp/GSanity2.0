@@ -10,6 +10,11 @@
 			</ion-back-button>
 		</ion-buttons>
 		<ion-title>{{"visit.visit"|translate}}</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="notPresented(visit.id)" class="notPresented">
+				<ion-icon name="close"></ion-icon>
+			</ion-button>
+		</ion-buttons>
 	</ion-toolbar>
 </ion-header>
 
@@ -32,6 +37,10 @@
 				<ion-textarea
 					[(ngModel)]="resolution"
 					name="resolution"
+					required="true"
+					rows="2"
+					minlength="10"
+					autoGrow="true"
 				></ion-textarea> </ion-item
 			><ion-item>
 				<ion-label position="stacked"
