@@ -75,5 +75,6 @@
 		"passw": "Password",
 		"confirmPassw": "Confirm Password",
 		"passwError": "Both passwords have to be equals"
-	}
+	},
+	"errors": { "nameRequired": "Name Required" }
 }

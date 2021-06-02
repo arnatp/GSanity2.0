@@ -27,7 +27,10 @@ export class HistoryPage implements OnInit {
 	}
 
 	async getCompletedVisitsByPatient() {
-		this.visits = this.visitService.getVisitsCompletedByUid(this.patientUid);
+		this.visits = this.visitService.getVisitsCompletedByUid(
+			this.patientUid,
+			'desc'
+		);
 	}
 	print(uid: string) {
 		this.toastService.presentToast('Imprimir un historial no disponible');

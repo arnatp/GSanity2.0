@@ -27,6 +27,9 @@
 						visit.initialDescription }}
 					</p>
 				</ion-label>
+				<ion-button (click)="cancelVisit(visit.id)">
+					<ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+				</ion-button>
 			</ion-item>
 		</ion-card-content>
 	</ion-card>

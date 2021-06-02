@@ -38,7 +38,7 @@ export class VisitService {
 			true
 		);
 	}
-	getVisitsCompletedByUid(uid: string): Observable<Visit[]> {
+	getVisitsCompletedByUid(uid: string, order: string): Observable<Visit[]> {
 		return this.dataBaseService.getDocumentsWithTwoWhereAndOneOrder(
 			'visits',
 			'patientUid',
@@ -47,11 +47,12 @@ export class VisitService {
 			'completed',
 			'==',
 			true,
-			'date'
+			'date',
+			order
 		);
 	}
 	getTodayVisitsByDoctorUid(uid: string, today: string): Observable<Visit[]> {
-		return this.dataBaseService.getDocumentsWithThreeWhere(
+		return this.dataBaseService.getDocumentsWithFourWhere(
 			'visits',
 			'doctorUid',
 			'==',
@@ -61,7 +62,10 @@ export class VisitService {
 			today,
 			'completed',
 			'==',
-			false
+			false,
+			'dated',
+			'==',
+			true
 		);
 	}
 	getVisitsAssignedToDoctorByUid(uid: string): Observable<Visit[]> {
@@ -114,15 +118,23 @@ export class VisitService {
 			true
 		);
 	}
-	geVisitsByPatientUid(uid: string): Observable<Visit[]> {
-		return this.dataBaseService.getDocumentsWithTwoWhere(
+	getUpcomingVisits(uid: string): Observable<Visit[]> {
+		return this.dataBaseService.getDocumentsWithTwoWhereAndTwoOrder(
 			'visits',
 			'patientUid',
 			'==',
 			uid,
 			'completed',
 			'==',
-			false
+			false,
+			'date',
+			'asc',
+			'time',
+			'asc'
 		);
+	}
+
+	deleteVisit(id: string) {
+		this.dataBaseService.deleteDocument('visits', id);
 	}
 }

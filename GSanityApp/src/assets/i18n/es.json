@@ -75,5 +75,6 @@
 		"passw": "Contraseña",
 		"confirmPassw": "Confirmar Contraseña",
 		"passwError": "Ambas contraseñas deben ser iguales"
-	}
+	},
+	"errors": { "nameRequired": "Nombre Obligatorio" }
 }

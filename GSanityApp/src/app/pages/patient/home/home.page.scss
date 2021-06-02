@@ -1,3 +1,16 @@
 ion-toolbar {
 	--background: var(--ion-color-green-patient);
 }
+
+ion-button {
+	height: 50%;
+	width: 15%;
+	--background: transparent;
+	--background-activated: lightgray;
+	//--background-activated-opacity: 0;
+	--box-shadow: white;
+	--color: var(--ion-color-red-charmander);
+	ion-icon {
+		font-size: 25px;
+	}
+}

@@ -5,7 +5,8 @@
 		<ion-select
 			[(ngModel)]="language"
 			(ionChange)="languageChange()"
-			slot="end"
+			slot="start"
+			interface="popover"
 			placeholder="{{'user.lang'|translate}}"
 		>
 			<ion-select-option value="es">Es</ion-select-option>

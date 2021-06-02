@@ -14,13 +14,31 @@ export class TabsPage implements OnInit {
 	constructor(private router: Router, private visitService: VisitService) {}
 
 	ngOnInit() {
-		this.visits = this.visitService.getVisitsAssignedToDoctorByUid(
-			JSON.parse(localStorage.getItem('user')).uid
+		const todayDay = this.today();
+		this.visits = this.visitService.getTodayVisitsByDoctorUid(
+			JSON.parse(localStorage.getItem('user')).uid,
+			todayDay
 		);
 	}
 
 	clickTab(event: Event, tab: string) {
 		event.stopImmediatePropagation();
 		this.router.navigate([`${'doctor/'}${tab}`]);
+	}
+
+	today() {
+		const d = new Date();
+		const date = new Date();
+		let month = '' + (d.getMonth() + 1);
+		let day = '' + d.getDate();
+		const year = d.getFullYear();
+
+		if (month.length < 2) {
+			month = '0' + month;
+		}
+		if (day.length < 2) {
+			day = '0' + day;
+		}
+		return [year, month, day].join('-');
 	}
 }

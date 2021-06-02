@@ -34,7 +34,7 @@
 								<div
 									*ngIf="hireForm.get('name').hasError(validation.type) && (hireForm.get('name').dirty || hireForm.get('name').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate }}
 								</div>
 							</ng-container>
 						</div>
