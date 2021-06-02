@@ -61,7 +61,8 @@
 	},
 	"admin": {
 		"hire": "Contratar",
-		"staff": "Plantilla"
+		"staff": "Plantilla",
+		"clearForm": "Limpiar Formulario"
 	},
 	"auth": {
 		"verifyEmail": "Verificar Correo",
@@ -76,5 +77,33 @@
 		"confirmPassw": "Confirmar Contraseña",
 		"passwError": "Ambas contraseñas deben ser iguales"
 	},
-	"errors": { "nameRequired": "Nombre Obligatorio" }
+	"errors": {
+		"nameRequired": "Nombre Obligatorio",
+		"namePattern": "El nombre no puede contener espacios",
+		"surnamesRequired": "Los apellidos son obligatorios",
+		"emailRequired": "El correo electrónico es obligatorio",
+		"emailPattern": "El formato del correo electrónico no es correcto",
+		"genderRequired": "El género es obligatorio",
+		"roleRequired": "El puesto de trabajo es obligatorio",
+		"bornDateRequired": "La fecha de nacimiento es obligatoria",
+		"bornDateInvalid": "La fecha de nacimiento no puede ser posterior a hoy",
+		"dniRequired": "El DNI es obligatorio",
+		"dniInvalid": "El formato del DNI no es correcto",
+		"medicCardRequired": "La tarjeta Sanitaria es obligatoria",
+		"medicCardInvalid": "La tarjeta Sanitaria debe contener 10 carácteres",
+		"passwordRequired": "La contraseña es obligatoria",
+		"passwordMinLength": "La contraseña debe contener mínimo 8 carácteres",
+		"passwordPattern": "La contraseña debe contener una letra minúscula, una mayúscula y un número como mínimo",
+		"confirmPasswordRequired": "Confirmar la contraseña es obligatorio",
+		"confirmPasswordNotMatch": "Ambas contraseñas deben ser iguales",
+		"newEmailAndConfirmEmailNotMatch": "Nuevo email y confirmar Email deben ser iguales",
+		"newPasswordNotMatch": "Nueva Contraseña y confirmar contrasña deben ser iguales",
+		"visitDateRequired": "La fecha para la visita es obligatoria",
+		"visitDatePrevious": "La fecha no puede ser anterior a hoy",
+		"visitDatePosterior": "La fecha no puede ser posterior a dentro de 2 semanas",
+		"visitDateWeekends": "La fecha no puede ser ubicada en fin de semana",
+		"doctorRequired": "El doctor es obligatorio",
+		"initialDescriptionRequired": "La descripción inicial es obligatoria",
+		"InitialDescriptionMinLength": "La descripción inicial debe contener al menos 10 carácteres"
+	}
 }

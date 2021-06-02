@@ -40,7 +40,7 @@
 							<div
 								*ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 					</div>
@@ -64,7 +64,7 @@
 							<div
 								*ngIf="form.get('surnames').hasError(validation.type) && (form.get('surnames').dirty || form.get('surnames').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 					</div></ion-col
@@ -90,7 +90,7 @@
 							<div
 								*ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 					</div>
@@ -123,7 +123,7 @@
 							<div
 								*ngIf="form.get('gender').hasError(validation.type) && (form.get('gender').dirty || form.get('gender').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 					</div>
@@ -146,7 +146,7 @@
 							<div
 								*ngIf="form.get('bornDate').hasError(validation.type) && (form.get('bornDate').dirty || form.get('bornDate').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 					</div></ion-col
@@ -168,7 +168,7 @@
 							<div
 								*ngIf="form.get('dni').hasError(validation.type) && (form.get('dni').dirty || form.get('dni').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 					</div>
@@ -188,7 +188,7 @@
 							<div
 								*ngIf="form.get('mediCard').hasError(validation.type) && (form.get('mediCard').dirty || form.get('mediCard').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 					</div>
@@ -213,7 +213,7 @@
 							<div
 								*ngIf="form.get('password').hasError(validation.type) && (form.get('password').dirty || form.get('password').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 					</div>
@@ -238,14 +238,14 @@
 							<div
 								*ngIf="form.get('confirmPassword').hasError(validation.type) && (form.get('confirmPassword').dirty || form.get('confirmPassword').touched || isSubmitted)"
 							>
-								{{ validation.message }}
+								{{ validation.message | translate }}
 							</div>
 						</ng-container>
 						<div
 							class="error-message"
 							*ngIf="!form.get('confirmPassword').errors && form.hasError('passwordNotMatch') && (form.get('confirmPassword').dirty || form.get('confirmPassword').touched)"
 						>
-							{{"auth.passwError"|translate}}
+							{{"errors.confirmPasswordNotMatch"|translate}}
 						</div>
 					</div>
 				</ion-col>

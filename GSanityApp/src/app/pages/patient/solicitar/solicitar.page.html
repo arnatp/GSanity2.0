@@ -34,7 +34,7 @@
 								<div
 									*ngIf="form.get('date').hasError(validation.type) && (form.get('date').dirty || form.get('date').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate}}
 								</div>
 							</ng-container>
 						</div>
@@ -64,7 +64,7 @@
 								<div
 									*ngIf="form.get('doctorUid').hasError(validation.type) && (form.get('doctorUid').dirty || form.get('doctorUid').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate }}
 								</div>
 							</ng-container>
 						</div>
@@ -90,7 +90,7 @@
 						<div
 							*ngIf="form.get('initialDescription').hasError(validation.type) && (form.get('initialDescription').dirty || form.get('initialDescription').touched || isSubmitted)"
 						>
-							{{ validation.message }}
+							{{ validation.message | translate }}
 						</div>
 					</ng-container>
 				</div>

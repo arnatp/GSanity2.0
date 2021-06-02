@@ -5,54 +5,53 @@ export class ValidationMessages {
 				{ type: 'required', message: 'errors.nameRequired' },
 				{
 					type: 'pattern',
-					message: '{{errors.namePattern}}',
+					message: 'errors.namePattern',
 				},
 			],
-			surnames: [{ type: 'required', message: 'Surnames are required.' }],
+			surnames: [{ type: 'required', message: 'errors.surnamesRequired' }],
 			email: [
-				{ type: 'required', message: 'Email is required.' },
+				{ type: 'required', message: 'errors.emailRequired' },
 				{
 					type: 'pattern',
-					message: 'Email format is incorrect',
+					message: 'errors.emailPattern',
 				},
 			],
-			gender: [{ type: 'required', message: 'Gender is required.' }],
+			gender: [{ type: 'required', message: 'errors.genderRequired' }],
 			bornDate: [
-				{ type: 'required', message: 'Born Date is required.' },
+				{ type: 'required', message: 'errors.bornDateRequired' },
 				{
 					type: 'dateInvalid',
-					message: 'Born Date can not be greater than today.',
+					message: 'errors.bornDateInvalid',
 				},
 			],
 			dni: [
-				{ type: 'required', message: 'DNI is required.' },
-				{ type: 'dniInvalid', message: 'DNI format is invalid.' },
+				{ type: 'required', message: 'errors.dniRequired' },
+				{ type: 'dniInvalid', message: 'errors.dniInvalid' },
 			],
 			mediCard: [
-				{ type: 'required', message: 'Medic Card is required.' },
+				{ type: 'required', message: 'errors.medicCardRequired' },
 				{
 					type: 'minlength',
-					message: 'Medic Card must contain 10 characters.',
+					message: 'errors.medicCardInvalid',
 				},
 				{
 					type: 'maxlength',
-					message: 'Medic Card must contain 10 characters.',
+					message: 'errors.medicCardInvalid',
 				},
 			],
 			password: [
-				{ type: 'required', message: 'Password is required.' },
+				{ type: 'required', message: 'errors.passwordRequired' },
 				{
 					type: 'minlength',
-					message: 'Password must contain 8 characters at least',
+					message: 'errors.passwordMinLength',
 				},
 				{
 					type: 'pattern',
-					message:
-						'Password must contain 1 lowercase character, 1 uppercase character and 1 number',
+					message: 'errors.passwordPattern',
 				},
 			],
 			confirmPassword: [
-				{ type: 'required', message: 'Confirm Password is required.' },
+				{ type: 'required', message: 'errors.confirmPasswordRequired' },
 			],
 		};
 	}
@@ -63,29 +62,29 @@ export class ValidationMessages {
 				{ type: 'required', message: 'errors.nameRequired' },
 				{
 					type: 'pattern',
-					message: '{{errors.namePattern}}',
+					message: 'errors.namePattern',
 				},
 			],
-			surnames: [{ type: 'required', message: 'Surnames are required.' }],
+			surnames: [{ type: 'required', message: 'errors.surnamesRequired' }],
 			email: [
-				{ type: 'required', message: 'Email is required.' },
+				{ type: 'required', message: 'errors.emailRequired' },
 				{
 					type: 'pattern',
-					message: 'Email format is incorrect',
+					message: 'errors.emailPattern',
 				},
 			],
-			gender: [{ type: 'required', message: 'Gender is required.' }],
-			role: [{ type: 'required', message: 'Role is required.' }],
+			gender: [{ type: 'required', message: 'errors.genderRequired' }],
+			role: [{ type: 'required', message: 'errors.roleRequired' }],
 			bornDate: [
-				{ type: 'required', message: 'Born Date is required.' },
+				{ type: 'required', message: 'errors.bornDateRequired' },
 				{
 					type: 'dateInvalid',
-					message: 'Born Date can not be greater than today.',
+					message: 'errors.bornDateInvalid',
 				},
 			],
 			dni: [
-				{ type: 'required', message: 'DNI is required.' },
-				{ type: 'dniInvalid', message: 'DNI format is invalid.' },
+				{ type: 'required', message: 'errors.dniRequired' },
+				{ type: 'dniInvalid', message: 'errors.dniInvalid' },
 			],
 		};
 	}
@@ -93,36 +92,35 @@ export class ValidationMessages {
 	static validationFormNewEmailMessages() {
 		return {
 			email: [
-				{ type: 'required', message: 'Email is required.' },
+				{ type: 'required', message: 'errors.emailRequired' },
 				{
 					type: 'pattern',
-					message: 'Email format is incorrect',
+					message: 'errors.emailPattern',
 				},
 			],
 			password: [
-				{ type: 'required', message: 'Password is required.' },
+				{ type: 'required', message: 'errors.passwordRequired' },
 				{
 					type: 'minlength',
-					message: 'Password must contain 8 characters at least',
+					message: 'errors.passwordMinLength',
 				},
 				{
 					type: 'pattern',
-					message:
-						'Password must contain 1 lowercase character, 1 uppercase character and 1 number',
+					message: 'errors.passwordPattern',
 				},
 			],
 			newEmail: [
-				{ type: 'required', message: 'Email is required.' },
+				{ type: 'required', message: 'errors.emailRequired' },
 				{
 					type: 'pattern',
-					message: 'Email format is incorrect',
+					message: 'errors.emailPattern',
 				},
 			],
 			confirmNewEmail: [
-				{ type: 'required', message: 'Email is required.' },
+				{ type: 'required', message: 'errors.emailRequired' },
 				{
 					type: 'pattern',
-					message: 'Email format is incorrect',
+					message: 'errors.emailPattern',
 				},
 			],
 		};
@@ -131,38 +129,36 @@ export class ValidationMessages {
 	static validationFormNewPasswordMessages() {
 		return {
 			email: [
-				{ type: 'required', message: 'Email is required.' },
+				{ type: 'required', message: 'errors.emailRequired' },
 				{
 					type: 'pattern',
-					message: 'Email format is incorrect',
+					message: 'errors.emailPattern',
 				},
 			],
 			currentPassword: [
-				{ type: 'required', message: 'Password is required.' },
+				{ type: 'required', message: 'errors.passwordRequired' },
 				{
 					type: 'minlength',
-					message: 'Password must contain 8 characters at least',
+					message: 'errors.passwordMinLength',
 				},
 				{
 					type: 'pattern',
-					message:
-						'Password must contain 1 lowercase character, 1 uppercase character and 1 number',
+					message: 'errors.passwordPattern',
 				},
 			],
 			password: [
-				{ type: 'required', message: 'Password is required.' },
+				{ type: 'required', message: 'errors.passwordRequired' },
 				{
 					type: 'minlength',
-					message: 'Password must contain 8 characters at least',
+					message: 'errors.passwordMinLength',
 				},
 				{
 					type: 'pattern',
-					message:
-						'Password must contain 1 lowercase character, 1 uppercase character and 1 number',
+					message: 'errors.passwordPattern',
 				},
 			],
 			confirmPassword: [
-				{ type: 'required', message: 'Confirm Password is required.' },
+				{ type: 'required', message: 'errors.confirmPasswordRequired' },
 			],
 		};
 	}
@@ -170,30 +166,29 @@ export class ValidationMessages {
 	static validationFormVisitMessages() {
 		return {
 			date: [
-				{ type: 'required', message: 'Visit Date is required.' },
+				{ type: 'required', message: 'errors.visitDateRequired' },
 				{
 					type: 'datePrevious',
-					message: 'Visit Date can not be previous than today.',
+					message: 'errors.visitDatePrevious',
 				},
 				{
 					type: 'datePosterior',
-					message: 'Visit Date can not be greater than two weeks ahead.',
+					message: 'errors.visitDatePosterior',
 				},
 				{
 					type: 'dateWeekends',
-					message: 'Visit Date can not be placed in weekends.',
+					message: 'errors.visitDateWeekends',
 				},
 			],
-			doctorUid: [{ type: 'required', message: 'Doctor is required.' }],
+			doctorUid: [{ type: 'required', message: 'errors.doctorRequired' }],
 			initialDescription: [
 				{
 					type: 'required',
-					message: 'The initial Description is required.',
+					message: 'errors.initialDescriptionRequired',
 				},
 				{
 					type: 'minlength',
-					message:
-						'Initial Description must contain at least 10 characters.',
+					message: 'errors.InitialDescriptionMinLength',
 				},
 			],
 		};

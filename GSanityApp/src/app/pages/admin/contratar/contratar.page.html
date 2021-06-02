@@ -59,7 +59,7 @@
 								<div
 									*ngIf="hireForm.get('surnames').hasError(validation.type) && (hireForm.get('surnames').dirty || hireForm.get('surnames').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate }}
 								</div>
 							</ng-container>
 						</div>
@@ -85,7 +85,7 @@
 								<div
 									*ngIf="hireForm.get('dni').hasError(validation.type) && (hireForm.get('dni').dirty || hireForm.get('dni').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate }}
 								</div>
 							</ng-container>
 						</div>
@@ -108,7 +108,7 @@
 								<div
 									*ngIf="hireForm.get('bornDate').hasError(validation.type) && (hireForm.get('bornDate').dirty || hireForm.get('bornDate').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate }}
 								</div>
 							</ng-container>
 						</div>
@@ -134,7 +134,7 @@
 								<div
 									*ngIf="hireForm.get('email').hasError(validation.type) && (hireForm.get('email').dirty || hireForm.get('email').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate }}
 								</div>
 							</ng-container>
 						</div>
@@ -166,7 +166,7 @@
 								<div
 									*ngIf="hireForm.get('gender').hasError(validation.type) && (hireForm.get('gender').dirty || hireForm.get('gender').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate }}
 								</div>
 							</ng-container>
 						</div>
@@ -196,7 +196,7 @@
 								<div
 									*ngIf="hireForm.get('role').hasError(validation.type) && (hireForm.get('role').dirty || hireForm.get('role').touched || isSubmitted)"
 								>
-									{{ validation.message }}
+									{{ validation.message | translate }}
 								</div>
 							</ng-container>
 						</div>
