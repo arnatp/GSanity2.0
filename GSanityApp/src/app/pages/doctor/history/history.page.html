@@ -33,8 +33,8 @@
 			</ion-label>
 		</ion-item>
 	</ion-list>
-	<div *ngIf="(visits | async)?.length === 0">
+	<div *ngIf="(visits | async)?.length === 0" class="notResultsFound">
 		<ion-img src="assets/images/notResultsFound.png"></ion-img>
-		<ion-title class="ion-text-center not-found">Not Results Found</ion-title>
+		<ion-title class="ion-text-center">Not Results Found</ion-title>
 	</div>
 </ion-content>

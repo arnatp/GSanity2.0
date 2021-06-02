@@ -1,6 +1,16 @@
 <ion-header class="ion-no-border">
 	<ion-toolbar mode="ios" class="GSanity-toolbar">
 		<ion-title slot="start"> {{"perfil.profile"|translate}} </ion-title>
+		<ion-select
+			[(ngModel)]="language"
+			(ionChange)="languageChange()"
+			slot="start"
+			interface="popover"
+			placeholder="{{'user.lang'|translate}}"
+		>
+			<ion-select-option value="es">Es</ion-select-option>
+			<ion-select-option value="en">En</ion-select-option>
+		</ion-select>
 		<ion-button slot="end" (click)="logout()" class="logout"
 			><ion-icon name="power-outline"></ion-icon
 		></ion-button>

@@ -25,6 +25,9 @@ export class HistoryPage implements OnInit {
 	}
 
 	async getCompletedVisitsByPatient() {
-		this.visits = this.visitService.getVisitsCompletedByUid(this.patientUid);
+		this.visits = this.visitService.getVisitsCompletedByUid(
+			this.patientUid,
+			'desc'
+		);
 	}
 }

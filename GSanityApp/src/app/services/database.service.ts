@@ -106,6 +106,34 @@ export class DatabaseService {
 		return collection.valueChanges();
 	}
 
+	getDocumentsWithFourWhere<DatabaseObject>(
+		url: string,
+		fieldOne: string,
+		operationOne: any,
+		resultOne: any,
+		fieldTwo: string,
+		operationTwo: any,
+		resultTwo: any,
+		fieldTrhee: string,
+		operationThree: any,
+		resultThree: any,
+		fieldFour: string,
+		operationFour: any,
+		resultFour: any
+	) {
+		const collection = this.angularFirestore.collection<DatabaseObject>(
+			url,
+			(ref) =>
+				ref
+					.where(fieldOne, operationOne, resultOne)
+					.where(fieldTwo, operationTwo, resultTwo)
+					.where(fieldTrhee, operationThree, resultThree)
+					.where(fieldFour, operationFour, resultFour)
+		);
+
+		return collection.valueChanges();
+	}
+
 	getDocumentsWithTwoWhereAndOneOrder<DatabaseObject>(
 		url: string,
 		fieldOne: string,
@@ -114,7 +142,8 @@ export class DatabaseService {
 		fieldTwo: string,
 		operationTwo: any,
 		resultTwo: any,
-		orderField: any
+		orderField: any,
+		order: any
 	) {
 		const collection = this.angularFirestore.collection<DatabaseObject>(
 			url,
@@ -122,7 +151,33 @@ export class DatabaseService {
 				ref
 					.where(fieldOne, operationOne, resultOne)
 					.where(fieldTwo, operationTwo, resultTwo)
-					.orderBy(orderField, 'desc')
+					.orderBy(orderField, order)
+		);
+
+		return collection.valueChanges();
+	}
+
+	getDocumentsWithTwoWhereAndTwoOrder<DatabaseObject>(
+		url: string,
+		fieldOne: string,
+		operationOne: any,
+		resultOne: any,
+		fieldTwo: string,
+		operationTwo: any,
+		resultTwo: any,
+		firstOrderField: any,
+		firstOrder: any,
+		secondOrderField: any,
+		secondOrder: any
+	) {
+		const collection = this.angularFirestore.collection<DatabaseObject>(
+			url,
+			(ref) =>
+				ref
+					.where(fieldOne, operationOne, resultOne)
+					.where(fieldTwo, operationTwo, resultTwo)
+					.orderBy(firstOrderField, firstOrder)
+					.orderBy(secondOrderField, secondOrder)
 		);
 
 		return collection.valueChanges();

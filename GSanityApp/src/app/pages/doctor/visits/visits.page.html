@@ -5,17 +5,22 @@
 </ion-header>
 
 <ion-content>
-	<ion-item
-		*ngFor="let visit of visits | async"
-		routerLink="visit/{{visit.id}}"
-		class="elementsList"
-	>
-		<ion-label>
-			<h2>{{ visit.date | date:'dd/MM/YYYY'}}</h2>
-			<p>
-				{{"visit.InitialDescription"|translate}}: {{
-				visit?.initialDescription }}
-			</p>
-		</ion-label>
-	</ion-item>
+	<ion-list mode="ios" class="elementsList" lines="full">
+		<ion-item
+			*ngFor="let visit of visits | async"
+			routerLink="visit/{{visit.id}}"
+		>
+			<ion-label>
+				<h2>{{ visit.date | date:'dd/MM/YYYY'}} | {{visit.time}}</h2>
+				<p>
+					{{"visit.InitialDescription"|translate}}: {{
+					visit?.initialDescription }}
+				</p>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+	<div *ngIf="(visits | async)?.length === 0" class="notResultsFound">
+		<ion-img src="assets/images/notResultsFound.png"></ion-img>
+		<ion-title class="ion-text-center">Not Visits For Today</ion-title>
+	</div>
 </ion-content>

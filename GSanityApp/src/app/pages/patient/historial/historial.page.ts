@@ -14,7 +14,8 @@ export class HistorialPage implements OnInit {
 
 	ngOnInit() {
 		this.visits = this.visitService.getVisitsCompletedByUid(
-			JSON.parse(localStorage.getItem('user')).uid
+			JSON.parse(localStorage.getItem('user')).uid,
+			'desc'
 		);
 	}
 }

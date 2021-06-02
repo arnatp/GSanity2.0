@@ -2,7 +2,7 @@ export class ValidationMessages {
 	static validationFormRegisterMessages() {
 		return {
 			name: [
-				{ type: 'required', message: '{{errors.nameRequired}}' },
+				{ type: 'required', message: 'errors.nameRequired' },
 				{
 					type: 'pattern',
 					message: '{{errors.namePattern}}',
@@ -60,7 +60,7 @@ export class ValidationMessages {
 	static validationFormHireMessages() {
 		return {
 			name: [
-				{ type: 'required', message: '{{errors.nameRequired}}' },
+				{ type: 'required', message: 'errors.nameRequired' },
 				{
 					type: 'pattern',
 					message: '{{errors.namePattern}}',
