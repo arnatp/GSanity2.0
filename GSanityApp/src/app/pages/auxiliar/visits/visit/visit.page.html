@@ -1,11 +1,20 @@
 <ion-header class="ion-no-border">
 	<ion-toolbar mode="ios" class="GSanity-toolbar">
+		<ion-buttons slot="start">
+			<ion-back-button
+				defaultHref="visits"
+				icon="chevron-back-outline"
+				text=""
+				mode="ios"
+			>
+			</ion-back-button>
+		</ion-buttons>
 		<ion-title>{{"visit.visit"|translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-title>{{"visit.hours"|translate}}</ion-title>
+	<ion-title class="title">{{"visit.hours"|translate}}</ion-title>
 	<div class="scroll">
 		<section *ngFor="let hour of hours ">
 			<span *ngIf="hoursPicked.indexOf(hour.hour)==-1">
@@ -20,12 +29,11 @@
 			</span>
 		</section>
 	</div>
-	<div>
-		<ion-card>
+
+	<ion-card mode="ios">
+		<ion-card-title class="ion-text-center">{{visit?.date}}</ion-card-title>
+		<ion-card-content>
 			<form #form="ngForm" (ngSubmit)="updateVisit()">
-				<ion-item mode="ios">
-					<ion-title>{{visit?.date}}</ion-title>
-				</ion-item>
 				<ion-item>
 					<ion-label position="stacked"
 						>{{"visit.InitialDescription"|translate}}:</ion-label
@@ -35,13 +43,13 @@
 				<ion-item>
 					<ion-label position="stacked"
 						>{{"visit.doctor"|translate}}:</ion-label
-					><br />
-					<p>{{doctor?.name}}</p>
+					>
+					<p>{{doctor?.name}} {{doctor?.surnames}}</p>
 				</ion-item>
 				<ion-item>
 					<ion-label position="stacked"
 						>{{"visit.time"|translate}}:</ion-label
-					><br />
+					>
 					<ion-datetime
 						[(ngModel)]="time"
 						name="time"
@@ -49,6 +57,7 @@
 						hourValues="8,9,10,11,12,15,16,17,18,19"
 						minuteValues="0,30"
 						required
+						mode="md"
 					></ion-datetime>
 				</ion-item>
 				<ion-button
@@ -58,7 +67,7 @@
 					type="submit"
 					>{{"visit.updateVisit"|translate}}</ion-button
 				>
-			</form></ion-card
-		>
-	</div>
+			</form>
+		</ion-card-content></ion-card
+	>
 </ion-content>

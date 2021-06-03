@@ -5,39 +5,44 @@
 </ion-header>
 
 <ion-content>
-	<ion-segment
-		><ion-grid
-			><ion-row
-				><ion-col size="5">{{"visit.doctor"|translate}}:</ion-col
-				><ion-col size="7">
-					<ion-select
-						[(ngModel)]="doctorUid"
-						name="doctorUid"
-						(ionChange)="getDoctorVisits()"
-					>
-						<ion-select-option
-							value="{{doctor.uid}}"
-							*ngFor="let doctor of doctors | async"
-						>
-							{{doctor.name}} {{doctor.surnames}} </ion-select-option
-						><ion-select-option value="">
-							{{"visit.allDoctors"|translate}}
-						</ion-select-option>
-					</ion-select></ion-col
-				></ion-row
+	<div class="banner">
+		<ion-label>{{"visit.doctor"|translate}}:</ion-label>
+		<ion-select
+			[(ngModel)]="doctorUid"
+			name="doctorUid"
+			interface="action-sheet"
+			mode="ios"
+			(ionChange)="getDoctorVisits()"
+		>
+			<ion-select-option
+				value="{{doctor.uid}}"
+				*ngFor="let doctor of doctors | async"
 			>
-		</ion-grid>
-	</ion-segment>
-	<ion-item
-		*ngFor="let visit of visits | async"
-		routerLink="visit/{{visit.id}}"
-	>
-		<ion-label>
-			<h2>{{ visit.date}}</h2>
-			<p>
-				{{"visit.InitialDescription"|translate}}: {{
-				visit?.initialDescription }}
-			</p>
-		</ion-label>
-	</ion-item>
+				{{doctor.name}} {{doctor.surnames}} </ion-select-option
+			><ion-select-option value="">
+				{{"visit.allDoctors"|translate}}
+			</ion-select-option>
+		</ion-select>
+	</div>
+
+	<ion-list mode="ios" class="elementsList" lines="full">
+		<ion-item
+			*ngFor="let visit of visits | async"
+			routerLink="visit/{{visit.id}}"
+		>
+			<ion-label>
+				<h2>{{ visit.date}}</h2>
+				<p>
+					{{"visit.InitialDescription"|translate}}: {{
+					visit?.initialDescription }}
+				</p>
+			</ion-label>
+		</ion-item>
+	</ion-list>
+	<div *ngIf="(visits | async)?.length === 0" class="notResultsFound">
+		<ion-img src="assets/images/notResultsFound.png"></ion-img>
+		<ion-title class="ion-text-center"
+			>{{"notFound.notVisitsToProgram" | translate}}</ion-title
+		>
+	</div>
 </ion-content>

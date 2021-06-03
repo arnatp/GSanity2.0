@@ -2,7 +2,6 @@ import { VisitService } from './../../../services/visit.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Visit } from 'src/app/domain/intefaces';
-import { UserService } from 'src/app/services/user.service';
 import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
@@ -25,8 +24,8 @@ export class HomePage implements OnInit {
 	cancelVisit(visitId) {
 		this.alertService
 			.presentCustomAlert(
-				'Cancelar Visita',
-				'¿Seguro que quieres cancelar la visita?'
+				'alert.cancelVisitHeader',
+				'alert.cancelVisitMessage'
 			)
 			.then((result) => {
 				if (result.data) {

@@ -21,13 +21,13 @@
 		"home": "Inicio"
 	},
 	"visit": {
-		"hours": "Horas",
+		"hours": "Horas Disponibles",
 		"visits": "Visitas",
 		"visit": "Visita",
 		"InitialDescription": "Descripcion Inicial",
 		"Resolution": "Solución",
 		"date": "Fecha",
-		"doctor": "Doctor",
+		"doctor": "Doctor/a",
 		"presctiption": "Receta",
 		"allDoctors": "Todos",
 		"time": "Hora",
@@ -112,6 +112,36 @@
 		"visitsInPatientHistory": "Todavía no cuentas con ninguna visita",
 		"visitsInPatientHome": "No tienes visitas programadas",
 		"notResultsFound": "No se han encontrado resultados",
-		"notPatientSelected": "Debes seleccionar un paciente"
+		"notPatientSelected": "Debes seleccionar un paciente",
+		"notVisitsToProgram": "No hay visitas pendiente de programar"
+	},
+	"alert": {
+		"disconnectHeader": "Desconectarse",
+		"disconnectMessage": "¿Quieres cerrar la sesión?",
+		"cancelButton": "Cancelar",
+		"acceptButton": "Aceptar",
+		"newEmployeeHeader": "Nuevo Empleado",
+		"newEmployeeMessage": "¿Todo está correcto?",
+		"patientNotPresentedHeader": "No presentado",
+		"patientNotPresentedMessage": "¿Seguro que deseas eliminar la visita?",
+		"cancelVisitHeader": "Cancelar visita",
+		"cancelVisitMessage": "¿Quieres cancelar la visita?"
+	},
+	"toast": {
+		"hourSelected": "la hora ya esta seleccionada para otra visita",
+		"printHistory": "Imprimir un historial no disponible",
+		"printVisit": "Imprimir una visita no disponible",
+		"errorResetPassword": "Ha ocurrido un error al resetear la password",
+		"errorVerifyMail": "Ha ocurrido un error al enviar el mail de verificación",
+		"errorRegister": "Ha ocurrido un error al hacer registro",
+		"errorLogin": "Ha ocurrido un error al intentar iniciar sesión",
+		"errorLogout": "Ha ocurrido un error al hacer logout",
+		"errorChangeMail": "Ha ocurrido un error al intentar cambiar el mail",
+		"errorChangePassword": "Ha ocurrido un error al intentar cambiar la contraseña",
+		"confirmHourVisit": "Se ha asignado la hora con éxito",
+		"confirmNewUserCreated": "Se ha creado correctamente el nuevo usuario",
+		"confirmNewMailChanged": "Se ha cambiado el mail correctamente",
+		"confirmNewPasswordChanged": "Se ha cambiado la contraseña correctamente",
+		"confirmVisitCreated": "Se ha creado la visita con éxito"
 	}
 }

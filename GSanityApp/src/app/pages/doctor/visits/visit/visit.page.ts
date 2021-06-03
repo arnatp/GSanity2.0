@@ -50,7 +50,7 @@ export class VisitPage implements OnInit {
 	}
 	updateVisit() {
 		this.visit.resolution = this.resolution;
-		if (this.visit.resolution.nodeValue != '') {
+		if (this.visit.resolution.nodeValue !== '') {
 			this.visit.completed = true;
 			this.visitService.updateVisit(this.visit);
 		}
@@ -59,8 +59,8 @@ export class VisitPage implements OnInit {
 	notPresented(id: string) {
 		this.alertService
 			.presentCustomAlert(
-				'Presentado',
-				'Seguro que quieres eliminar la visita'
+				'alert.patientNotPresentedHeader',
+				'alert.patientNotPresentedMessage'
 			)
 			.then((result) => {
 				if (result.data) {

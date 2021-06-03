@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from './auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
 	providedIn: 'root',
@@ -10,18 +11,19 @@ export class AlertService {
 	constructor(
 		public alertController: AlertController,
 		private authService: AuthService,
-		private router: Router
+		private router: Router,
+		private translate: TranslateService
 	) {}
 
 	async presentAlertConfirmLogout() {
 		const alert = await this.alertController.create({
 			mode: 'ios',
 			cssClass: 'my-custom-class',
-			header: 'Desconectarse',
-			message: '¿Quieres cerrar la sesión?',
+			header: this.translate.instant('alert.disconnectHeader'),
+			message: this.translate.instant('alert.disconnectMessage'),
 			buttons: [
 				{
-					text: 'Cancelar',
+					text: this.translate.instant('alert.cancelButton'),
 					role: 'cancel',
 					cssClass: 'secondary',
 					handler: (blah) => {
@@ -29,7 +31,7 @@ export class AlertService {
 					},
 				},
 				{
-					text: 'Aceptar',
+					text: this.translate.instant('alert.acceptButton'),
 					handler: () => {
 						console.log('Confirm Okay');
 						this.authService.logout().then((_) => {
@@ -47,11 +49,11 @@ export class AlertService {
 		const alert = await this.alertController.create({
 			mode: 'ios',
 			cssClass: 'my-custom-class',
-			header: headerText,
-			message: messageText,
+			header: this.translate.instant(headerText),
+			message: this.translate.instant(messageText),
 			buttons: [
 				{
-					text: 'Cancel',
+					text: this.translate.instant('alert.cancelButton'),
 					cssClass: 'secondary',
 					handler: () => {
 						alert.dismiss(false);
@@ -59,7 +61,7 @@ export class AlertService {
 					},
 				},
 				{
-					text: 'Okay',
+					text: this.translate.instant('alert.acceptButton'),
 					handler: () => {
 						console.log('Confirm Okay');
 						alert.dismiss(true);

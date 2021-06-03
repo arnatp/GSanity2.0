@@ -1,11 +1,13 @@
 ion-toolbar {
 	--background: var(--ion-color-yellow-employee);
 }
-ion-title {
+
+.title {
 	margin-top: 10px;
 	margin-bottom: -10px;
 	text-align: center;
 }
+
 .scroll {
 	margin: 10px;
 	margin-right: 15px;
@@ -18,5 +20,57 @@ ion-title {
 	section {
 		padding: 5px;
 		float: left;
+	}
+	section:last-child {
+		margin-right: 15px;
+	}
+}
+
+/*ion-card {
+	ion-card-content {
+		margin: -10px;
+		ion-item {
+			//width: 100%;
+			ion-label {
+				font-size: 20px;
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}*/
+
+ion-card {
+	ion-card-title {
+		margin-top: 5px;
+		font-size: 20px;
+		text-align: center;
+	}
+	ion-card-subtitle {
+		text-align: center;
+	}
+	ion-card-content {
+		margin: -15px;
+		ion-item {
+			//padding: 5px;
+			--padding-start: 10px;
+			--padding-end: 10px;
+			--padding-top: 15px;
+			--min-height: 30px;
+			ion-label {
+				margin-top: -2px;
+				font-weight: bold;
+			}
+			/*p {
+				color: gray;
+			}*/
+		}
+		ion-button {
+			width: 90%;
+			margin: auto;
+			margin-top: 10px;
+			margin-bottom: 5px;
+			--background: var(--ion-color-aquamarine);
+		}
 	}
 }

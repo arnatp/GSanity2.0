@@ -112,7 +112,10 @@ export class ContratarPage implements OnInit {
 		//Creamos la contraseña totalmente aleatoria
 		this.password = this.generateNewPassword();
 		this.alertService
-			.presentCustomAlert('Nuevo Empleado', '¿Todo está correcto?')
+			.presentCustomAlert(
+				'alert.newEmployeeHeader',
+				'alert.newEmployeeMessage'
+			)
 			.then((result) => {
 				if (result.data) {
 					this.contractEmployee();

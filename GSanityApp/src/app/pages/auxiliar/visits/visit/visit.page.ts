@@ -72,17 +72,13 @@ export class VisitPage implements OnInit {
 		const date = new Date(this.time);
 		const time: string = date.getHours() + ':' + date.getMinutes();
 		if (this.time) {
-			if (this.hoursPicked.indexOf(time) != -1) {
-				this.toastService.presentToast(
-					'la hora ya esta seleccionada para otra visita'
-				);
+			if (this.hoursPicked.indexOf(time) !== -1) {
+				this.toastService.presentToast('toast.hourSelected');
 			} else {
 				this.visit.time = time;
 				this.visit.dated = true;
 				this.visitService.updateVisit(this.visit).then(() => {
-					this.toastService.presentValidToast(
-						'Se ha asignado la hora con éxito'
-					);
+					this.toastService.presentValidToast('toast.confirmHourVisit');
 				});
 				this.router.navigate(['/auxiliar/visits']);
 			}

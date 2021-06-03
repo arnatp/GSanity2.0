@@ -31,9 +31,7 @@ export class AuthService {
 			return this.afAuth.sendPasswordResetEmail(email);
 		} catch (error) {
 			console.log('Ha ocurrido un error al resetear la password: ', error);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al resetear la password'
-			);
+			this.toastService.presentToast('toast.errorResetPassword');
 		}
 	}
 
@@ -45,9 +43,7 @@ export class AuthService {
 				'Ha ocurrido un error al enviar el mail de verificación: ',
 				error
 			);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al enviar el mail de verificación'
-			);
+			this.toastService.presentToast('toast.errorVerifyMail');
 		}
 	}
 
@@ -61,9 +57,7 @@ export class AuthService {
 			return user;
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer registro: ', error);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al hacer registro'
-			);
+			this.toastService.presentToast('toast.errorRegister');
 		}
 	}
 
@@ -78,9 +72,7 @@ export class AuthService {
 			return user;
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer login: ', error);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al intentar iniciar sesión'
-			);
+			this.toastService.presentToast('toast.errorLogin');
 		}
 	}
 
@@ -91,7 +83,7 @@ export class AuthService {
 			});
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer logout: ', error);
-			this.toastService.presentToast('Ha ocurrido un error al hacer logout');
+			this.toastService.presentToast('toast.errorLogout');
 		}
 	}
 
@@ -102,30 +94,13 @@ export class AuthService {
 				password
 			);
 			await this.resetPassword(email);
-			this.toastService.presentValidToast(
-				'Se ha creado correctamente el nuevo usuario'
-			);
+			this.toastService.presentValidToast('toast.confirmNewUserCreated');
 			return user;
 		} catch (error) {
 			console.log('Ha ocurrido un error al hacer registro: ', error);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al hacer registro'
-			);
+			this.toastService.presentToast('toast.errorRegister');
 		}
 	}
-
-	/*async delete(email: string, password: string): Promise<User> {
-		try {
-			const { user } = await this.afAuth
-			await this.resetPassword(email);
-			return user;
-		} catch (error) {
-			console.log('Ha ocurrido un error al hacer registro: ', error);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al hacer registro'
-			);
-		}
-	}*/
 
 	async changeEmail(
 		currentEmail: string,
@@ -140,20 +115,14 @@ export class AuthService {
 			user
 				.updateEmail(email)
 				.then(() => {
-					this.toastService.presentValidToast(
-						'Se ha cambiado el mail correctamente'
-					);
+					this.toastService.presentValidToast('toast.newMailChanged');
 				})
 				.catch(() => {
-					this.toastService.presentToast(
-						'Ha ocurrido un error al intentar cambiar el mail'
-					);
+					this.toastService.presentToast('toast.errorChangeMail');
 				});
 		} catch (error) {
 			console.log('Ha ocurrido un error al cambiar el mail: ', error);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al intentar cambiar el mail'
-			);
+			this.toastService.presentToast('toast.errorChangeMail');
 		}
 	}
 
@@ -171,20 +140,16 @@ export class AuthService {
 				.updatePassword(newPassword)
 				.then(() => {
 					this.toastService.presentValidToast(
-						'Se ha cambiado la contraseña correctamente'
+						'toast.confirmNewPasswordChanged'
 					);
 				})
 				.catch(() => {
-					this.toastService.presentToast(
-						'Ha ocurrido un error al intentar cambiar la contraseña'
-					);
+					this.toastService.presentToast('toast.errorChangePassword');
 				});
 		} catch (error) {
 			console.log(currentEmail, currentPassword, newPassword);
 			console.log('Ha ocurrido un error al cambiar la password: ', error);
-			this.toastService.presentToast(
-				'Ha ocurrido un error al intentar cambiar la password'
-			);
+			this.toastService.presentToast('toast.errorChangePassword');
 		}
 	}
 

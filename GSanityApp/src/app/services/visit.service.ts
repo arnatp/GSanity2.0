@@ -19,9 +19,7 @@ export class VisitService {
 		return this.dataBaseService
 			.createDocument(newVisit, 'visits', newVisit.id)
 			.then(() => {
-				this.toastService.presentValidToast(
-					'Se ha creado la visita con éxito'
-				);
+				this.toastService.presentValidToast('toast.confirmVisitCreated');
 			});
 	}
 	getVisitById(id: string): Observable<Visit> {

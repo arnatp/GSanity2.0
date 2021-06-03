@@ -37,6 +37,6 @@ export class VisitPage implements OnInit {
 		});
 	}
 	print(uid: string) {
-		this.toastService.presentToast('Imprimir una visita no disponible');
+		this.toastService.presentToast('toast.printVisit');
 	}
 }

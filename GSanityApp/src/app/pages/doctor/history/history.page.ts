@@ -33,6 +33,6 @@ export class HistoryPage implements OnInit {
 		);
 	}
 	print(uid: string) {
-		this.toastService.presentToast('Imprimir un historial no disponible');
+		this.toastService.presentToast('toast.printHistory');
 	}
 }
