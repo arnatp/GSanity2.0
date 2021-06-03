@@ -1,37 +1,55 @@
-<ion-content
-	><ion-grid
-		><ion-row
-			><ion-col> <ion-title>{{"visit.presctiption"|translate}}</ion-title></ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-col size="6">
-				<ion-input
-					type="text"
-					placeholder="Medicament"
-					[(ngModel)]="prescription.medicamentName"
-				></ion-input>
-			</ion-col>
-			<ion-col size="6">
-				<ion-input
-					type="number"
-					placeholder="Quantity"
-					[(ngModel)]="prescription.quantity"
-				></ion-input>
-			</ion-col>
-		</ion-row>
-		<ion-row>
-			<ion-textarea [(ngModel)]="prescription.schedule"> </ion-textarea>
-		</ion-row>
-		<ion-row
-			><ion-col>
-				<ion-button expand="block" (click)="dimiss()"
-					>{{"visit.dismiss"|translate}}</ion-button
-				> </ion-col
-			><ion-col>
-				<ion-button expand="block" (click)="createPrescription()"
-					>{{"visit.create" |translate}}</ion-button
+<ion-content>
+	<ion-card>
+		<ion-card-title>{{"visit.presctiption"|translate}}</ion-card-title>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col size="6">
+						<ion-item>
+							<ion-label position="stacked"
+								>{{"visit.medicineName"|translate}}</ion-label
+							>
+							<ion-input
+								type="text"
+								placeholder="Medicament"
+								[(ngModel)]="prescription.medicamentName"
+							></ion-input
+						></ion-item>
+					</ion-col>
+					<ion-col size="6">
+						<ion-item>
+							<ion-label position="stacked"
+								>{{"visit.medicineQuantity"|translate}}</ion-label
+							>
+							<ion-input
+								type="number"
+								placeholder="Quantity"
+								[(ngModel)]="prescription.quantity"
+							></ion-input
+						></ion-item>
+					</ion-col>
+				</ion-row>
+				<ion-row
+					><ion-item class="text">
+						<ion-label position="stacked"
+							>{{"visit.shecule"|translate}}</ion-label
+						>
+
+						<ion-textarea [(ngModel)]="prescription.schedule">
+						</ion-textarea> </ion-item
+				></ion-row>
+				<ion-row
+					><ion-col>
+						<ion-button expand="block" (click)="dimiss()"
+							>{{"visit.dismiss"|translate}}</ion-button
+						> </ion-col
+					><ion-col>
+						<ion-button expand="block" (click)="createPrescription()"
+							>{{"visit.create" |translate}}</ion-button
+						>
+					</ion-col></ion-row
 				>
-			</ion-col></ion-row
-		>
-	</ion-grid>
+			</ion-grid>
+		</ion-card-content></ion-card
+	>
 </ion-content>

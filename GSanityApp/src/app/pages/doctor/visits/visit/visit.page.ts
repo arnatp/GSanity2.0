@@ -29,6 +29,7 @@ export class VisitPage implements OnInit {
 		const visitId: string = this.activateRoute.snapshot.paramMap.get('id');
 		this.visitService.getVisitById(visitId).subscribe((visit) => {
 			this.visit = visit;
+			this.visit.time = visit.time;
 
 			this.userService.getUserByUid(visit.doctorUid).subscribe((doctor) => {
 				this.doctor = doctor;
@@ -55,6 +56,19 @@ export class VisitPage implements OnInit {
 			this.visitService.updateVisit(this.visit);
 		}
 		this.router.navigate(['doctor/visits']);
+	}
+	deletePrescription() {
+		this.alertService
+			.presentCustomAlert(
+				'Borrar Receta',
+				'Seguro que quieres eliminar la receta'
+			)
+			.then((result) => {
+				if (result.data) {
+					this.visit.prescription = null;
+					this.visitService.updateVisit(this.visit);
+				}
+			});
 	}
 	notPresented(id: string) {
 		this.alertService

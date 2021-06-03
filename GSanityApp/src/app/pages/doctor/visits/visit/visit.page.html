@@ -2,7 +2,7 @@
 	<ion-toolbar mode="ios" class="GSanity-toolbar">
 		<ion-buttons slot="start">
 			<ion-back-button
-				defaultHref="history"
+				defaultHref="visits"
 				icon="chevron-back-outline"
 				text=""
 				mode="ios"
@@ -19,11 +19,15 @@
 </ion-header>
 
 <ion-content>
-	<ion-card>
+	<ion-card mode="ios" *ngIf="visit">
+		<ion-card-title>{{visit?.date | date:'dd/MM/YYYY'}}</ion-card-title>
+		<ion-card-subtitle
+			>{{visit?.time}}<span *ngIf="visit?.time.indexOf('30')==-1"
+				>0</span
+			></ion-card-subtitle
+		>
+
 		<form #form="ngForm" (ngSubmit)="updateVisit()">
-			<ion-item mode="ios">
-				<ion-title>{{visit?.date | date:'dd/MM/YYYY'}}</ion-title>
-			</ion-item>
 			<ion-item>
 				<ion-label position="stacked"
 					>{{"visit.InitialDescription"|translate}}:</ion-label
@@ -41,12 +45,7 @@
 					rows="2"
 					minlength="10"
 					autoGrow="true"
-				></ion-textarea> </ion-item
-			><ion-item>
-				<ion-label position="stacked"
-					>{{"visit.doctor"|translate}}:</ion-label
-				><br />
-				<p>{{doctor?.name}}</p>
+				></ion-textarea>
 			</ion-item>
 			<ion-button
 				mode="ios"
@@ -57,26 +56,35 @@
 			>
 			<br />
 
-			<ion-card *ngIf="visit?.prescription"
-				><ion-grid
-					><ion-row
-						><ion-col
-							><ion-title
-								>{{"visit.presctiption"|translate}}</ion-title
-							></ion-col
-						></ion-row
+			<ion-card *ngIf="visit.prescription" mode="md">
+				<ion-card-title>
+					{{"visit.presctiption"|translate}}
+				</ion-card-title>
+				<ion-button (click)="deletePrescription()" mode="ios">
+					<ion-icon name="trash-bin"></ion-icon
+				></ion-button>
+				<ion-card-content>
+					<ion-grid
+						><ion-row
+							><ion-col>
+								<ion-label>
+									<h5>{{"visit.medicineName"|translate}}</h5>
+									<p>{{visit.prescription.medicamentName}}</p>
+								</ion-label>
+							</ion-col>
+							<ion-col>
+								<ion-label>
+									<h5>{{"visit.medicineQuantity"|translate}}</h5>
+									<p>{{visit.prescription.quantity}}</p>
+								</ion-label>
+							</ion-col>
+						</ion-row>
+						<ion-row class="ion-text-justify schedule"
+							>{{visit.prescription.schedule}}</ion-row
+						></ion-grid
 					>
-					<ion-row
-						><ion-col size="6">
-							{{visit.prescription.medicamentName}} </ion-col
-						><ion-col size="6">
-							{{visit.prescription.quantity}}
-						</ion-col></ion-row
-					><ion-row
-						><ion-col>{{visit.prescription.schedule}}</ion-col></ion-row
-					></ion-grid
-				>
-			</ion-card>
+				</ion-card-content></ion-card
+			>
 			<ion-button
 				expand="block"
 				[disabled]="form.invalid"
@@ -84,6 +92,6 @@
 				type="submit"
 				>{{"visit.finishVisit"|translate}}</ion-button
 			>
-		</form></ion-card
-	>
+		</form>
+	</ion-card>
 </ion-content>

@@ -7,3 +7,42 @@ ion-toolbar {
 		top: 25%;
 	}
 }
+
+ion-card {
+	ion-card-title {
+		margin-top: 5px;
+		font-size: 20px;
+		text-align: center;
+	}
+	ion-card-subtitle {
+		text-align: center;
+	}
+	ion-label {
+		font-weight: bold;
+	}
+	ion-card {
+		--background: #e4ffe4;
+		ion-card-title {
+			font-size: 16px;
+		}
+		ion-button {
+			top: 0;
+			right: 0;
+			margin: 5px;
+			padding: 1px;
+			position: absolute;
+			--background: transparent;
+			color: var(--ion-color-red-charmander);
+		}
+		ion-label {
+			font-weight: bold;
+		}
+		ion-card-content {
+			margin-top: 5px;
+			text-align: center;
+			h5 {
+				font-weight: bold;
+			}
+		}
+	}
+}
