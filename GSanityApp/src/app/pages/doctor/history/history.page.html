@@ -15,7 +15,7 @@
 			name="patientUid"
 			(ionChange)="getCompletedVisitsByPatient()"
 			slot="start"
-			placeholder="{{'history.selectPatient'|translate}}"
+			placeholder="{{'doctor.selectPatient'|translate}}"
 			interface="action-sheet"
 		>
 			<ion-select-option
@@ -45,6 +45,11 @@
 	</ion-list>
 	<div *ngIf="(visits | async)?.length === 0" class="notResultsFound">
 		<ion-img src="assets/images/notResultsFound.png"></ion-img>
-		<ion-title class="ion-text-center">Not Results Found</ion-title>
+		<ion-title *ngIf="patientUid" class="ion-text-center"
+			>{{"notFound.notResultsFound" | translate}}</ion-title
+		>
+		<ion-title *ngIf="!patientUid" class="ion-text-center"
+			>{{"notFound.notPatientSelected" | translate}}</ion-title
+		>
 	</div>
 </ion-content>

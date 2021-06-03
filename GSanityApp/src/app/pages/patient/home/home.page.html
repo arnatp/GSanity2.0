@@ -10,11 +10,14 @@
 			<ion-img src="assets/images/banner-covid.png"> </ion-img
 		></a>
 	</div>
-	<ion-card mode="ios" class="elementsList">
+	<ion-card
+		mode="ios"
+		class="elementsList"
+		*ngIf="(visits | async)?.length !== 0"
+	>
 		<ion-card-title style="text-align: center"
 			>{{"patient.inCommingVisits"|translate}}</ion-card-title
 		>
-
 		<ion-card-content>
 			<ion-item *ngFor="let visit of visits | async">
 				<ion-label>
@@ -33,4 +36,10 @@
 			</ion-item>
 		</ion-card-content>
 	</ion-card>
+	<div *ngIf="(visits | async)?.length === 0" class="notResultsFound">
+		<ion-img src="assets/images/notResultsFound.png"></ion-img>
+		<ion-title class="ion-text-center"
+			>{{"notFound.visitsInPatientHome" | translate}}</ion-title
+		>
+	</div>
 </ion-content>

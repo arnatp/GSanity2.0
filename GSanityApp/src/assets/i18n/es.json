@@ -14,7 +14,8 @@
 		"requestVisit": "Solicitar Visita"
 	},
 	"doctor": {
-		"history": "Historial"
+		"history": "Historial",
+		"selectPatient": "Seleccionar un Paciente"
 	},
 	"home": {
 		"home": "Inicio"
@@ -35,7 +36,9 @@
 		"createPrescription": "Crear receta",
 		"dismiss": "Cancelar",
 		"create": "Crear",
-		"allPatients": "Todos los pacientes"
+		"allPatients": "Todos los pacientes",
+		"medicineName": "Nombre del medicamento",
+		"medicineQuantity": "Cantidad"
 	},
 	"perfil": {
 		"profile": "Perfil",
@@ -69,7 +72,6 @@
 		"verifyText": "Se ha enviado un mail a la direción facilitada para confirmarlo, en caso de no haberlo recibido pulsa el siguiente botón",
 		"verifyBtn": "Enviar Correo de Confirmación",
 		"forgotPassText": "Introduce tu Email aquí para poder resetear tu contraseña",
-
 		"signUpText": " Para poder registrarte deberás rellenar estos campos",
 		"noAccount": "No tienes una cuenta",
 		"forgotenPassw": "Contraseña olvidada",
@@ -105,5 +107,11 @@
 		"doctorRequired": "El doctor es obligatorio",
 		"initialDescriptionRequired": "La descripción inicial es obligatoria",
 		"InitialDescriptionMinLength": "La descripción inicial debe contener al menos 10 carácteres"
+	},
+	"notFound": {
+		"visitsInPatientHistory": "Todavía no cuentas con ninguna visita",
+		"visitsInPatientHome": "No tienes visitas programadas",
+		"notResultsFound": "No se han encontrado resultados",
+		"notPatientSelected": "Debes seleccionar un paciente"
 	}
 }

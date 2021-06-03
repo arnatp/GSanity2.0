@@ -108,11 +108,13 @@
 }
 
 .notResultsFound {
+	padding-top: 50%;
 	ion-img {
 		background-color: transparent;
 		margin: auto;
-		width: 30%;
-		margin-top: 50%;
+		width: 50%;
+		height: 100%;
+		//margin-top: 50%;
 	}
 	ion-title {
 		color: rgb(165, 164, 164);
