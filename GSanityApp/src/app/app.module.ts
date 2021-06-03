@@ -31,15 +31,13 @@ export function createTranslateLoader(http: HttpClient) {
 		AngularFirestoreModule,
 		FormsModule,
 		ReactiveFormsModule,
-		HttpClientModule, // <--- add this,
+		HttpClientModule,
 		TranslateModule.forRoot({
-			// <--- add this
 			loader: {
-				// <--- add this
-				provide: TranslateLoader, // <--- add this
-				useFactory: createTranslateLoader, // <--- add this
-				deps: [HttpClient], // <--- add this
-			}, // <--- add this
+				provide: TranslateLoader,
+				useFactory: createTranslateLoader,
+				deps: [HttpClient],
+			},
 		}),
 	],
 	providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

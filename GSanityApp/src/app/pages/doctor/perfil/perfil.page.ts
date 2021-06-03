@@ -71,6 +71,8 @@ export class PerfilPage implements OnInit {
 		return await modal.present();
 	}
 	languageChange() {
+		localStorage.setItem('lang', this.language);
+
 		this.translateService.use(this.language);
-	 }
+	}
 }
