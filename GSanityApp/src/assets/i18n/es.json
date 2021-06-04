@@ -37,8 +37,9 @@
 		"dismiss": "Cancelar",
 		"create": "Crear",
 		"allPatients": "Todos los pacientes",
-		"medicineName": "Nombre del medicamento",
-		"medicineQuantity": "Cantidad"
+		"medicineName": "Medicamento",
+		"medicineQuantity": "Cantidad",
+		"schedule": "Prescripción"
 	},
 	"perfil": {
 		"profile": "Perfil",

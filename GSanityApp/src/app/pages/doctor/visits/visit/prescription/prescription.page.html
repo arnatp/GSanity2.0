@@ -6,24 +6,24 @@
 				<ion-row>
 					<ion-col size="6">
 						<ion-item>
-							<ion-label position="stacked"
+							<ion-label position="floating"
 								>{{"visit.medicineName"|translate}}</ion-label
 							>
 							<ion-input
 								type="text"
-								placeholder="Medicament"
+								required
 								[(ngModel)]="prescription.medicamentName"
 							></ion-input
 						></ion-item>
 					</ion-col>
 					<ion-col size="6">
 						<ion-item>
-							<ion-label position="stacked"
+							<ion-label position="floating"
 								>{{"visit.medicineQuantity"|translate}}</ion-label
 							>
 							<ion-input
 								type="number"
-								placeholder="Quantity"
+								required
 								[(ngModel)]="prescription.quantity"
 							></ion-input
 						></ion-item>
@@ -31,10 +31,9 @@
 				</ion-row>
 				<ion-row
 					><ion-item class="text">
-						<ion-label position="stacked"
-							>{{"visit.shecule"|translate}}</ion-label
+						<ion-label position="floating"
+							>{{"visit.schedule"|translate}}</ion-label
 						>
-
 						<ion-textarea [(ngModel)]="prescription.schedule">
 						</ion-textarea> </ion-item
 				></ion-row>

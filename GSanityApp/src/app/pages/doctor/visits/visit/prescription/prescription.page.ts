@@ -10,7 +10,7 @@ import { VisitService } from 'src/app/services/visit.service';
 export class PrescriptionPage implements OnInit {
 	prescription = {
 		medicamentName: '',
-		quantity: 0,
+		quantity: null,
 		schedule: null,
 	};
 

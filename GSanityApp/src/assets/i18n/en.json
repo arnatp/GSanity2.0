@@ -10,11 +10,12 @@
 	"patient": {
 		"history": "History",
 		"request": "Request",
-		"inCommingVisits": "In comming visits",
+		"inCommingVisits": "Incomming visits",
 		"requestVisit": "Request Visit"
 	},
 	"doctor": {
-		"history": "history"
+		"history": "History",
+		"selectPatient": "Select a Patient"
 	},
 	"home": {
 		"home": "Home"
@@ -35,10 +36,13 @@
 		"createPrescription": "Create Prescription",
 		"dismiss": "Dismiss",
 		"create": "Create",
-		"allPatients": "All patients"
+		"allPatients": "All patients",
+		"medicineName": "Medicine",
+		"medicineQuantity": "Quantity",
+		"schedule": "Prescription"
 	},
 	"perfil": {
-		"profile": "PROFILE",
+		"profile": "Profile",
 		"changeMail": "Change Email",
 		"changePassw": "Change Password"
 	},
@@ -60,15 +64,15 @@
 		"lang": "Language"
 	},
 	"admin": {
-		"hire": "HIRE",
+		"hire": "Hire",
 		"clearForm": "Clear Form",
-		"staff": "STAFF"
+		"staff": "Staff"
 	},
 	"auth": {
 		"verifyEmail": "Verify Email",
 		"verifyText": "An email has been sent to the address provided to confirm it, if you have not received it, press the next button",
 		"verifyBtn": "Send Confirmation Email",
-		"signUpText": " You have to fill the fields below to register correctly Para poder registrarte deberás rellenar estos campos",
+		"signUpText": "You have to fill the fields below to register correctly Para poder registrarte deberás rellenar estos campos",
 		"forgotPassText": "Enter your Email here to reset your password",
 		"noAccount": "Don't have an account",
 		"forgotenPassw": "Forgot Password",
@@ -76,5 +80,69 @@
 		"confirmPassw": "Confirm Password",
 		"passwError": "Both passwords have to be equals"
 	},
-	"errors": { "nameRequired": "Name Required" }
+	"errors": {
+		"nameRequired": "Name required",
+		"namePattern": "Name cannot contain whitespaces",
+		"surnamesRequired": "Surnames required",
+		"emailRequired": "E-mail is required",
+		"emailPattern": "E-mail pattern is not correct",
+		"genderRequired": "Gender is required",
+		"roleRequired": "Role is required",
+		"bornDateRequired": "Birthdate is required",
+		"bornDateInvalid": "Birthdate cannot be greater than today",
+		"dniRequired": "DNI is required",
+		"dniInvalid": "DNI format not valid",
+		"medicCardRequired": "Medic card is required",
+		"medicCardInvalid": "Medic card must contain 10 characters",
+		"passwordRequired": "Password is required",
+		"passwordMinLength": "Passowrd must contain at least 8 characters",
+		"passwordPattern": "Password must contain at least 1 uppercase, 1 lowercase and 1 number",
+		"confirmPasswordRequired": "Confirm password is required",
+		"confirmPasswordNotMatch": "Both password must be equals",
+		"newEmailAndConfirmEmailNotMatch": "New E-mail and confirm E-mail must be equals",
+		"newPasswordNotMatch": "New password and confirm password must be equals",
+		"visitDateRequired": "Visit date is required",
+		"visitDatePrevious": "Visit date must be greater than today",
+		"visitDatePosterior": "Visit date can not be greater than 2 weeks ahead",
+		"visitDateWeekends": "Visit date can not be placed in weekends",
+		"doctorRequired": "Doctor is required",
+		"initialDescriptionRequired": "Initial description is required",
+		"InitialDescriptionMinLength": "Initial description must contain at least 10 characters"
+	},
+	"notFound": {
+		"visitsInPatientHistory": "Actually you don't have any visits",
+		"visitsInPatientHome": "You don't have scheduled visits",
+		"notResultsFound": "Results not found",
+		"notPatientSelected": "Select a patient",
+		"notVisitsToProgram": "There are no visits peding to schedule"
+	},
+	"alert": {
+		"disconnectHeader": "Logout",
+		"disconnectMessage": "¿Do you want close session?",
+		"cancelButton": "Cancel",
+		"acceptButton": "Ok",
+		"newEmployeeHeader": "New Employee",
+		"newEmployeeMessage": "Is everything right?",
+		"patientNotPresentedHeader": "Not presented",
+		"patientNotPresentedMessage": "Are you sure you want delete the visit?",
+		"cancelVisitHeader": "Cancel visit",
+		"cancelVisitMessage": "You want cancel the visit?"
+	},
+	"toast": {
+		"hourSelected": "This time is selected for other visit",
+		"printHistory": "Print a history is not avaliable",
+		"printVisit": "Print a visit is not avaliable",
+		"errorResetPassword": "An error has ocurred during password reset",
+		"errorVerifyMail": "An error has ocurred sending mail verification",
+		"errorRegister": "An error has ocurred during the registration process",
+		"errorLogin": "An error has ocurred during Login",
+		"errorLogout": "An error has ocurred during Logout",
+		"errorChangeMail": "An error has ocurred changing the new email",
+		"errorChangePassword": "An error has ocurred changing the new password",
+		"confirmHourVisit": "The time has been correctly setted",
+		"confirmNewUserCreated": "the new user has been correctly created",
+		"confirmNewMailChanged": "The new mail has been corretly changed",
+		"confirmNewPasswordChanged": "The new password has been correctly changed",
+		"confirmVisitCreated": "The visit has been correcty created"
+	}
 }
