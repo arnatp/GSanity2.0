@@ -14,7 +14,6 @@ export class VisitsPage implements OnInit {
 
 	ngOnInit() {
 		const todayDay = this.today();
-		console.log(todayDay);
 		this.visits = this.visitService.getTodayVisitsByDoctorUidOrderedByTime(
 			JSON.parse(localStorage.getItem('user')).uid,
 			todayDay,

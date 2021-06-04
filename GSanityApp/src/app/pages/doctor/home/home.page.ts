@@ -11,23 +11,31 @@ import { VisitService } from 'src/app/services/visit.service';
 })
 export class HomePage implements OnInit {
 	public visits: Observable<Visit[]>;
-	sf: Visit[];
+
 	constructor(private visitService: VisitService) {}
 
 	ngOnInit() {
-		var today;
-		var date = new Date();
-		today = date.getUTCFullYear() + '-';
-		if ((date.getUTCMonth() + 1).toString().length == 1) {
-			today += '0';
-		}
-		today += date.getUTCMonth() + 1;
-
-		today += '-' + date.getUTCDate();
-		this.visits = this.visitService.getTodayVisitsByDoctorUid(
+		const todayDay = this.today();
+		this.visits = this.visitService.getTodayVisitsByDoctorUidOrderedByTime(
 			JSON.parse(localStorage.getItem('user')).uid,
-			today
+			todayDay,
+			'asc'
 		);
 	}
-	// Change current month/week/day
+
+	today() {
+		const d = new Date();
+		const date = new Date();
+		let month = '' + (d.getMonth() + 1);
+		let day = '' + d.getDate();
+		const year = d.getFullYear();
+
+		if (month.length < 2) {
+			month = '0' + month;
+		}
+		if (day.length < 2) {
+			day = '0' + day;
+		}
+		return [year, month, day].join('-');
+	}
 }

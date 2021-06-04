@@ -10,4 +10,36 @@
 			<ion-img src="assets/images/banner-doc.png"> </ion-img
 		></a>
 	</div>
+	<ion-card
+		mode="ios"
+		class="elementsList"
+		*ngIf="(visits | async)?.length !== 0"
+	>
+		<ion-card-title style="text-align: center"
+			>{{"doctor.inCommingVisit"|translate}}</ion-card-title
+		>
+		<ion-card-content>
+			<ion-item *ngFor="let visit of visits | async|slice:0:1">
+				<ion-label>
+					<h2>{{ visit.date | date:'dd/MM/YYYY'}}</h2>
+					<p *ngIf="visit.time">
+						{{"visit.time"|translate}}: {{visit.time}}<span
+							*ngIf="visit?.time.indexOf('30')==-1"
+							>0</span
+						>
+					</p>
+					<p>
+						{{"visit.InitialDescription"|translate}}: {{
+						visit.initialDescription }}
+					</p>
+				</ion-label>
+			</ion-item>
+		</ion-card-content>
+	</ion-card>
+	<div *ngIf="(visits | async)?.length === 0" class="notResultsFound">
+		<ion-img src="assets/images/notResultsFound.png"></ion-img>
+		<ion-title class="ion-text-center"
+			>{{"notFound.visitsInPatientHome" | translate}}</ion-title
+		>
+	</div>
 </ion-content>

@@ -23,7 +23,10 @@
 				<ion-label>
 					<h2>{{ visit.date | date:'dd/MM/YYYY'}}</h2>
 					<p *ngIf="visit.time">
-						{{"visit.time"|translate}}: {{visit.time}}
+						{{"visit.time"|translate}}: {{visit.time}}<span
+							*ngIf="visit?.time.indexOf('30')==-1"
+							>0</span
+						>
 					</p>
 					<p>
 						{{"visit.InitialDescription"|translate}}: {{

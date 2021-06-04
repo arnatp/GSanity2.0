@@ -15,7 +15,8 @@
 	},
 	"doctor": {
 		"history": "Historial",
-		"selectPatient": "Seleccionar un Paciente"
+		"selectPatient": "Seleccionar un Paciente",
+		"inCommingVisit": "Proxima visita"
 	},
 	"home": {
 		"home": "Inicio"
@@ -114,7 +115,8 @@
 		"visitsInPatientHome": "No tienes visitas programadas",
 		"notResultsFound": "No se han encontrado resultados",
 		"notPatientSelected": "Debes seleccionar un paciente",
-		"notVisitsToProgram": "No hay visitas pendiente de programar"
+		"notVisitsToProgram": "No hay visitas pendiente de programar",
+		"notVisitsForTodayDoctor": "No hay visitas para hoy"
 	},
 	"alert": {
 		"disconnectHeader": "Desconectarse",
@@ -144,5 +146,17 @@
 		"confirmNewMailChanged": "Se ha cambiado el mail correctamente",
 		"confirmNewPasswordChanged": "Se ha cambiado la contraseña correctamente",
 		"confirmVisitCreated": "Se ha creado la visita con éxito"
+	},
+	"changes": {
+		"confirm": "Confirmar",
+		"dismiss": "Cancelar",
+		"emailText": "Para cambiar el email primero debes indicar el mail anterior y posteriormente el actual",
+		"currentEmail": "Email actual",
+		"currentPass": "Contraseña actual",
+		"newEmail": "Nuevo email",
+		"confirmEmail": "Confirma el nuevo email",
+		"changePass": "Cambiar la contraseña",
+		"newPass": "Contraseña",
+		"confirmNewPass": "Confirma la nueva contraseña"
 	}
 }

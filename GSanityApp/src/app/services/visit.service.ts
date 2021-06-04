@@ -104,11 +104,13 @@ export class VisitService {
 		);
 	}
 	getNotDatedVisits(): Observable<Visit[]> {
-		return this.dataBaseService.getDocumentsWithOneWhere(
+		return this.dataBaseService.getDocumentsWithOneWhereAndOneOrder(
 			'visits',
 			'dated',
 			'==',
-			false
+			false,
+			'date',
+			'asc'
 		);
 	}
 	getNotDatedVisitsByDoctorUid(uid: string): Observable<Visit[]> {
