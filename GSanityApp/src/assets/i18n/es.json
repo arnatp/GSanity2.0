@@ -2,10 +2,10 @@
 	"welcome": {
 		"title": "Bienvenido",
 		"text": "En esta aplicación podrás gestionar todas tus visitas médicas",
-		"login": "Iniciar session",
+		"login": "Iniciar sesion",
 		"signUp": "Registrarse",
 		"creado": "Creado por",
-		"y": "y"
+		"y": "y","recover":"Recuperar"
 	},
 	"patient": {
 		"history": "Historial",
