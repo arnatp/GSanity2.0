@@ -26,14 +26,11 @@ export class AlertService {
 					text: this.translate.instant('alert.cancelButton'),
 					role: 'cancel',
 					cssClass: 'secondary',
-					handler: (blah) => {
-						console.log('Confirm Cancel: blah');
-					},
+
 				},
 				{
 					text: this.translate.instant('alert.acceptButton'),
 					handler: () => {
-						console.log('Confirm Okay');
 						this.authService.logout().then((_) => {
 							this.router.navigate(['welcome']);
 						});
@@ -63,7 +60,6 @@ export class AlertService {
 				{
 					text: this.translate.instant('alert.acceptButton'),
 					handler: () => {
-						console.log('Confirm Okay');
 						alert.dismiss(true);
 						return false;
 					},

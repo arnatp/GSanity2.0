@@ -34,15 +34,12 @@ export class UserService {
 	}
 
 	delete(uid: string) {
-		console.log('borrando ' + uid);
 		return this.dbService.deleteDocument<DatabaseUser>('users', uid);
 	}
 
 	async getUserRole() {
 		const item = JSON.parse(localStorage.getItem('user'));
-		console.log(item.uid);
 		const user = await this.getUserByUid(item.uid).pipe(first()).toPromise();
-		console.log(user.role);
 		return user.role;
 	}
 

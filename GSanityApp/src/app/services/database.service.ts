@@ -13,7 +13,6 @@ export class DatabaseService {
 	constructor(private angularFirestore: AngularFirestore) {}
 
 	createDocument<DabaseObject>(data: DabaseObject, url: string, id: string) {
-		console.log(data);
 		const collection = this.angularFirestore.collection<any>(url);
 		return collection.doc(id).set(data);
 	}

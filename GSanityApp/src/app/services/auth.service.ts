@@ -30,7 +30,6 @@ export class AuthService {
 		try {
 			return this.afAuth.sendPasswordResetEmail(email);
 		} catch (error) {
-			console.log('Ha ocurrido un error al resetear la password: ', error);
 			this.toastService.presentToast('toast.errorResetPassword');
 		}
 	}
@@ -39,10 +38,7 @@ export class AuthService {
 		try {
 			return (await this.afAuth.currentUser).sendEmailVerification();
 		} catch (error) {
-			console.log(
-				'Ha ocurrido un error al enviar el mail de verificación: ',
-				error
-			);
+
 			this.toastService.presentToast('toast.errorVerifyMail');
 		}
 	}
@@ -56,7 +52,6 @@ export class AuthService {
 			await this.sendVerificationEmail();
 			return user;
 		} catch (error) {
-			console.log('Ha ocurrido un error al hacer registro: ', error);
 			this.toastService.presentToast('toast.errorRegister');
 		}
 	}
@@ -71,7 +66,6 @@ export class AuthService {
 			localStorage.setItem('user', JSON.stringify(user));
 			return user;
 		} catch (error) {
-			console.log('Ha ocurrido un error al hacer login: ', error);
 			this.toastService.presentToast('toast.errorLogin');
 		}
 	}
@@ -82,7 +76,6 @@ export class AuthService {
 				localStorage.removeItem('user');
 			});
 		} catch (error) {
-			console.log('Ha ocurrido un error al hacer logout: ', error);
 			this.toastService.presentToast('toast.errorLogout');
 		}
 	}
@@ -97,7 +90,6 @@ export class AuthService {
 			this.toastService.presentValidToast('toast.confirmNewUserCreated');
 			return user;
 		} catch (error) {
-			console.log('Ha ocurrido un error al hacer registro: ', error);
 			this.toastService.presentToast('toast.errorRegister');
 		}
 	}
@@ -121,7 +113,6 @@ export class AuthService {
 					this.toastService.presentToast('toast.errorChangeMail');
 				});
 		} catch (error) {
-			console.log('Ha ocurrido un error al cambiar el mail: ', error);
 			this.toastService.presentToast('toast.errorChangeMail');
 		}
 	}
@@ -147,8 +138,7 @@ export class AuthService {
 					this.toastService.presentToast('toast.errorChangePassword');
 				});
 		} catch (error) {
-			console.log(currentEmail, currentPassword, newPassword);
-			console.log('Ha ocurrido un error al cambiar la password: ', error);
+
 			this.toastService.presentToast('toast.errorChangePassword');
 		}
 	}

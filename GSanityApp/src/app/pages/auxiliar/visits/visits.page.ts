@@ -26,7 +26,6 @@ export class VisitsPage implements OnInit {
 	}
 
 	getDoctorVisits() {
-		console.log(this.doctorUid);
 		if (this.doctorUid == '') {
 			this.visits = this.visitService.getNotDatedVisits();
 		} else {

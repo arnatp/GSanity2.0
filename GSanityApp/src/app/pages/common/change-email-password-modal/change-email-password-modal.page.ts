@@ -29,7 +29,6 @@ export class ChangeEmailPasswordModalPage implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(`${this.mode}`);
 		if (this.mode === 'email') {
 			this.validationMessages =
 				ValidationMessages.validationFormNewEmailMessages();

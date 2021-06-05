@@ -21,7 +21,6 @@ export class PrescriptionPage implements OnInit {
 	) {}
 
 	ngOnInit() {
-		console.log(`${this.idvisit}`);
 	}
 	async dimiss() {
 		await this.modalController.dismiss();
@@ -30,7 +29,6 @@ export class PrescriptionPage implements OnInit {
 		let newPrescription = {
 			prescription: this.prescription,
 		};
-		console.log(this.prescription, newPrescription);
 		await this.visitService.updateVisitPrescription(
 			newPrescription,
 			this.idvisit
